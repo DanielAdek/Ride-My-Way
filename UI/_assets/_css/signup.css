@@ -1,3 +1,27 @@
 .container {
-    height: 60rem;
+    height: auto;
+}
+
+.sign-up-btn {
+    position: relative;
+    left: 15%;
+    right: 15%;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2rem;
+}
+
+.sign-up-title {
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+
+.sign-up-card {
+    width: 50%;
+}
+
+@media (max-width: 40rem) {
+    .sign-up-card {
+        width: auto;
+        margin: 10px 0;
+    }
 }
