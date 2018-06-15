@@ -1,0 +1,533 @@
+/* Google fonts (Roboto, PT-Serif, Bree Serif) */
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:700|Roboto:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif:400,700');
+
+/* ======================
+    general styling,
+    backdrop styling
+=========================*/
+
+* {
+box-sizing: border-box;
+}
+
+html {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+.backdrop {
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-color: #000;
+opacity: 0.3;
+z-index: 200;
+display: none;
+}
+
+/* ======================
+     Display properties
+=========================*/
+
+/* ======= Block ======= */
+.block-xl {
+    display: block;
+    width: 100%
+}
+
+.block-lg-2 {
+    display: block;
+    width: 80%;
+}
+
+.block-lg {
+    display: block;
+    width: 70%
+}
+
+.block-md {
+    display: block;
+    width: 40%
+}
+
+.block-sm {
+    display: block;
+    width: 20%
+}
+
+/* ========= inline-block ======= */
+
+.inline-block-2Items {
+    display: inline-block;
+    width: 49%
+}
+
+.inline-block-3Items {
+    display: inline-block;
+    width: 30%
+}
+
+.inline-block-xs {
+    display: inline-block;
+    width: 12%;
+}
+
+.inline-block-vlg {
+    display: inline-block;
+    width: 80%
+}
+
+.d-none {
+    display: none;
+}
+
+/* ======== Flex =======*/
+
+.flex-row {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-flow: row wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-content-sb {
+    justify-content: space-between;
+}
+
+.justify-content-sa {
+    justify-content: space-around;
+}
+
+.justify-content-se {
+    justify-content: space-evenly;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-start {
+    justify-content: flex-start
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+/* ======= Grid ======*/
+
+.grid-row-3 {
+    display: grid;
+    grid-template-rows: 5rem auto fit-content(10rem);
+}
+
+.grid-row-1 {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.grid-row-2-lg {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.d-grid {
+    display: grid
+}
+
+/* ======================
+    text properties
+=========================*/
+
+.text-center {
+    text-align: center;
+}
+
+.text-transform-upper {
+    text-transform: uppercase;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+/* =========================
+    margin properties
+===========================*/
+
+.mt-1 {
+    margin-top: 40px;
+}
+
+.mt-2 {
+    margin-top: 30px;
+}
+
+.mt-3 {
+    margin-top: 20px;
+}
+
+.mt-4 {
+    margin-top: 10px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mr-1 {
+    margin-right: 40px;
+}
+
+
+.mr-2 {
+    margin-right: 30px;
+}
+
+
+.mr-3 {
+    margin-right: 20px;
+}
+
+
+.mr-4 {
+    margin-right: 10px;
+}
+
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mb-1 {
+    margin-bottom: 40px;
+}
+
+
+.mb-2 {
+    margin-bottom: 30px;
+}
+
+
+.mb-3 {
+    margin-bottom: 20px;
+}
+
+
+.mb-4 {
+    margin-bottom: 10px;
+}
+
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.ml-1 {
+    margin-left: 40px;
+}
+
+
+.ml-2 {
+    margin-left: 30px;
+}
+
+
+.ml-3 {
+    margin-left: 20px;
+}
+
+
+.ml-4 {
+    margin-left: 10px;
+}
+
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+/* =========================
+    padding properties
+===========================*/
+
+.pt-1 {
+    padding-top: 40px;
+}
+
+.pt-2 {
+    padding-top: 30px;
+}
+
+.pt-3 {
+    padding-top: 20px;
+}
+
+.pt-4 {
+    padding-top: 10px;
+}
+
+.pt-5 {
+    padding-top: 5px;
+}
+
+.pr-1 {
+    padding-right: 40px;
+}
+
+
+.pr-2 {
+    padding-right: 30px;
+}
+
+
+.pr-3 {
+    padding-right: 20px;
+}
+
+
+.pr-4 {
+    padding-right: 10px;
+}
+
+
+.pr-5 {
+    padding-right: 5px;
+}
+
+.pb-1 {
+    padding-bottom: 40px;
+}
+
+
+.pb-2 {
+    padding-bottom: 30px;
+}
+
+
+.pb-3 {
+    padding-bottom: 20px;
+}
+
+
+.pb-4 {
+    padding-bottom: 10px;
+}
+
+
+.pb-5 {
+    padding-bottom: 5px;
+}
+
+.pl-1 {
+    padding-left: 40px;
+}
+
+
+.pl-2 {
+    padding-left: 30px;
+}
+
+
+.pl-3 {
+    padding-left: 20px;
+}
+
+
+.pl-4 {
+    padding-left: 10px;
+}
+
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.p-1 {
+    padding: 3rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+.p-4 {
+    padding: .8rem;
+}
+
+.p-5 {
+    padding: .5rem;
+}
+
+/* ======================
+    anchor tag
+======================== */
+
+a {
+    text-decoration: none;
+}
+
+/* ======================
+    color properties
+======================== */
+
+:root {
+    --blue: #040122;
+    --lightblue: #0e0e70;
+    --crystal: transparent;
+    --white: #fff;
+    --brown: #851d1d
+}
+
+.text-blue {
+    color: var(--blue);
+}
+.text-white,
+.text-light {
+    color: var(--white);
+}
+
+.current {
+    color: var(--brown);
+}
+
+/* =================
+    card styling
+================== */
+
+.card {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #000;
+    border-radius: 9px;
+}
+
+.card-xs {
+    width: 30%;
+    height: auto;
+}
+
+.card-sm {
+    width: 40%;
+    height: auto;
+}
+
+.card-md {
+    width: 60%;
+    height: auto;
+}
+
+.card-lg {
+    width: 80%;
+    height: auto;
+}
+
+/* =====================
+    input styling
+========================== */
+
+input:not([type="checkbox"]) {
+    border-radius: 5px;
+    /* width: auto; */
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+}
+
+.label {
+    display: block;
+}
+
+/* =========================
+    button styling
+============================*/
+
+.btn {
+    padding: .7rem;
+    border-radius: 9px;
+    cursor: pointer;
+    border: none;
+    font-family: Roboto;
+    /* font-size: 1.5rem; */
+    text-align: center;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn-success {
+    background-color: #0f660f;
+    color: var(--white);
+}
+
+.btn-blue {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+/* ====================
+    overflow properties
+======================= */
+
+.overflow-y-axis {
+    overflow-y: scroll;
+}
+
+.overflow-x-axis {
+    overflow-x: scroll;
+}
+
+.overflow-hid {
+    overflow: hidden;
+}
+
+.overflow-scroll-xy {
+    overflow: scroll;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
