@@ -36,6 +36,46 @@ z-index: 200;
 display: none;
 }
 
+/*===================
+    Mobile navbar
+====================*/
+
+.mobile-nav {
+    /* display: none; */
+    opacity: 0;
+    transform: translateX(-500px);
+    transition: opacity 500ms ease-in-out .1s, transform 1s ease-in-out .5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    background: #fff;
+    padding: 50px;
+    width: 80%;
+    height: 100%;
+}
+
+.mobile-nav__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav__item {
+    margin: 1rem 0;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+}
+
+.mobile-nav__item a {
+    font-size: 1.1rem;
+    color: #2f19a8;
+    font-weight: bold;
+    padding: 0.2rem 0;
+    text-transform: uppercase;
+}
+
+
 /* ======================
      Display properties
 =========================*/
