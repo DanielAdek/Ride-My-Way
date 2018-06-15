@@ -394,3 +394,35 @@ display: none;
 .p-5 {
     padding: .5rem;
 }
+
+/* ======================
+    anchor tag
+======================== */
+
+a {
+    text-decoration: none;
+}
+
+/* ======================
+    color properties
+======================== */
+
+:root {
+    --blue: #040122;
+    --lightblue: #0e0e70;
+    --crystal: transparent;
+    --white: #fff;
+    --brown: #851d1d
+}
+
+.text-blue {
+    color: var(--blue);
+}
+.text-white,
+.text-light {
+    color: var(--white);
+}
+
+.current {
+    color: var(--brown);
+}
