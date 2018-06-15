@@ -507,3 +507,27 @@ select {
     color: var(--white);
     background-color: var(--blue);
 }
+
+/* ====================
+    overflow properties
+======================= */
+
+.overflow-y-axis {
+    overflow-y: scroll;
+}
+
+.overflow-x-axis {
+    overflow-x: scroll;
+}
+
+.overflow-hid {
+    overflow: hidden;
+}
+
+.overflow-scroll-xy {
+    overflow: scroll;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
