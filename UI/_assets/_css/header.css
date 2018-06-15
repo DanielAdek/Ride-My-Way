@@ -1,0 +1,25 @@
+.header {
+    background: var(--blue);
+}
+
+.wrapper {
+    padding: .5rem;
+}
+
+.list-group-items {
+    list-style: none;
+}
+
+.logo-brand {
+    margin-bottom: 100px;
+}
+
+.logo-brand > h3 {
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+.nav-links {
+    transform: translateX(-30px);
+    font-family: Roboto;
+    font-size: 1.29rem;
+}
