@@ -46,3 +46,18 @@
     height: 0.3rem;
     background: var(--white);
 }
+
+
+@media (max-width: 40rem) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-links {
+        display: none;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+}
