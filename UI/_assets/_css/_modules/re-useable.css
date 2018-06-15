@@ -571,3 +571,10 @@ select {
 .overflow-auto {
     overflow: auto;
 }
+
+.open {
+    display: block;
+    opacity: 0.8;
+    transform: translateX(0);
+    transition: opacity 500ms ease-in-out .1s, transform 700ms ease-in-out .1s;
+}
