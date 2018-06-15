@@ -70,3 +70,12 @@
         margin: 5rem 0;
     }
 }
+
+@keyframes fallIn {
+    from {
+        transform: translateY(-300px)
+    }
+    to {
+        transform: translateY(0);
+    }
+}
