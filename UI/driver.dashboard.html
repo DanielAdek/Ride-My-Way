@@ -42,7 +42,50 @@
             </nav>
         </div>
     </header>
-
+    <!-- ===================================================
+        A form to add new ride offer at desktop view,
+        A google map to find areas both desktop and mobiles
+    ========================================================= -->
+    <section class="main-container">
+        <div class="wrapper grid-row-1">
+            <div class="card grid-col-sm p-4 add-ride-form">
+                <form class="form-group">
+                    <div class="mb-2">
+                        <label for="from" class="inline-block-xs">From:</label>
+                        <input class="p-5 inline-block-vlg" type="text" name="from" id="from" placeholder="Start location" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="to" class="inline-block-xs">To:</label>
+                        <input class="p-5 inline-block-vlg" type="text" name="to" id="to" placeholder="Stop location" required>
+                    </div>
+                    <div class="flex-row mb-2 time-date">
+                        <div class="time">
+                            <label for="time" class="time">Time:</label>
+                            <input class="p-5 inline-block-vlg" type="time" name="time" id="time" required>
+                        </div>
+                        <div class="date">
+                            <label for="date" class="date">Date:</label>
+                            <input class="p-5 inline-block-vlg" type="date" name="date" id="date" required>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="gender">I'm fine with:</label>
+                        <input type="radio" name="sex" id="">Male Only
+                        <input type="radio" name="sex" id="">Female Only
+                        <input type="radio" name="sex" id="">Any
+                    </div>
+                    <div class="message mb-4">
+                        <div class="mb-4">Message</div>
+                        <textarea class="p-4 block-xl" name="msg" id="msg" cols="30" placeholder="What will you like to tell your passangers?" rows="10"></textarea>
+                    </div>
+                    <button class="btn btn-blue share-ride-btn">Share Ride</button>
+                </form>
+            </div>
+            <div class="show-map grid-col-lg">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
     <!--===============================================
             footer section with copy right text
     ===================================================-->
