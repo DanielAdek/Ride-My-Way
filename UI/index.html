@@ -42,8 +42,41 @@
             </nav>
         </div>
     </header>
-
-
+    <!-- =============================================
+    main section with login form with more-info button
+    ================================================== -->
+    <section class="main-container flex-row align-items-center" id="index-page">
+        <div class="space flex-row justify-content-center">
+            <div class="text-center text-blue">
+                <h1>Connect The Next Avaliable Ride</h1>
+                <a href="about.html">
+                    <button class="btn btn-blue block-lg ml-1">Get More Info</button>
+                </a>
+            </div>
+        </div>
+        <div class="login-container ">
+            <div class="card card-sm p-1 login-form flex-column align-items-center">
+                <div class="card-title text-center">
+                    <h3 class="login-title">Login To Your Ride-My-Way Account</h3>
+                </div>
+                <div class="form-wrapper">
+                    <form action="driver.dashboard.html">
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="text" name="user-detail" placeholder="Username/Email/Phone" required>
+                        </div>
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="password" name="password" placeholder="Password" id="password" required>
+                        </div>
+                        <button class="btn block-xl p-4 btn-blue">Log In</button>
+                    </form>
+                    <hr>
+                </div>
+                <div class="mt-4">
+                    <a href="drivers.create.html" class="text-light drivers-link">Create Drivers Account</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="main-footer">
         <div class="footer">
             <p class="text-center text-light">Ride-My-Way &copy; 2018 Daniel Adekunle. Andela</p>
