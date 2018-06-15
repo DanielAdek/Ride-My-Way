@@ -30,3 +30,10 @@
         margin: 10px 0;
     }
 }
+
+@media (max-width: 26rem) {
+    .profile input:not([type="checkbox"]),
+    .profile input:not([type="file"]) {
+        width: 270px;
+    }
+}
