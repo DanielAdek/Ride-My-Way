@@ -54,3 +54,19 @@
     font-size: 1.2rem;
     font-weight: bolder;
 }
+
+@media (max-width: 40rem) {
+    #index-page {
+        display: flex;
+        flex-direction: column;
+    }
+    .space {
+        height: auto;
+    }
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 5rem 0;
+    }
+}
