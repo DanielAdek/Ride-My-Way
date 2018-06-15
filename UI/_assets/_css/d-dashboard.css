@@ -1,0 +1,77 @@
+.show-map {
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    width: 100%;
+    height: auto;
+}
+
+#map {
+    width: 100%;
+    height: 700px;
+    
+}
+.time-date {
+    width: 100%;
+}
+div.date, div.time {
+    width: 80%;
+}
+
+.grid-col-sm {
+    grid-column: 1 / 2;
+}
+
+.grid-col-lg{
+    grid-column: 2 / -1;
+}
+
+.share-ride-btn {
+    position: relative;
+    top: 0;
+    box-shadow: 2px 4px 2px var(--blue);
+    border: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.share-ride-btn:hover,
+.share-ride-btn:focus {
+    top: 1px;
+    box-shadow: 1px 2px 1px var(--blue);
+    background-color: #080847;
+}
+
+.share-ride-btn:active {
+    top: 2px;
+    box-shadow: 1px 1px 2px var(--blue);
+    background-color: #080847;
+}
+
+@media (max-width: 40rem) {
+    .add-ride-form {
+        display: none;
+    }
+    .grid-col-lg {
+        grid-column: 1 / -1;
+        margin: 0;
+    }
+    .modal-create-ride-form {
+        display: block;
+        position: fixed;
+        z-index: 300;
+        left: 5%;
+        right: 5%;
+        color: var(--white);
+    }
+    .width-1{
+        width: 100%;
+    }
+    .width-2 {
+        width: 80%;
+    }
+    .time > label.time,
+    .date > label.date {
+        display: block;
+    }
+}
