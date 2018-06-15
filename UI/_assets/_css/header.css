@@ -11,6 +11,7 @@
 }
 
 .logo-brand {
+    animation: slideIn 2s ease-in-out 100ms;
     margin-bottom: 100px;
 }
 
@@ -20,6 +21,7 @@
 }
 .nav-links {
     transform: translateX(-30px);
+    animation: slidIn 2.5s ease-in-out 100ms;
     font-family: Roboto;
     font-size: 1.29rem;
 }
@@ -61,3 +63,21 @@
         display: block;
     }
 }
+@keyframes slidIn {
+    from {
+        transform: translateX(300px)
+    }
+    to {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-300px)
+    }
+    to {
+        transform: translateX(50px);
+    }
+}
+
