@@ -32,8 +32,7 @@
 }
 
 @media (max-width: 26rem) {
-    .profile input:not([type="checkbox"]),
-    .profile input:not([type="file"]) {
+    .profile input:not([type="checkbox"]) {
         width: 270px;
     }
 }
