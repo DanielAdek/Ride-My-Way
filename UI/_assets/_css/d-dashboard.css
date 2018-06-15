@@ -74,4 +74,7 @@ div.date, div.time {
     .date > label.date {
         display: block;
     }
+    .remove-add-ride-form {
+        display: none;
+    }
 }

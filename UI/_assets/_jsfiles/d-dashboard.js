@@ -16,4 +16,5 @@ function createRideModalForm() {
     stopLocationInput.classList.add('width-1');
     timeInput.classList.add('width-2');
     dateInput.classList.add('width-2');
+    addRideBtn.classList.add('remove-add-ride-from');
 }
