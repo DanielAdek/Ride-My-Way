@@ -166,3 +166,19 @@ display: none;
 .d-grid {
     display: grid
 }
+
+/* ======================
+    text properties
+=========================*/
+
+.text-center {
+    text-align: center;
+}
+
+.text-transform-upper {
+    text-transform: uppercase;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
