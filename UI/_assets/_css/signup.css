@@ -19,6 +19,11 @@
     width: 50%;
 }
 
+#bg-pic__main-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
 @media (max-width: 40rem) {
     .sign-up-card {
         width: auto;
