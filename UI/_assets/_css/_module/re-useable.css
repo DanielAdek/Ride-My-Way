@@ -426,3 +426,33 @@ a {
 .current {
     color: var(--brown);
 }
+
+/* =================
+    card styling
+================== */
+
+.card {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px #000;
+    border-radius: 9px;
+}
+
+.card-xs {
+    width: 30%;
+    height: auto;
+}
+
+.card-sm {
+    width: 40%;
+    height: auto;
+}
+
+.card-md {
+    width: 60%;
+    height: auto;
+}
+
+.card-lg {
+    width: 80%;
+    height: auto;
+}
