@@ -23,3 +23,26 @@
     font-family: Roboto;
     font-size: 1.29rem;
 }
+
+/* ===================
+    Toggle Button
+======================= */
+
+.toggle-button {
+    width: 3rem;
+    background: var(--crystal);
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-button__bar {
+    margin: 0.3rem 0;
+    display: block;
+    height: 0.3rem;
+    background: var(--white);
+}
