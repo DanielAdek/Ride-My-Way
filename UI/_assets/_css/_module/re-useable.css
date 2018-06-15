@@ -1,3 +1,37 @@
 /* Google fonts (Roboto, PT-Serif, Bree Serif) */
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:700|Roboto:400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif:400,700');
+
+/* ======================
+    general styling,
+    backdrop styling
+=========================*/
+
+* {
+box-sizing: border-box;
+}
+
+html {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+.backdrop {
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-color: #000;
+opacity: 0.3;
+z-index: 200;
+display: none;
+}
