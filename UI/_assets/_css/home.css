@@ -1,0 +1,56 @@
+.space {
+    width: 60%;
+    height: 500px;
+}
+.space > div {
+    animation: fallIn 1s linear 500ms;
+}
+.space > div > h1 {
+    font-family: Roboto;
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+
+.space > div > a > button {
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+
+.login-container {
+    width: 40%;
+   
+}
+
+.login-form {
+    width: 85%;
+    height: 500px;
+    background: var(--crystal);
+}
+
+.form-wrapper {
+    width: inherit;
+}
+
+#index-page {
+    background: url('../_imgs/vnicecar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 700px; */
+}
+
+.login-title {
+    color: var(--lightblue);
+    font-family: Roboto;
+    font-size: 1.6rem;
+}
+
+.drivers-link {
+    font-family: Roboto;
+    font-size: 1.29rem;
+}
+
+.form-wrapper form > button {
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
