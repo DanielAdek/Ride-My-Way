@@ -1,0 +1,19 @@
+.cards-container .card > div {
+     border-radius: 50%;
+}
+.cards-container .card > div img {
+    width: 50%;
+    height: auto;
+}
+
+.departure {
+    color: var(--success);
+}
+
+.arival {
+    color: var(--danger);
+}
+
+.line-rule {
+    width: 80%;
+}
