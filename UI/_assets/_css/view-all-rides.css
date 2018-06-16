@@ -1,3 +1,14 @@
+#bg-pic-view-all-rides {
+   background: url('../_imgs//vnicecar.jpg');
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: -2;
+   opacity: .3;
+}
+
 .cards-container .card > div {
      border-radius: 50%;
 }
