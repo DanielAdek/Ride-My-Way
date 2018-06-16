@@ -452,7 +452,9 @@ a {
     --lightblue: #0e0e70;
     --crystal: transparent;
     --white: #fff;
-    --brown: #851d1d
+    --brown: #851d1d;
+    --success: #098b09;
+    --danger: #db0a0a;
 }
 
 .text-blue {
