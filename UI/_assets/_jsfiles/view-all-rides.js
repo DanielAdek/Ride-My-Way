@@ -9,8 +9,15 @@ const getThree = document.querySelector('.card-content .three');
 const getFour = document.querySelector('.card-content .four');
 const getFive = document.querySelector('.card-content .five');
 const getSix = document.querySelector('.card-content .six');
+const viewDetailLink = document.querySelectorAll('.view-details');
+const modal = document.querySelector('.modal');
+const backdropOverLay = document.querySelector('.backdrop-modal');
 
 searchRidesButton.addEventListener('click', showFilteredRides);
+viewDetailLink.forEach((element) => {
+    element.addEventListener('click', showModal);
+});
+
 let driversNames = ["Annan", "Anndra", "Anselm", "Anthony", "Anthony-John", "Antoine", "Anton", "Antoni",
     "Antonio", "Antony", "Antonyo", "Anubhav", "Aodhan", "Aon", "Aonghus", "Apisai",
     "Brydon-Craig", "Bryn", "Brynmor", "Bryson", "Buddy", "Bully", "Burak", "Burhan", "Butali", "Butchi", "Byron", "Cabhan", "Cadan", "Cade",
@@ -51,4 +58,9 @@ function changeName() {
     getSix.textContent = driversNames[randomNum5];
     departure.value = "";
     arrival.value = null;
+}
+
+function showModal() {
+    backdropOverLay.classList.add('openBackdrop');
+    modal.classList.add('openModal');   
 }
