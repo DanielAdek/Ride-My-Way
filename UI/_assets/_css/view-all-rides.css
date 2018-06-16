@@ -1,13 +1,13 @@
-#bg-pic-view-all-rides {
-   background: url('../_imgs//vnicecar.jpg');
+/* #bg-pic-view-all-rides {
+   background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../_imgs/vnicecar.jpg');
    position: fixed;
    top: 0;
    left: 0;
    width: 100vw;
    height: 100vh;
    z-index: -2;
-   opacity: .3;
-}
+   opacity: .6;
+} */
 
 .cards-container .card > div {
      border-radius: 50%;
@@ -45,7 +45,8 @@
     opacity: 0.3;
     z-index: 200;
     display: none;
-    }
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../_imgs/vnicecar.jpg');
+}
 
 .modal {
     display: none;

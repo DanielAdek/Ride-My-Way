@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ride-My-Way | View Rides</title>
     <meta name="viewport" content="width=device-width, maximum-scale=5 initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./_assets/_css/_modules/main.css" />
 </head>
 
 <body class="grid-row-3 grid-areas">
 
-    <div id="bg-pic-view-all-rides"></div>
+    <!-- <div id="bg-pic-view-all-rides"></div> -->
     <!-- Backdrop layouts -->
     <div class="backdrop"></div>
     <div class="backdrop-modal"></div>
@@ -35,13 +36,14 @@
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
                     <li class="list-group-item pl-3" title="Dashboard Home page">
-                        <a class="text-white" href="driver.dashboard.html">Dashboard</a>
+                        <a class="text-white">Dashboard</a>
                     </li>
-                    <li class="list-group-item pl-3" title="view all request from passangers">
-                        <a class="text-white" href="view-request.html">View Requests</a>
+                    <li class="list-group-item pl-3" title="view all Offers from driver">
+                        <a class="text-white current" href="view-all-rides.html">All Rides</a>
                     </li>
-                    <li class="list-group-item pl-3" title="share your ride with passangers">
-                        <a class="text-white current">Create Ride</a>
+                    <li class="list-group-item pl-3" title="See all Notifications">
+                        <!-- <a class="text-white">Notifications</a> -->
+                        <i class="fas fa-bell text-light"></i>
                     </li>
                     <li class="list-group-item current pl-3" title="log out">
                         <a class="text-white" href="index.html" id="log-out">Log Out</a>
@@ -167,11 +169,11 @@
             <li class="mobile-nav__item">
                 <a>Dashboard</a>
             </li>
-            <li class="mobile-nav__item">
-                <a href="passanger.html">View Requests</a>
+            <li class="mobile-nav__item current">
+                <a href="view-all-rides.html">All Rides</a>
             </li>
             <li class="mobile-nav__item">
-                <a id="create-ride">Create Ride</a>
+                <a href="#">Notifications</a>
             </li>
             <li class="mobile-nav__item">
                 <a href="index.html">Log Out</a>
