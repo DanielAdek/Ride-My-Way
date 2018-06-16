@@ -11,8 +11,10 @@
 
 <body class="grid-row-3 grid-areas">
 
-    <!-- Backdrop layout -->
+    <div id="bg-pic-view-all-rides"></div>
+    <!-- Backdrop layouts -->
     <div class="backdrop"></div>
+    <div class="backdrop-modal"></div>
 
     <!--=================================================
        header section with toggle button for mobile view
@@ -48,6 +50,29 @@
             </nav>
         </div>
     </header>
+    <!-- ==========================================================
+            Modal shows ride details
+    =============================================================== -->
+    <div class="modal">
+        <div class="card card-sm modal-card-container">
+            <div class="card-content p-1">
+                <h1 class="six">Daniel Adek</h1>
+                <span>Toyota Corola |2017 </span>
+                <hr>
+                <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
+                <hr>
+                <p class="arival">Arival: Andela --235 Ikorodu Road</p>
+                <hr>
+                <p class="time">Time: 04:56 AM</p>
+                <hr>
+                <p class="cost">Cost: $3.00</p>
+                <hr>
+                <p class="seat">3 Passengers More</p>
+                <hr>
+                <button type="submit" class="btn block-xl btn-success font-md">Request Ride</button>
+            </div>
+        </div>
+    </div>
     <!-- ========================================================
         A form to search new offer rides, and divs to show result
     ============================================================= -->
@@ -82,7 +107,7 @@
                             <h1 class="one">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details">View More Detail</a>
                         </div>
                     </div>
                     <div class="card flex-row p-5 mb-3">
@@ -91,7 +116,7 @@
                             <h1 class="two">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018 </p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details">View More Detail</a>
                         </div>
                     </div>
                     <div class="card flex-row p-5 mb-3">
@@ -100,7 +125,7 @@
                             <h1 class="three">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details" >View More Detail</a>
                         </div>
                     </div>
                     <div class="card flex-row p-5 mb-3">
@@ -109,7 +134,7 @@
                             <h1 class="four">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details">View More Detail</a>
                         </div>
                     </div>
                     <div class="card flex-row p-5 mb-3">
@@ -118,7 +143,7 @@
                             <h1 class="five">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details">View More Detail</a>
                         </div>
                     </div>
                     <div class="card flex-row p-5 mb-3">
@@ -127,7 +152,7 @@
                             <h1 class="six">Daniel Adek</h1>
                             <p class="departure">Departure: Unilag -- 10:49 AM 27/11/2018</p>
                             <p class="arival">Arival: Andela --235 Ikorodu Road</p>
-                            <a href="ride-details.html">View More Detail</a>
+                            <a href="#" class="view-details">View More Detail</a>
                         </div>
                     </div>
                 </div>
