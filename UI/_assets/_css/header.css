@@ -12,7 +12,7 @@
 
 .logo-brand {
     animation: slideIn 2s ease-in-out 100ms;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 .logo-brand > h3 {
