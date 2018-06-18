@@ -10,7 +10,12 @@
 
 .head-container  > .time > p,
 .head-container  > .notification > i{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+
+.head-container  > .time {
+    font-family: Roboto;
 }
 
 .request-card-container {
@@ -25,4 +30,13 @@
 
 .sidebar {
     grid-column: 1 / 1;
+}
+
+.dashboard-current {
+    background: #ebeff2;
+    border-left: 5px solid var(--lightblue);
+}
+
+.sidebar-nav-links > ul {
+    padding: 0;
 }
