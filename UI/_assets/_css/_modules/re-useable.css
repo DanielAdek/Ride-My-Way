@@ -592,3 +592,10 @@ select {
     transform: translateX(0);
     transition: opacity 500ms ease-in-out .1s, transform 700ms ease-in-out .1s;
 }
+
+@media(min-width: 41rem) {
+    .mobile-nav,
+    .backdrop {
+        display: none;
+    }
+}
