@@ -1,6 +1,7 @@
 .dashboard-main-wrapper {
     grid-column: 2 / -1;
     background: #ebeff2;
+    background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5)), url('../_imgs/vnicecar.jpg');
 }
 
 .sidebar-container > nav > ul li {
@@ -30,13 +31,26 @@
 
 .sidebar {
     grid-column: 1 / 1;
+    background: #ebeff2;
 }
 
 .dashboard-current {
-    background: #ebeff2;
+    background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.3));
     border-left: 5px solid var(--lightblue);
 }
 
 .sidebar-nav-links > ul {
     padding: 0;
+}
+
+@media (max-width: 40rem) {
+    .sidebar {
+        display: none;
+    }
+    .dashboard-main-wrapper {
+        grid-column: 1 / -1;
+    }
+    .request-card-container {
+        width: 90%;
+    }
 }
