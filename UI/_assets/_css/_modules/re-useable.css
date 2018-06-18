@@ -559,6 +559,9 @@ select {
     background-color: var(--blue);
 }
 
+.btn-danger {
+    background-color: var(--danger);
+}
 /* ====================
     overflow properties
 ======================= */
