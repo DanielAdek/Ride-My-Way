@@ -1,3 +1,28 @@
 .dashboard-main-wrapper {
     grid-column: 2 / -1;
+    background: #ebeff2;
+}
+
+.sidebar-container > nav > ul li {
+    font-family: Roboto;
+    font-size: 1.1rem;   
+}
+
+.head-container  > .time > p,
+.head-container  > .notification > i{
+    font-size: 1.1rem;
+}
+
+.request-card-container {
+    width: 60%;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.grid-column-4 {
+   grid-template-columns: 1fr 40% 30% 15%;
+}
+
+.sidebar {
+    grid-column: 1 / 1;
 }
