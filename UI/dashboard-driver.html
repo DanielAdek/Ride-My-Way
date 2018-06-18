@@ -53,6 +53,98 @@
             </ul>
         </nav>
     </div>
+    <!-- ============================================================
+        Main section containing a sidebar navigation and div to show
+        A table to show list of all rides taken/offerd
+    ================================================================= -->
+    <section class="main-container">
+        <div class="container-wrapper grid-row-1 grid-column-4">
+            <div class="sidebar flex-column">
+                <div class="sidebar-container mt-1">
+                    <div class="driver-name mt-4 p-4">
+                        <h1>Daniel Adekunle</h1>
+                    </div>
+                    <nav class="sidebar-nav-links">
+                        <ul class="list-group-items">
+                            <li class="list-group-item p-3 dashboard-current" title="Dashboard Home page">
+                                <a class="#">Dashboard</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view all Offers from driver">
+                                <a class="" href="view-all-rides.html">All Rides</a>
+                            </li>
+                            <li class="list-group-item p-3" title="See all Notifications">
+                                <a href="view-request.html">View Requests</a>
+                            </li>
+                            <li class="list-group-item p-3" title="log out">
+                                <a class="" href="map.html">Google Map</a>
+                            </li>
+                            <li class="list-group-item p-3" title="log out">
+                                <a class="" href="index.html" id="log-out">Log Out</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="dashboard-main-wrapper dashboard-grid-row-3 bg-none">
+                <div class="head-container flex-row justify-content-sb p-3">
+                    <div class="time">
+                        <p>Monday, 18th June 2018 12:53 AM</p>
+                    </div>
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="flex-row flex-wrap info-card-container justify-content-se">
+                    <div class="card card-sm p-3 info-card">
+                        <h1>Ride Offers Taken</h1>
+                        <p>0 Rides Taken</p>
+                    </div>
+                    <div class="card card-sm p-3 info-card">
+                        <h1>Ride Offers Given</h1>
+                        <p>30 Rides Offered</p>
+                    </div>
+                </div>
+                <div class="list-rides">
+                    <h1>List Of Rides Given</h1>
+                    <table>
+                        <tr>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Date</th>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                    </table>
+                    <h1>List Of Rides Taken</h1>
+                    <table>
+                        <tr>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Date</th>
+                        </tr>
+                        <tr>
+                            <td>No Record!</td>
+                            <td>No Record!</td>
+                            <td>No Record!</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--===============================================
             footer section with copy right text
     ===================================================-->
