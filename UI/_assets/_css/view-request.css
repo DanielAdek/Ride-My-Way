@@ -53,4 +53,7 @@
     .request-card-container {
         width: 90%;
     }
+    .driver-name > h1 {
+        font-size: 1.4rem;
+    }
 }
