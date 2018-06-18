@@ -478,6 +478,12 @@ a {
     color: var(--brown);
 }
 
+.text-success {
+    color: var(--success);
+}
+.text-danger {
+    color: var(--danger);
+}
 /* =================
     card styling
 ================== */
