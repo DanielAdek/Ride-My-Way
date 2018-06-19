@@ -59,6 +59,107 @@
             </li>
         </ul>
     </nav>
+    <!-- =============================================
+        main section with register drivers form
+    ================================================== -->
+    <section class="main-container" id="bg-pic__main-section">
+        <div class="container flex-row justify-content-center align-items-center">
+            <div class="card card-md p-1 card-container">
+                <div class="card-title text-center">
+                    <h3>Create Your Driver Account With Ride-My-Way</h3>
+                    <hr class="hori-rule">
+                </div>
+                <div class="form">
+                    <form class="form-group">
+                        <div class="input-uname-email">
+                            <div class="inline-block-2Items  mb-2">
+                                <label class="label" for="username">Username:</label>
+                                <input class="p-5  block-xl" type="text" name="username" id="username">
+                            </div>
+                            <div class="inline-block-2Items  mb-2">
+                                <label class="label" for="email">Email:</label>
+                                <input class="p-5  block-xl" type="email" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="input-password">
+                            <div class="inline-block-2Items  mb-2">
+                                <label class="label" for="password">Password:</label>
+                                <input class="p-5  block-xl" type="password" name="password" id="password">
+                            </div>
+                            <div class="inline-block-2Items  mb-2">
+                                <label class="label" for="confirm-password">Confirm Password:</label>
+                                <input class="p-5  block-xl" type="password" name="confirm-password" id="confirm-password" required>
+                            </div>
+                        </div>
+                        <div class="input-license-gen">
+                            <div class="inline-block-2Items mb-2">
+                                <label class="label" for="license">Driver's Licence Number</label>
+                                <input class="p-5  block-xl" type="text" name="license" id="license">
+                            </div>
+                            <div class="inline-block-2Items mb-2">
+                                <label class="label" for="phone">Contact Number: </label>
+                                <input class="p-5  block-xl" type="text" name="phone" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="inline-block-2Items mb-2">
+                                <label class="label" for="car-model">Car Model</label>
+                                <input class="p-5  block-xl" type="text" name="car-model" id="car-model" required>
+                            </div>
+                            <div class="inline-block-2Items mb-2">
+                                <label class="label" for="plate-number">Car Plate Number</label>
+                                <input class="p-5  block-xl" type="plate-number" name="plate-number" id="plate-number" required>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <select name="gender" id="">
+                                <option>How Long Have You Being Driving?</option>
+                                <option value="Male">1 month</option>
+                                <option value="Female">Less Than 5 Months</option>
+                                <option value="Female">More Than 5 Months</option>
+                                <option value="Female">1 year</option>
+                                <option value="Female">More Than 1 year</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-2">
+                            <select name="gender" id="">
+                                <option>How Long Distance Have You Corvered</option>
+                                <option value="Male">5km</option>
+                                <option value="Female">10 km</option>
+                                <option value="Female">40 km</option>
+                                <option value="Female">100 km</option>
+                                <option value="Female">500 km</option>
+                            </select>
+                        </div>
+                        <div class="input-picture-phone">
+                            <div class="inline-block-3Items mb-2">
+                                <label class="label" for="image">Profile Picture:</label>
+                                <input class="p-5" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
+                            </div>
+                            <div class="inline-block-3Items mb-2">
+                                <label class="label" for="car-image">Car Image</label>
+                                <input class="p-5 " type="file" name="car-image" accept="image/*">
+                            </div>
+                            <div class="inline-block-3Items mb-2">
+                                <label class="label" for="gender">Gender:</label>
+                                <select name="gender" id="">
+                                    <option>Select Gender Type</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inline-block-2Items">
+                            <input class="p-5 mb-3" type="checkbox">
+                            <a href="#">I Agree To Terms And Conditions</a>
+                        </div>
+                        <button class="btn  block-sm btn-success">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="./_assets/_jsfiles/mobile-nav.js"></script>
 </body>
 
