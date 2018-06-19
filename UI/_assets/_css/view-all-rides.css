@@ -29,6 +29,10 @@
     width: 80%;
 }
 
+.card-all-rides {
+    background: #fff;
+}
+
 .modal-card-container {
     font-family: Roboto;
     font-size: 1.1rem;
