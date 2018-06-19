@@ -70,6 +70,105 @@
             </ul>
         </nav>
     </div>
+    <!-- ============================================================
+        Main section containing a sidebar navigation and div to show
+        A table to show list of all rides taken/offerd
+    ================================================================= -->
+    <section class="main-container">
+        <div class="container-wrapper grid-row-1 grid-column-4">
+            <div class="sidebar flex-column">
+                <div class="sidebar-container mt-1">
+                    <div class="driver-name mt-4 p-4">
+                        <h1>Daniel Adekunle</h1>
+                    </div>
+                    <nav class="sidebar-nav-links">
+                        <ul class="list-group-items">
+                            <li class="list-group-item p-3 dashboard-current" title="Dashboard Home page">
+                                <a class="#">Dashboard</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view all Offers from driver">
+                                <a class="" href="driver.dashboard.html">Create Rides Offer</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view passenger's request">
+                                <a href="view-request.html">View Requests</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view passenger's request">
+                                <a href="view-all-rides.html">View Avaliable Rides</a>
+                            </li>
+                            <li class="list-group-item p-3" title="use google map">
+                                <a class="" href="map.html">Google Map</a>
+                            </li>
+                            <li class="list-group-item p-3" title="log out">
+                                <a class="" href="index.html" id="log-out">Log Out</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="dashboard-main-wrapper dashboard-grid-row-3 bg-none">
+                <div class="head-container flex-row justify-content-sb p-3">
+                    <div class="time">
+                        <p>Monday, 18th June 2018 12:53 AM</p>
+                    </div>
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+
+                <div class="profile">
+                    <div class="aside">
+                        <div class="card p-3">
+                            <h1>Driver's Profile</h1>
+                            <hr>
+                            <p>Username: Daniel Adek</p>
+                            <hr>
+                            <p>Email: maildaniel.me1@gmail.com</p>
+                            <hr>
+                            <p>Gender: Male</p>
+                            <hr>
+                            <p>Contact Number: 08182089681</p>
+                            <hr>
+                            <p>Driver's License: L/No AKDan11111</p>
+                            <hr>
+                            <p>Car Model: Toyota |2018</p>
+                            <hr>
+                            <p>Car Plate Number: AKD 181 916</p>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="profile-form-container">
+                        <div class="card">
+                            <div class="edit-profile p-3">
+                                <h1>Edit Profile Here</h1>
+                                <form action="">
+                                    <div class="mb-2 name">
+                                        <input class="p-5 profile-form" type="text" placeholder="Enter username here" name="username">
+                                    </div>
+                                    <div class="mb-2 email">
+                                        <input class="p-5 profile-form" type="email" placeholder="Ener email here" name="email">
+                                    </div>
+                                    <div class="mb-2 email">
+                                        <input class="p-5 profile-form" type="password" placeholder="Enter password" name="password">
+                                    </div>
+                                    <div class="mb-2 driver-license">
+                                        <input class="p-5 profile-form" type="text" placeholder="Driver's License" name="driver-license">
+                                    </div>
+                                    <div class="mb-2 car">
+                                        <input class="p-5 profile-form" type="text" placeholder="Car Plate Number" name="car-model">
+                                    </div>
+                                    <div class="mb-2 phone">
+                                        <input class="p-5 profile-form" type="text" placeholder="Change contact Number" name="phone">
+                                    </div>
+                                    <div class="mb-2 plate-no">
+                                        <input class="p-5 profile-form" type="text" placeholder="Plate No Here " name="plate-no">
+                                    </div>
+                                    <button class="btn btn-blue block-lg p-5" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
     <!--===============================================
             footer section with copy right text
     ===================================================-->
