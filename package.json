@@ -4,6 +4,7 @@
   "description": "Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app",
   "main": "app.js",
   "scripts": {
+    "start:dev": "nodemon --exec babel-node server/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
