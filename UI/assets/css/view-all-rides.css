@@ -1,5 +1,5 @@
 /* #bg-pic-view-all-rides {
-   background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../_imgs/vnicecar.jpg');
+   background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../imgs/vnicecar.jpg');
    position: fixed;
    top: 0;
    left: 0;
@@ -49,7 +49,7 @@
     opacity: 0.3;
     z-index: 200;
     display: none;
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../_imgs/vnicecar.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../imgs/vnicecar.jpg');
 }
 
 .modal {

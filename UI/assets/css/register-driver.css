@@ -28,7 +28,7 @@
 }
 
 #bg-pic__main-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../_imgs/nissan.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../imgs/nissan.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }

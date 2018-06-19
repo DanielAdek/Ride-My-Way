@@ -1,7 +1,7 @@
 .dashboard-main-wrapper {
     grid-column: 2 / -1;
     background: #ebeff2;
-    background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5)), url('../_imgs/vnicecar.jpg');
+    background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5)), url('../imgs/vnicecar.jpg');
 }
 
 .sidebar-container > nav > ul li {
