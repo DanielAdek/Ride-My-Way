@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ride-My-Way | Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./_assets/_css/main.css" />
-    <link rel="stylesheet" href="./_assets/_css/drivers.create.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./_assets/_css/_modules/main.css" />
 </head>
 
 <body class="grid-row-3 grid-areas">
@@ -25,18 +25,19 @@
         <div class="wrapper flex-row justify-content-sb">
             <div class="logo-brand">
                 <h3>
-                    <a class="text-light" href="">Ride-My-Way</a>
+                    <i class="fas fa-car text-light"></i>
+                    <a class="text-light" href="index.html">Ride-My-Way</a>
                 </h3>
             </div>
             <nav class="nav-links">
-                <ul class="list-group-items">
-                    <li class="list-group-item" title="Login to your account">
+                <ul class="list-group-items flex-row">
+                    <li class="list-group-item pl-1" title="Login to your account">
                         <a class="text-light" href="index.html">Log In</a>
                     </li>
-                    <li class="list-group-item" title="use google map to see location">
+                    <li class="list-group-item pl-1" title="use google map to see location">
                         <a class="text-light" href="map.html">Google Map</a>
                     </li>
-                    <li class="list-group-item" title="Read More About The App">
+                    <li class="list-group-item pl-1" title="Read More About The App">
                         <a class="text-light" href="about.html">About Us</a>
                     </li>
                 </ul>
@@ -64,84 +65,85 @@
     ================================================== -->
     <section class="main-container" id="bg-pic__main-section">
         <div class="container flex-row justify-content-center align-items-center">
-            <div class="card card-md p-1 card-container">
+            <div class="card card-md p-1 card-container m-2 d-register-card">
                 <div class="card-title text-center">
                     <h3>Create Your Driver Account With Ride-My-Way</h3>
                     <hr class="hori-rule">
                 </div>
                 <div class="form">
                     <form class="form-group">
-                        <div class="input-uname-email">
-                            <div class="inline-block-2Items  mb-2">
+                        <div class="input-uname-email flex-row flex-wrap justify-content-se">
+                            <div class="  mb-2">
                                 <label class="label" for="username">Username:</label>
-                                <input class="p-5  block-xl" type="text" name="username" id="username">
+                                <input class="p-5" type="text" name="username" id="username">
                             </div>
-                            <div class="inline-block-2Items  mb-2">
+                            <div class="  mb-2">
                                 <label class="label" for="email">Email:</label>
-                                <input class="p-5  block-xl" type="email" name="email" id="email" required>
+                                <input class="p-5" type="email" name="email" id="email" required>
                             </div>
                         </div>
-                        <div class="input-password">
-                            <div class="inline-block-2Items  mb-2">
+                        <div class="input-password flex-row flex-wrap justify-content-se">
+                            <div class="  mb-2">
                                 <label class="label" for="password">Password:</label>
-                                <input class="p-5  block-xl" type="password" name="password" id="password">
+                                <input class="p-5" type="password" name="password" id="password">
                             </div>
-                            <div class="inline-block-2Items  mb-2">
+                            <div class="  mb-2">
                                 <label class="label" for="confirm-password">Confirm Password:</label>
-                                <input class="p-5  block-xl" type="password" name="confirm-password" id="confirm-password" required>
+                                <input class="p-5" type="password" name="confirm-password" id="confirm-password" required>
                             </div>
                         </div>
-                        <div class="input-license-gen">
-                            <div class="inline-block-2Items mb-2">
+                        <div class="input-license-gen flex-row flex-wrap justify-content-se">
+                            <div class=" mb-2">
                                 <label class="label" for="license">Driver's Licence Number</label>
-                                <input class="p-5  block-xl" type="text" name="license" id="license">
+                                <input class="p-5" type="text" name="license" id="license">
                             </div>
-                            <div class="inline-block-2Items mb-2">
+                            <div class=" mb-2">
                                 <label class="label" for="phone">Contact Number: </label>
-                                <input class="p-5  block-xl" type="text" name="phone" />
+                                <input class="p-5" type="text" name="phone" />
                             </div>
                         </div>
-                        <div class="">
-                            <div class="inline-block-2Items mb-2">
+                        <div class="flex-row flex-wrap justify-content-se">
+                            <div class=" mb-2">
                                 <label class="label" for="car-model">Car Model</label>
-                                <input class="p-5  block-xl" type="text" name="car-model" id="car-model" required>
+                                <input class="p-5" type="text" name="car-model" id="car-model" required>
                             </div>
-                            <div class="inline-block-2Items mb-2">
+                            <div class=" mb-2">
                                 <label class="label" for="plate-number">Car Plate Number</label>
-                                <input class="p-5  block-xl" type="plate-number" name="plate-number" id="plate-number" required>
+                                <input class="p-5" type="plate-number" name="plate-number" id="plate-number" required>
                             </div>
                         </div>
-                        <div class="mb-2">
-                            <select name="gender" id="">
-                                <option>How Long Have You Being Driving?</option>
-                                <option value="Male">1 month</option>
-                                <option value="Female">Less Than 5 Months</option>
-                                <option value="Female">More Than 5 Months</option>
-                                <option value="Female">1 year</option>
-                                <option value="Female">More Than 1 year</option>
-                            </select>
+                        <div class="ques flex-row flex-wrap justify-content-se">
+                            <div class="mb-2">
+                                <select name="gender" id="">
+                                    <option>How Long Have You Being Driving?</option>
+                                    <option value="Male">1 month</option>
+                                    <option value="Female">Less Than 5 Months</option>
+                                    <option value="Female">More Than 5 Months</option>
+                                    <option value="Female">1 year</option>
+                                    <option value="Female">More Than 1 year</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <select name="gender" id="">
+                                    <option>How Long Distance Have You Corvered</option>
+                                    <option value="Male">5km</option>
+                                    <option value="Female">10 km</option>
+                                    <option value="Female">40 km</option>
+                                    <option value="Female">100 km</option>
+                                    <option value="Female">500 km</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <div class="mb-2">
-                            <select name="gender" id="">
-                                <option>How Long Distance Have You Corvered</option>
-                                <option value="Male">5km</option>
-                                <option value="Female">10 km</option>
-                                <option value="Female">40 km</option>
-                                <option value="Female">100 km</option>
-                                <option value="Female">500 km</option>
-                            </select>
-                        </div>
-                        <div class="input-picture-phone">
-                            <div class="inline-block-3Items mb-2">
+                        <div class="input-picture-phone flex-row flex-wrap justify-content-se">
+                            <div class="mb-2">
                                 <label class="label" for="image">Profile Picture:</label>
                                 <input class="p-5" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
                             </div>
-                            <div class="inline-block-3Items mb-2">
+                            <div class="mb-2">
                                 <label class="label" for="car-image">Car Image</label>
                                 <input class="p-5 " type="file" name="car-image" accept="image/*">
                             </div>
-                            <div class="inline-block-3Items mb-2">
+                            <div class="mb-2">
                                 <label class="label" for="gender">Gender:</label>
                                 <select name="gender" id="">
                                     <option>Select Gender Type</option>
@@ -150,11 +152,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="inline-block-2Items">
+                        <div class="">
                             <input class="p-5 mb-3" type="checkbox">
                             <a href="#">I Agree To Terms And Conditions</a>
                         </div>
-                        <button class="btn  block-sm btn-success">Create Account</button>
+                        <button class="btn  block-xl btn-blue">Create Account</button>
                     </form>
                 </div>
             </div>
