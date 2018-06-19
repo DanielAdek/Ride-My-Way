@@ -7,4 +7,4 @@ const server = http.createServer(app);
 
 server.listen(port).then(() => {
     console.log(`server running on port ${port}`);
-});
+}).catch(err => console.log(`cannot connect to the server due to error ${err.message}`));
