@@ -5,7 +5,7 @@ function initMap() {
     // map center
     const unilag = {
         lat: 6.5193,
-        lng: -3.3993
+        lng: 3.3993
     }
 
     // map options
