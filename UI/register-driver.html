@@ -11,7 +11,38 @@
 </head>
 
 <body class="grid-row-3 grid-areas">
-   
+    <div class="backdrop"></div>
+    <!--======================================================
+           header section with toggle button for mobile view
+           and naviation links for desktop view, and logo-brand.
+        =====================================================-->
+    <header class="header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <div class="wrapper flex-row justify-content-sb">
+            <div class="logo-brand">
+                <h3>
+                    <a class="text-light" href="">Ride-My-Way</a>
+                </h3>
+            </div>
+            <nav class="nav-links">
+                <ul class="list-group-items">
+                    <li class="list-group-item" title="Login to your account">
+                        <a class="text-light" href="index.html">Login</a>
+                    </li>
+                    <li class="list-group-item" title="use google map to see location">
+                        <a class="text-light" href="map.html">Google Map</a>
+                    </li>
+                    <li class="list-group-item" title="Read More About The App">
+                        <a class="text-light" href="about.html">About Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <script src="./_assets/_jsfiles/mobile-nav.js"></script>
 </body>
 
