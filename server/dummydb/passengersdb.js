@@ -9,4 +9,4 @@ const passenger = [
   }
 ];
 
-// export default passenger;
+export default passenger;
