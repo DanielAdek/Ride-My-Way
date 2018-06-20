@@ -3,7 +3,7 @@ import db from '../dummydb/driverdb';
 /**
  * @class Rides
  */
-export default class Passengers {
+export default class Rides {
   /**
    * getAllRides();
      * @description get all rides
