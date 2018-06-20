@@ -11,16 +11,19 @@ export default [
     carImage: 'toyota.jpg',
     gender: 'male',
     carModal: 'Toyota |2018',
-    rideOffer: {
-      departure: 'Unilag -- Akoka road',
-      arival: 'Andela --235 Ikorodu Road',
-      time: '10:49 AM',
-      date: '27/11/2018',
-      spotInCar: 3,
-      carModel: 'Toyota |2018',
-      carPlateNo: 'AKD 321 986',
-      cost: '$3.0'
-    }
+    rideOffer: [
+      {
+        rideId: 1,
+        departure: 'Unilag -- Akoka road',
+        arival: 'Andela --235 Ikorodu Road',
+        time: '10:49 AM',
+        date: '27/11/2018',
+        spotInCar: 3,
+        carModel: 'Toyota |2018',
+        carPlateNo: 'AKD 321 986',
+        cost: '$3.0'
+      }
+    ]
   },
   {
     id: 2,
@@ -34,15 +37,18 @@ export default [
     carImage: 'Lexus.jpg',
     gender: 'female',
     carModal: 'Lexus |2018',
-    rideOffer: {
-      departure: 'Unilag -- Akoka road',
-      arival: 'Andela --235 Ikorodu Road',
-      time: '10:50 AM',
-      date: '25/06/2018',
-      spotInCar: 3,
-      carModel: 'Lexus |2018',
-      carPlateNo: 'AKD 321 986',
-      cost: '$2.0'
-    }
+    rideOffer: [
+      {
+        rideId: 1,
+        departure: 'Unilag -- Akoka road',
+        arival: 'Andela --235 Ikorodu Road',
+        time: '10:50 AM',
+        date: '25/06/2018',
+        spotInCar: 3,
+        carModel: 'Lexus |2018',
+        carPlateNo: 'AKD 321 986',
+        cost: '$2.0'
+      }
+    ]
   }
 ];
