@@ -1,8 +1,8 @@
 import express from 'express';
-import rides from '../controllers/driversController';
+import passengers from '../controllers/passengersController';
 
 const router = express.Router();
 
-router.get('/rides', rides.getAllRides);
+router.get('/rides', passengers.getAllRides);
 
 export default router;
