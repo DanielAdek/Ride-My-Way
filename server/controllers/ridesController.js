@@ -2,7 +2,7 @@
 import ridesdb from '../dummydb/ridesdb';
 
 // let id = 2;
-let onRequest = [];
+const onRequest = [];
 /**
  * @class Rides
  */
@@ -92,5 +92,37 @@ export default class Rides {
       .then(newRideOffer => res.status(201).json({
         message: newRideOffer
       })).catch(err => res.status(500).json({ message: err.message }));
+  }
+
+
+  /**
+   * requestRide();
+     * @description request ride offers
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     * @returns {object} json
+     */
+  static requestRide(req, res) {
+    const { rideId } = req.params;
+    let requestSent = false;
+    const { message } = req.body;
+    return new Promise((resolve, reject) => {
+      ridesdb
+        .forEach((ride) => {
+          if (ride.rideId === rideId) {
+            ride.onRequest.push({ message });
+            requestSent = true;
+          }
+        });
+      if (!requestSent) {
+        reject(new Error('There was a problem sending request. check ride identification'));
+      }
+      resolve({
+        message: 'Your request has beean successfully sent!',
+        status: 'pending....'
+      });
+    })
+      .then(newRequest => res.status(201).json({ newRequest }))
+      .catch(err => res.status(400).json({ error: err.message }));
   }
 }
