@@ -27,7 +27,7 @@ export default class Rides {
         rides
       });
     }).catch((err) => {
-      res.status(200).json({
+      res.status(404).json({
         error: 'Oops Sorry!,',
         message: err.message
       });
