@@ -63,7 +63,7 @@ export default class Rides {
         });
       })
       .catch((err) => {
-        res.status(200).json({
+        res.status(404).json({
           error: 'Oops Sorry!,',
           message: err.message
         });
@@ -123,6 +123,6 @@ export default class Rides {
       });
     })
       .then(newRequest => res.status(201).json({ newRequest }))
-      .catch(err => res.status(400).json({ error: err.message }));
+      .catch(err => res.status(404).json({ error: err.message }));
   }
 }
