@@ -1,6 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
+import assert from 'assert';
 
 chai.use(chaiHttp);
 const request = chai.request(app);
@@ -9,26 +10,17 @@ should();
 
 describe('Test all rides APIs', () => {
   describe('/GET route find all rides', () => {
-    it('should not return any ride and return 404 status code', (done) => {
+    const rides = [{}, {}];
+    it('should return all rides and return 200 status code', (done) => {
       request
         .get('/api/v1/rides')
         .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.have.property('error');
-          res.body.error.should.be.a('string');
-          res.body.error.should.be.eql('Oops Sorry!');
+          res.should.have.status(200);
+          res.body.should.have.property('message');
+          res.body.message.should.be.a('string');
+          res.body.message.should.be.eql(`Here You Are!, ${rides.length} rides for You`);
           done();
         });
     });
-
-    // it('should return a business and return 200 status code', (done) => {
-    //   request
-    //     .get('/api/v1/business/3')
-    //     .end((err, res) => {
-    //       res.should.have.status(200);
-    //       res.body.should.have.property('business');
-    //       done();
-    //     });
-    // });
   });
 });
