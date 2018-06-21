@@ -5,8 +5,7 @@ import checkInput from '../middleware/validation/inputFields';
 
 const router = express.Router();
 
-router.get('/drivers/rides', rides.getAllRides);
-router.get('/rides', rides.AllRides);
+router.get('/rides', rides.getAllRides);
 router.get('/rides/:rideId', rides.getSingleRide);
 router.post('/rides', checkInput.checker, auth.validateInput, rides.createRideOffer);
 
