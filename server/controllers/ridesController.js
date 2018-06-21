@@ -1,8 +1,8 @@
-import db from '../dummydb/driverdb';
+// import db from '../dummydb/userdb';
 import ridesdb from '../dummydb/ridesdb';
 
 // let id = 2;
-let rideId = 0;
+let onRequest = [];
 /**
  * @class Rides
  */
@@ -16,8 +16,7 @@ export default class Rides {
      */
   static getAllRides(req, res) {
     return new Promise((resolve, reject) => {
-      const offeredRides = db.map(drivers => drivers.rideOffer)
-        .filter(rides => rides !== undefined || rides != null);
+      const offeredRides = ridesdb.map(allAvailableRides => allAvailableRides);
       if (offeredRides.length < +true) {
         reject(new Error('Cannot find any ride offers yet! please, Try Again In 20 Minutes'));
       }
@@ -44,11 +43,11 @@ export default class Rides {
      */
   static getSingleRide(req, res) {
     let ride;
-    const requestId = parseInt(req.params.rideId, 10);
-    db
-      .forEach((driver) => {
-        if (driver.id === requestId) {
-          ride = driver.rideOffer;
+    const { rideId } = req.params;
+    ridesdb
+      .forEach((rides) => {
+        if (rides.rideId === rideId) {
+          ride = rides;
         }
       });
     return new Promise((resolve, reject) => {
@@ -80,13 +79,12 @@ export default class Rides {
      */
   static createRideOffer(req, res) {
     const {
-      departure, arrival, time, date, spotInCar, cost
+      rideId, departure, arrival, time, date, spotInCar, cost
     } = req.body;
-    rideId += 1;
     return new Promise((resolve, reject) => {
       ridesdb
         .push({
-          rideId, departure, arrival, time, date, spotInCar, cost
+          rideId, departure, arrival, time, date, spotInCar, cost, onRequest
         });
       resolve('new Ride successfully created');
       reject(new Error('There was a problem creating the ride offer, try again'));
@@ -94,31 +92,5 @@ export default class Rides {
       .then(newRideOffer => res.status(201).json({
         message: newRideOffer
       })).catch(err => res.status(500).json({ message: err.message }));
-  }
-  /**
-   * getAllRides();
-     * @description get all rides
-     * @param {*} req
-     * @param {*} res
-     * @returns {object} json
-     */
-  static AllRides(req, res) {
-    return new Promise((resolve, reject) => {
-      const allRides = ridesdb.map(rides => rides);
-      if (allRides.length < +true) {
-        reject(new Error('Cannot find any ride offers yet! please, Try Again In 20 Minutes'));
-      }
-      resolve(allRides);
-    }).then((rides) => {
-      res.status(200).json({
-        message: `Here You Are!, ${rides.length} rides for You`,
-        rides
-      });
-    }).catch((err) => {
-      res.status(200).json({
-        error: 'Oops Sorry!,',
-        message: err.message
-      });
-    });
   }
 }
