@@ -17,7 +17,7 @@ export default {
       .not()
       .isEmpty()
       .withMessage('Please specify spot in car field'),
-    check('data')
+    check('date')
       .trim()
       .not()
       .isEmpty()
