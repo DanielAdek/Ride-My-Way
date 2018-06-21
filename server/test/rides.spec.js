@@ -19,6 +19,8 @@ describe('Test all rides APIs', () => {
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
           res.body.message.should.be.eql(`Here You Are!, ${rides.length} rides for You`);
+          res.body.should.have.property('rides');
+          res.body.rides.should.be.an('array');
           done();
         });
     });
