@@ -75,13 +75,44 @@ describe('Test all rides APIs', () => {
           done();
         });
     });
-    it('should return a ride and return 200 status code', (done) => {
+    it('should not create a ride and return 422 status code', (done) => {
       request
         .post('/api/v1/rides')
         .send({})
         .end((err, res) => {
           res.should.have.status(422);
           res.body.should.have.property('errors');
+          done();
+        });
+    });
+  });
+  describe('/POST route create a request', () => {
+    const newRequest = { message: 'I was hoping to join you on this trip' };
+    it('should create a request and return 201 status code', (done) => {
+      request
+        .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
+        .send(newRequest)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('newRequest');
+          res.body.should.have.be.an('object');
+          res.body.newRequest.should.have.property('message');
+          res.body.newRequest.should.have.property('status');
+          res.body.newRequest.should.have.property('status');
+          res.body.newRequest.status.should.be.eql('pending....');
+          res.body.newRequest.message.should.be.eql('Your request has beean successfully sent!');
+          done();
+        });
+    });
+    it.only('should not create a ride and return 404 status code', (done) => {
+      request
+        .post('/api/v1/rides/419/request')
+        .send(newRequest)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('error');
+          res.body.error.should.be.a('string');
+          res.body.error.should.be.eql('There was a problem sending request. check ride identification');
           done();
         });
     });
