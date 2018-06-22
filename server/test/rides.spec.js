@@ -25,7 +25,7 @@ describe('Test all rides APIs', () => {
     });
   });
   describe('/GET route find a ride', () => {
-    it.only('should return a ride and return 200 status code', (done) => {
+    it('should return a ride and return 200 status code', (done) => {
       request
         .get('/api/v1/rides/46ced7aa-eed5-4462-b2c0-153f31589bdd')
         .end((err, res) => {
@@ -49,6 +49,39 @@ describe('Test all rides APIs', () => {
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
           res.body.message.should.be.eql('Cannot find any ride from this driver');
+          done();
+        });
+    });
+  });
+  describe('/POST route create a ride', () => {
+    const newRide = {
+      rideId: '3#4744b-6%888-3',
+      departure: 'Unilag',
+      arrival: 'Andela',
+      time: '04:49AM',
+      date: '25/06/2018',
+      spotInCar: 3,
+      cost: '$3.0'
+    };
+    it('should create a ride and return 200 status code', (done) => {
+      request
+        .post('/api/v1/rides')
+        .send(newRide)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('message');
+          res.body.message.should.be.a('string');
+          res.body.message.should.be.eql('new Ride successfully created');
+          done();
+        });
+    });
+    it('should return a ride and return 200 status code', (done) => {
+      request
+        .post('/api/v1/rides')
+        .send({})
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.have.property('errors');
           done();
         });
     });
