@@ -110,6 +110,7 @@ export default class Rides {
       ridesdb
         .forEach((ride) => {
           if (ride.rideId === rideId) {
+            ride.spotInCar -= 1;
             ride.onRequest.push({ message });
             requestSent = true;
           }
