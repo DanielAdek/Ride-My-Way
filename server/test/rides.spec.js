@@ -104,7 +104,7 @@ describe('Test all rides APIs', () => {
           done();
         });
     });
-    it.only('should not create a ride and return 404 status code', (done) => {
+    it('should not create a ride and return 404 status code', (done) => {
       request
         .post('/api/v1/rides/419/request')
         .send(newRequest)
