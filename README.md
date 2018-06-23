@@ -26,7 +26,7 @@ Template is hosted at [https://danieladek.github.io/Ride-My-Way/UI/](https://dan
 API is deployed at [https://ridemyway-danieladek.herokuapp.com/api/v1](https://ridemyway-danieladek.herokuapp.com/api/v1)
 
 ### Documentation
-Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api/v1/docs](https://ridemyway-danieladek.herokuapp.com/api/v1/docs)
+Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api-docs](https://ridemyway-danieladek.herokuapp.com/api-docs)
 
 ## Technologies
 
