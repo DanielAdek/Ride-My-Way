@@ -61,7 +61,7 @@ Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api/v1/do
 * Modify Profile
 * Use Google Map To Find Locations
 
-### Customers
+### Passengers
 * Signup and Login
 * Modify Profile
 * Make A Request To An Available Ride
