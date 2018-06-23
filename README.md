@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/DanielAdek/Ride-My-Way.svg?branch=ch%2Ftest-APIs-%23158508265)](https://travis-ci.org/DanielAdek/Ride-My-Way)
-
-[![Coverage Status](https://coveralls.io/repos/github/DanielAdek/Ride-My-Way/badge.svg?branch=develop)](https://coveralls.io/github/DanielAdek/Ride-My-Way?branch=develop)
-
+[![Build Status](https://travis-ci.org/DanielAdek/Ride-My-Way.svg?branch=ch%2Ftravis-ci-%23158577021)](https://travis-ci.org/DanielAdek/Ride-My-Way)[![Coverage Status](https://coveralls.io/repos/github/DanielAdek/Ride-My-Way/badge.svg?branch=ch%2Ftravis-ci-%23158577021)](https://coveralls.io/github/DanielAdek/Ride-My-Way?branch=ch%2Ftravis-ci-%23158577021)
 # Ride-My-Way
 Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app.
 An application that allows passengers to make request to rides offered by drivers.
