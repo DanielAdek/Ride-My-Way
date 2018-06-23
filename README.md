@@ -23,7 +23,7 @@ You can find the template at [https://www.pivotaltracker.com/n/projects/2179186]
 Template is hosted at [https://danieladek.github.io/Ride-My-Way/UI/](https://danieladek.github.io/Ride-My-Way/UI/)
 
 ### API Deployment
-API is deployed at [https://ridemyway-danieladek.herokuapp.com/api/v1](https://ridemyway-danieladek.herokuapp.com/api/v1)
+API is deployed at [https://ridemyway-danieladek.herokuapp.com/](https://ridemyway-danieladek.herokuapp.com/)
 
 ### Documentation
 Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api-docs](https://ridemyway-danieladek.herokuapp.com/api-docs)
