@@ -2,16 +2,16 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
 
-chai.use(chaiHttp);
-const request = chai.request(app);
 const { should } = chai;
+
 should();
+chai.use(chaiHttp);
 
 describe('Test all rides APIs', () => {
   describe('/GET route find all rides', () => {
     const rides = [{}, {}];
     it('should return all rides and return 200 status code', (done) => {
-      request
+      chai.request(app)
         .get('/api/v1/rides')
         .end((err, res) => {
           res.should.have.status(200);
@@ -26,7 +26,7 @@ describe('Test all rides APIs', () => {
   });
   describe('/GET route find a ride', () => {
     it('should return a ride and return 200 status code', (done) => {
-      request
+      chai.request(app)
         .get('/api/v1/rides/46ced7aa-eed5-4462-b2c0-153f31589bdd')
         .end((err, res) => {
           res.should.have.status(200);
@@ -39,7 +39,7 @@ describe('Test all rides APIs', () => {
         });
     });
     it('should return a ride and return 200 status code', (done) => {
-      request
+      chai.request(app)
         .get('/api/v1/rides/419-thief')
         .end((err, res) => {
           res.should.have.status(404);
@@ -64,7 +64,7 @@ describe('Test all rides APIs', () => {
       cost: '$3.0'
     };
     it('should create a ride and return 200 status code', (done) => {
-      request
+      chai.request(app)
         .post('/api/v1/rides')
         .send(newRide)
         .end((err, res) => {
@@ -76,7 +76,7 @@ describe('Test all rides APIs', () => {
         });
     });
     it('should not create a ride and return 422 status code', (done) => {
-      request
+      chai.request(app)
         .post('/api/v1/rides')
         .send({})
         .end((err, res) => {
@@ -89,7 +89,7 @@ describe('Test all rides APIs', () => {
   describe('/POST route create a request', () => {
     const newRequest = { message: 'I was hoping to join you on this trip' };
     it('should create a request and return 201 status code', (done) => {
-      request
+      chai.request(app)
         .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
         .send(newRequest)
         .end((err, res) => {
@@ -105,7 +105,7 @@ describe('Test all rides APIs', () => {
         });
     });
     it('should not create a ride and return 404 status code', (done) => {
-      request
+      chai.request(app)
         .post('/api/v1/rides/419/request')
         .send(newRequest)
         .end((err, res) => {
