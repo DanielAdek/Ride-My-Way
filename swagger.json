@@ -8,7 +8,7 @@
         "email": "maildaniel.me1@gmail.com"
       }
     },
-    "host": "localhost:8080",
+    "host": "ridemyway-danieladek.herokuapp.com",
     "basePath": "/api/v1/",
     "tags": [
       {
