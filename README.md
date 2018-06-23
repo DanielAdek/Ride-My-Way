@@ -1,23 +1,12 @@
 # Ride-My-Way
-Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app
-
-## https://ridemyway-danieladek.herokuapp.com
-
-
-# Book A Meal
-
-[![Build Status](https://travis-ci.org/iverenshaguy/book-a-meal.svg?branch=develop)](https://travis-ci.org/iverenshaguy/book-a-meal)
-[![Coverage Status](https://coveralls.io/repos/github/iverenshaguy/book-a-meal/badge.svg?branch=develop)](https://coveralls.io/github/iverenshaguy/book-a-meal?branch=develop)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/maintainability)](https://codeclimate.com/github/iverenshaguy/book-a-meal/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ee9e3f3a2697b184de58/test_coverage)](https://codeclimate.com/github/iverenshaguy/book-a-meal/test_coverage)
-
-An application that allows customers to make food orders and helps the food vendor to know what the customers want to eat.
+Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app.
+An application that allows passengers to make request to rides offered by drivers.
 
 ## Table of Contents
 
  * [Technologies](#technologies)
  * [Features](#features)
- * [API Endpoints](#api-endpoints)
+ * [Api-endpoints](#api-endpoints)
  * [Getting Started](#getting-started)
     * [Installation](#installation)
     * [Testing](#testing)
@@ -27,22 +16,21 @@ An application that allows customers to make food orders and helps the food vend
 
 ### Pivotal Tracker
 Project is currently being built with the Project Management Tool, Pivotal Tracker.
-You can find the template at [https://www.pivotaltracker.com/n/projects/2165637](https://www.pivotaltracker.com/n/projects/2165637)
+You can find the template at [https://www.pivotaltracker.com/n/projects/2179186](https://www.pivotaltracker.com/n/projects/2179186)
 
 ### Template
-Template is hosted at [https://iverenshaguy.github.io/book-a-meal/UI/index.html](https://iverenshaguy.github.io/book-a-meal/UI/index.html)
+Template is hosted at [https://danieladek.github.io/Ride-My-Way/UI/](https://danieladek.github.io/Ride-My-Way/UI/)
 
 ### API Deployment
-API is deployed at [https://book-a-meal-sivy.herokuapp.com/api/v1](https://book-a-meal-sivy.herokuapp.com/api/v1)
+API is deployed at [https://ridemyway-danieladek.herokuapp.com/api/v1](https://ridemyway-danieladek.herokuapp.com/api/v1)
 
 ### Documentation
-Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](https://book-a-meal-sivy.herokuapp.com/api/v1/docs)
+Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api/v1/docs](https://ridemyway-danieladek.herokuapp.com/api/v1/docs)
 
 ## Technologies
 
 * [NodeJS](https://nodejs.org/) - Runtime Environment
 * [ExpressJs](https://expressjs.com/) - Web Application Framework
-* [Yarn](https://www.yarnpkg.com/) - Dependency Manager
 
 ### Supporting Packages
 
@@ -58,40 +46,36 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](
 
 * [Mocha](https://mochajs.org/) - JavaScript Test Framework for API Tests
 * [Chai](http://chaijs.com/) - TDD/BDD Assertion Library for Node
-* [Supertest](https://github.com/visionmedia/supertest) - Super-agent driven
   library for testing node.js HTTP servers
-* [Istanbul(nyc)](https://istanbul.js.org/) - Code Coverage Generator
+* [nyc](https://istanbul.js.org/) - Code Coverage Generator
 
 ## Features
 
-### Caterers
+### Drivers
 * Signup and Login
-* Create Meals
-* Modiy Meals
-* Delete Meals
-* Setup Menu for Particular Day
-* Get All Orders for a Specific Day
-* Get All Caterer's Orders on the platform
-* Get Order Notifications
+* Create Rides Offers
+* Accept A Request From Passengers
+* Reject A Request From Passengers
+* Get Notifications On Passenger's Request
+* Modify Profile
+* Use Google Map To Find Locations
 
 ### Customers
 * Signup and Login
-* Make an Order
-* Modify an Order
-* Get Menu for the Day
-* Get Meal Order History
-* Get New Menu Notifications
+* Modify Profile
+* Make A Request To An Available Ride
+* Get Notifications On Driver's Response
+* Use Google Map To Find Locations
 
 ## Getting Started
 
 ### Installation
 
 * git clone
-  [Book A Meal](https://github.com/iverenshaguy/book-a-meal.git)
-* Run `yarn install` or `npm install` to install packages
-* Run `yarn build` or `npm run build` to build the project
-* Run `yarn start` or `npm start` to start the server
-* Navigate to [localhost:8000](http://localhost:8000/) in browser to access the
+  [Ride-My-Way](https://github.com/DanielAdek/Ride-My-Way)
+* Run `npm install` to install packages
+* Run `npm start` to start the server
+* Navigate to [localhost:8000](http://localhost:8080/) in browser to access the
   application
 
 ### Testing
@@ -103,18 +87,60 @@ Documentation is hosted at [https://book-a-meal-sivy.herokuapp.com/api/v1/docs](
 #### Testing with Postman
 
 * After installing as shown above
-* Navigate to [localhost:8000](http://localhost:8000/) in
+* Navigate to [localhost:8080](http://localhost:8080/) in
   [Postman](https://getpostman.com/) to access the application
 
 #### Testing with Coverage Data
 
 * After installing as shown 
 
-* Run `yarn test` or `npm test`
+* Run `npm run test`
 * It will lint code, run test and display coverage data as generated by
   Istanbul's [nyc](https://github.com/istanbuljs/nyc)
 
 ### Development
-You can run `yarn start:dev` or `npm run start:dev` in development to use [Nodemon](https://nodemon.io/)
+You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.io/)
 
 [Nodemon](https://nodemon.io/) watches for file changes and restarts your code. 
+
+## Api-endpoints
+
+
+##### Open the postman and test the following existing routes
+<table>
+    <tr>
+        <th>API</th>
+        <th>HTTP verb</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>/api/v1/signup</td>
+        <td>POST</td>
+        <td>Create new user</td>
+    </tr>
+    <tr>
+        <td>/api/v1/login</td>
+        <td>POST</td>
+        <td>Log in user</td>
+    </tr>
+    <tr>
+        <td>/api/v1/rides</td>
+        <td>POST</td>
+        <td>Create new ride offer</td>
+    </tr>
+    <tr>
+        <td>/api/v1/rides/{rideId}</td>
+        <td>GET</td>
+        <td>Get a ride</td>
+    </tr>
+    <tr>
+        <td>/api/v1/rids/{rideId}/request</td>
+        <td>POST</td>
+        <td>Request a ride</td>
+    </tr>
+    <tr>
+        <td>/api/v1/rides</td>
+        <td> GET</td>
+        <td>Fetch all avaliable rides </td>
+    </tr>
+</table>
