@@ -76,7 +76,7 @@ Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api/v1/do
   [Ride-My-Way](https://github.com/DanielAdek/Ride-My-Way)
 * Run `npm install` to install packages
 * Run `npm start` to start the server
-* Navigate to [localhost:8000](http://localhost:8080/) in browser to access the
+* Navigate to [localhost:8080](http://localhost:8080/) in browser to access the
   application
 
 ### Testing
