@@ -24,6 +24,11 @@
 }
  */
 
+ .card-title{
+     font-size: 1.2rem;
+     font-family: Roboto;
+ }
+
 #bg-pic__main-section {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 }
