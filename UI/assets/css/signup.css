@@ -15,8 +15,24 @@
     font-size: 1.5rem;
 }
 
-.sign-up-card {
-    width: 50%;
+.form-group-div {
+    width: 80%;
+}
+
+.form-group {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-row-gap: 2rem;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 1.3rem;
+}
+
+.signup-checkbox {
+    grid-column: span 2;
 }
 
 #bg-pic__main-section {
@@ -25,14 +41,18 @@
     background-size: cover;
 } 
 @media (max-width: 40rem) {
-    .sign-up-card {
-        width: auto;
-        margin: 10px 0;
+    .form-group {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group label {
+        margin: 20px 0;
     }
 }
 
-@media (max-width: 26rem) {
+/* @media (max-width: 26rem) {
     .profile input:not([type="checkbox"]) {
         width: 270px;
     }
-}
+} */
