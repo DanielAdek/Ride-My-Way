@@ -23,6 +23,11 @@ td, th {
     padding: 8px;
 }
 
+table tr > th {
+    background: var(--blue);
+    color: #fff;
+}
+
 tr:nth-child(even) {
     background-color: #dddddd;
 }

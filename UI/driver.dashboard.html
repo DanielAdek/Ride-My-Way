@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ride-My-Way | Dashboard</title>
     <meta name="viewport" content="width=device-width, maximum-scale=5 initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/modules/main.css" />
 </head>
 
@@ -27,6 +28,7 @@
         <div class="wrapper flex-row justify-content-sb">
             <div class="logo-brand">
                 <h3>
+                    <i class="fas fa-car text-light"></i>
                     <a class="text-light" href="">Ride-My-Way</a>
                 </h3>
             </div>
@@ -94,7 +96,7 @@
     <section class="main-container">
         <div class="wrapper grid-row-1">
             <div class="card grid-col-sm p-4 add-ride-form">
-                <form class="form-group">
+                <form class="">
                     <div class="mb-2">
                         <label for="from" class="inline-block-xs">From:</label>
                         <input class="p-5 inline-block-vlg" type="text" name="from" id="from" placeholder="Start location" required>
@@ -103,12 +105,12 @@
                         <label for="to" class="inline-block-xs">To:</label>
                         <input class="p-5 inline-block-vlg" type="text" name="to" id="to" placeholder="Stop location" required>
                     </div>
-                    <div class="flex-row mb-2 time-date">
+                    <div class="mb-2 time-date">
                         <div class="time">
                             <label for="time" class="time">Time:</label>
                             <input class="p-5 inline-block-vlg" type="time" name="time" id="time" required>
                         </div>
-                        <div class="date">
+                        <div class="date mt-3">
                             <label for="date" class="date">Date:</label>
                             <input class="p-5 inline-block-vlg" type="date" name="date" id="date" required>
                         </div>
