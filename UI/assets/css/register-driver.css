@@ -1,13 +1,13 @@
-.grid-areas {
+/* .grid-areas {
     grid-template-areas: "header" "main" "footer";
-}
+} */
 
 #bg-pic__main-section .container > .card {
     /* background: #fff; */
     margin: 16px 0;
 }
 
-.header {
+/* .header {
     grid-area: header;
 }
 
@@ -17,35 +17,17 @@
 
 .main-footer {
     grid-area: footer;
-}
-
+} */
+/* 
 .container {
     height: 70rem;
 }
-
-.ques {
-    width: 100%;
-}
+ */
 
 #bg-pic__main-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('../imgs/nissan.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 }
 
-.d-register-card {
-    width: 50%;
-}
-
-@media (max-width: 40rem) {
-    .d-register-card {
-        width: auto;
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 26rem) {
-    .form-group input:not([type="checkbox"]) {
-        width: 270px;
-    }
+.main-card_form {
+    width: 90%;
 }
