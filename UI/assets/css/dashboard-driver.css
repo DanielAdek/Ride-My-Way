@@ -24,7 +24,7 @@ td, th {
 }
 
 table tr > th {
-    background: var(--blue);
+    background: var(--skyblue);
     color: #fff;
 }
 
@@ -44,4 +44,10 @@ tr:nth-child(even) {
 
 .list-rides h1 {
     color: #fff;
+}
+
+@media (max-width: 40rem) {
+    .info-card {
+        margin: 10px 0;
+    }
 }
