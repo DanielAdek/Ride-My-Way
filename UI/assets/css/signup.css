@@ -2,37 +2,39 @@
     height: auto;
 }
 
-.sign-up-btn {
-    position: relative;
-    left: 15%;
-    right: 15%;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.2rem;
-}
-
 .sign-up-title {
     font-family: Roboto;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .form-group-div {
-    width: 80%;
+    width: 100%; 
 }
 
 .form-group {
-    margin: 30px;
-    display: grid;
-    grid-template-columns: 20% auto;
-    grid-row-gap: 2rem;
+    /* margin: 30px; */
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 2px solid #ccc;
+    box-shadow: 10px 10px 3px #ccc;
+}
+
+.form-group > input, 
+.form-group > select {
+    border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc;
+}
+
+.form-group button {
+    border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc;
     width: 100%;
+    
 }
 
 .form-group label {
-    font-size: 1.3rem;
-}
-
-.signup-checkbox {
-    grid-column: span 2;
+    font-size: 1rem;
 }
 
 #bg-pic__main-section {
@@ -42,17 +44,19 @@
 } 
 @media (max-width: 40rem) {
     .form-group {
-        width: 90%;
+        min-width: 90%;
         display: flex;
         flex-direction: column;
     }
     .form-group label {
-        margin: 20px 0;
+        margin: 10px 0;
     }
 }
 
-/* @media (max-width: 26rem) {
-    .profile input:not([type="checkbox"]) {
-        width: 270px;
+@media (max-width: 60rem) {
+    .form-group {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
     }
-} */
+}

@@ -1,5 +1,5 @@
 .header {
-    background: var(--blue);
+    background: var(--skyblue);
 }
 
 .wrapper {
@@ -12,18 +12,21 @@
 
 .logo-brand {
     animation: slideIn 2s ease-in-out 100ms;
-    /* margin-bottom: 100px; */
+    transform: translate(80px, -10px);
 }
 
-.logo-brand > h3 {
+.logo-brand > h3 a {
     font-family: Roboto;
     font-size: 1.5rem;
 }
+
+.logo-brand > h3 > i {
+    font-size: 2rem;
+}
 .nav-links {
-    transform: translateX(-30px);
+    transform: translateX(-10px);
     animation: slidIn 2.5s ease-in-out 100ms;
     font-family: Roboto;
-    font-size: 1.29rem;
 }
 
 /* ===================
@@ -81,3 +84,16 @@
     }
 }
 
+@media (max-width: 40rem) {
+    .logo-brand {
+        transform: translate(-10px, -5px);
+    }
+    .logo-brand > h3 a {
+        font-family: Roboto;
+        font-size: 1.6rem;
+    }
+    
+    .logo-brand > h3 > i {
+        font-size: 2.1rem;
+    }
+}

@@ -4,6 +4,9 @@
     width: 100%;
     height: auto;
 }
+.main-container {
+    position: relative;
+}
 
 #map {
     width: 100%;
@@ -13,22 +16,27 @@
 .time-date {
     width: 100%;
 }
-div.date, div.time {
-    width: 80%;
-}
+
 
 .grid-col-sm {
     grid-column: 1 / 2;
 }
 
 .grid-col-lg{
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
 }
 
+.add-ride-form {
+    position: absolute;
+    z-index: 2;
+    background: #fff;
+    top: 50px;
+    left: 20px;
+}
 .share-ride-btn {
     position: relative;
     top: 0;
-    box-shadow: 2px 4px 2px var(--blue);
+    box-shadow: 2px 4px 2px var(--skyblue);
     border: 1px solid #ccc;
     display: block;
     width: 100%;
@@ -37,13 +45,13 @@ div.date, div.time {
 .share-ride-btn:hover,
 .share-ride-btn:focus {
     top: 1px;
-    box-shadow: 1px 2px 1px var(--blue);
-    background-color: #080847;
+    box-shadow: 1px 2px 1px var(--skyblue);
+    background-color: #2121df;
 }
 
 .share-ride-btn:active {
     top: 2px;
-    box-shadow: 1px 1px 2px var(--blue);
+    box-shadow: 1px 1px 2px var(--skyblue);
     background-color: #080847;
 }
 
@@ -61,7 +69,8 @@ div.date, div.time {
         z-index: 300;
         left: 5%;
         right: 5%;
-        color: var(--white);
+        color: #333;
+        padding: 30px;
     }
     .width-1{
         width: 100%;

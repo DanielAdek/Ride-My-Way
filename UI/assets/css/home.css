@@ -4,16 +4,15 @@
 }
 .space > div {
     animation: fallIn 1s linear 500ms;
+    transform: translateY(120px);
 }
 .space > div > h1 {
     font-family: Roboto;
-    font-size: 1.8rem;
-    font-weight: bolder;
+    font-size: 1.3rem;
 }
 
 .space > div > a > button {
     font-family: Roboto;
-    font-size: 1.5rem;
 }
 
 .login-container {
@@ -22,9 +21,9 @@
 }
 
 .login-form {
-    width: 85%;
-    height: 500px;
-    background: var(--crystal);
+    width: 70%;
+    height: 400px;
+    background: var(--white);
 }
 
 .form-wrapper {
@@ -32,27 +31,22 @@
 }
 
 #index-page {
-    background: url('../imgs/vnicecar.jpg');
+    background: linear-gradient(rgb(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('../imgs/vnicecar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 700px; */
 }
 
 .login-title {
-    color: var(--lightblue);
-    font-family: Roboto;
-    font-size: 1.6rem;
+    color: var(--blue);
+    font-size: .8rem;
 }
 
 .drivers-link {
-    font-family: Roboto;
-    font-size: 1.29rem;
+    font-size: 1rem;
 }
 
 .form-wrapper form > button {
     font-family: Roboto;
-    font-size: 1.2rem;
-    font-weight: bolder;
 }
 
 @media (max-width: 40rem) {
@@ -69,6 +63,13 @@
         justify-content: center;
         margin: 5rem 0;
     }
+    .login-form {
+        width: 90%;
+        /* margin-right: 23px; */
+    }
+    .space > div {
+        transform: translateY(50px);
+    }
 }
 
 @keyframes fallIn {
@@ -76,6 +77,6 @@
         transform: translateY(-300px)
     }
     to {
-        transform: translateY(0);
+        transform: translateY(120px);
     }
 }

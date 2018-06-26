@@ -12,10 +12,10 @@
 .cards-container .card > div {
      border-radius: 50%;
 }
-.cards-container .card > div img {
+/* .cards-container .card > div img {
     width: 50%;
     height: auto;
-}
+} */
 
 .card-content > .span {
     float: right;
@@ -36,6 +36,7 @@
 
 .card-all-rides {
     background: #fff;
+    box-shadow: 10px 10px 5px #ccc;
 }
 
 .modal-card-container {
@@ -71,7 +72,7 @@
 }
 
 .openModal {
-    animation: decend 500ms linear .2s;
+    animation: rotate 500ms linear .2s;
     opacity: 1;
     visibility: visible;
     
@@ -81,7 +82,7 @@
     display: block;
 }
 
-@keyframes decend {
+@keyframes rotate {
     from {
         transform: rotateY(90deg);
     }

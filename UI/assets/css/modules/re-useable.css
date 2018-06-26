@@ -68,11 +68,9 @@ display: none;
 }
 
 .mobile-nav__item a {
-    font-size: 1.1rem;
-    color: #2f19a8;
-    font-weight: bold;
+    color: #1b0c74;
     padding: 0.2rem 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 
@@ -464,6 +462,7 @@ a {
     --brown: #851d1d;
     --success: #098b09;
     --danger: #db0a0a;
+    --skyblue: #1010d1;
 }
 
 .text-blue {
@@ -562,7 +561,7 @@ select {
 
 .btn-blue {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--skyblue);
 }
 
 .btn-danger {
