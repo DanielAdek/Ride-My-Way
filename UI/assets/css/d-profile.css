@@ -22,6 +22,11 @@
     font-family: Roboto;
 }
 
+.edit-profile {
+    width: 60%;
+    margin: 3px 50px;
+}
+
 @media (max-width: 40rem) {
     .profile {
         grid-template-rows: 23rem auto;
