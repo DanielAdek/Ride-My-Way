@@ -1,5 +1,5 @@
 .header {
-    background: #1010d1;
+    background: var(--skyblue);
 }
 
 .wrapper {
