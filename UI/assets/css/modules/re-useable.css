@@ -68,11 +68,9 @@ display: none;
 }
 
 .mobile-nav__item a {
-    font-size: 1.1rem;
     color: #2f19a8;
-    font-weight: bold;
     padding: 0.2rem 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 
@@ -444,6 +442,13 @@ display: none;
     font-size: 1.1rem;
 }
 
+.font-s-md {
+    font-size: 1.3rem;
+}
+
+.font-s-lg {
+    font-size: 1.5rem;
+}
 /* ======================
     anchor tag
 ======================== */
@@ -464,6 +469,7 @@ a {
     --brown: #851d1d;
     --success: #098b09;
     --danger: #db0a0a;
+    --skyblue: #0a0abb;
 }
 
 .text-blue {
@@ -562,7 +568,7 @@ select {
 
 .btn-blue {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--skyblue);
 }
 
 .btn-danger {
