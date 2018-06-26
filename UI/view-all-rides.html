@@ -30,16 +30,20 @@
         <div class="wrapper flex-row justify-content-sb">
             <div class="logo-brand">
                 <h3>
+                    <i class="fas fa-car text-light"></i>
                     <a class="text-light" href="">Ride-My-Way</a>
                 </h3>
             </div>
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
-                    <li class="list-group-item pr-2" title="Driver's Profile">
-                        <a class="text-light" href="d-profile.html">Profile</a>
+                    <li class="list-group-item pr-2" title="All Avaliable Ride Offers">
+                        <a class="text-danger" href="#">Avaliable Rides</a>
                     </li>
-                    <li class="list-group-item pl-3" title="See all Notifications">
-                        <i class="fas fa-bell text-light"></i>
+                    <li class="list-group-item pr-2" title="Join Passengers">
+                        <a class="text-light" href="signup.html">Sign Up</a>
+                    </li>
+                    <li class="list-group-item pr-2" title="Join Drivers">
+                        <a class="text-light" href="register-driver.html">Join Drivers</a>
                     </li>
                 </ul>
             </nav>
@@ -51,6 +55,7 @@
     <div class="modal">
         <div class="card card-sm modal-card-container">
             <div class="card-content p-1">
+                <span class="font-md close-modal text-danger span" title="Close">X</span>
                 <h1 class="six">Daniel Adek</h1>
                 <span>Toyota Corola |2017 </span>
                 <hr>
@@ -70,8 +75,9 @@
                 <hr>
                 <p class="seat">3 Passengers More</p>
                 <hr>
+                <textarea class="p-4 block-xl" name="msg" id="msg" cols="20" placeholder="What will you like to tell your driver?" rows="5"></textarea>
+                <br>
                 <button type="submit" class="btn block-xl btn-success font-md close-modal">Request Ride</button>
-                <button class="btn block-xl btn-danger font-md close-modal mt-3 text-light">Close</button>
             </div>
         </div>
     </div>
@@ -79,50 +85,15 @@
         A form to search new offer rides, and divs to show result
     ============================================================= -->
     <section class="main-container">
-        <div class="wrapper grid-row-1 grid-column-4">
-            <div class="sidebar flex-column">
-                <div class="sidebar-container mt-1">
-                    <div class="driver-name mt-4 p-4">
-                        <h1>Daniel Adekunle</h1>
-                    </div>
-                    <nav class="sidebar-nav-links">
-                        <ul class="list-group-items">
-                            <li class="list-group-item p-3" title="Dashboard Home page">
-                                <a class="#" href="dashboard-driver.html">Dashboard</a>
-                            </li>
-                            <li class="list-group-item p-3 dashboard-current" title="view all Offers from driver">
-                                <a class="" href="driver.dashboard.html">Create Rides Offer</a>
-                            </li>
-                            <li class="list-group-item p-3" title="view passenger's request">
-                                <a href="view-request.html">View Requests</a>
-                            </li>
-                            <li class="list-group-item p-3" title="view passenger's request">
-                                <a href="view-all-rides.html">View Avaliable Rides</a>
-                            </li>
-                            <li class="list-group-item p-3" title="use google map">
-                                <a class="" href="map.html">Google Map</a>
-                            </li>
-                            <li class="list-group-item p-3" title="log out">
-                                <a class="" href="index.html" id="log-out">Log Out</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+        <div class="wrapper">
             <div class="dashboard-main-wrapper">
                 <div class="search-rides flex-row justify-content-center align-items-center">
                     <div class="search-form">
                         <h2 class="text-center">Quick Search Rides</h2>
-                        <form action="" class="flex-row flex-wrap justify-content-center">
-                            <div class="input-departure mr-3">
-                                <input type="text" class="p-5" name="depart" id="departure" placeholder="Enter Departure Location" required>
-                            </div>
-                            <div class="input-arive mr-3">
-                                <input type="text" class="p-5" name="arive" id="arrival" placeholder="Enter Arival Location" required>
-                            </div>
-                            <div class="input-date mr-3 ">
-                                <input type="date" class="p-5" name="date" id="date-view-all-rides">
-                            </div>
+                        <form action="" class="quick-search-form">
+                            <input type="text" class="p-5 mb-3" name="depart" id="departure" placeholder="Enter Departure Location" required>
+                            <input type="text" class="p-5 mb-3" name="arive" id="arrival" placeholder="Enter Arival Location" required>
+                            <input type="date" class="p-5 mb-3" name="date" id="date-view-all-rides">
                             <button type="search" class="btn btn-blue" id="search-rides">Search</button>
                         </form>
                     </div>
@@ -132,100 +103,106 @@
                         <h2 class="text-center">Avaliable Ride Offers</h2>
                         <hr class="line-rule">
                     </div>
-                    <div class="cards-container flex-row flex-wrap justify-content-se p-3">
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/bmw.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="one">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
+                    <div class="cards-container p-3">
+                        <div class="flex-row justify-content-se flex-wrap">
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="one">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
+                            </div>
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="two">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
+                            </div>
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="three">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/nissan.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="two">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
+
+                        <div class="flex-row justify-content-se flex-wrap">
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="one">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/bmw.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="three">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="two">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/nissan.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="four">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
-                            </div>
-                        </div>
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/bmw.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="five">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
-                            </div>
-                        </div>
-                        <div class="card card-all-rides flex-row p-5 mb-3">
-                            <img src="./_assets/_imgs/nissan.jpg" alt="">
-                            <div class="card-content">
-                                <h1 class="six">Daniel Adek</h1>
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Departure: Unilag -- 10:49 AM 27/11/2018
-                                </p>
-                                <p class="arival">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Arival: Andela --235 Ikorodu Road
-                                </p>
-                                <a href="#" class="view-details">View More Detail</a>
+                            <div class="card card-all-rides flex-row p-3 mb-3">
+                                <div class="card-content">
+                                    <h1 class="three">Daniel Adek</h1>
+                                    <p class="departure">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Departure: Unilag -- 10:49 AM 27/11/2018
+                                    </p>
+                                    <p class="arival">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Arival: Andela --235 Ikorodu Road
+                                    </p>
+                                    <a href="#" class="view-details">View More Detail</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class=" card flex-row justify-content-center">
+            <div class="btn">1</div>
+            <div class="btn">2</div>
+            <div class="btn">3</div>
+            <div class="btn">4</div>
+            <div class="btn">>></div>
         </div>
     </section>
     <!-- ================================================
@@ -237,26 +214,20 @@
         </div>
         <nav class="">
             <ul class="mobile-nav__items">
-                <li class="mobile-nav__item">
-                    <a href="#">Dashboard</a>
-                </li>
-                <li class="mobile-nav__item" title="use google map">
-                    <a class="" href="d-profile.html">Profile</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a href="driver.dashboard.html">Create Rides Offer</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a href="view-request.html">View Requests</a>
-                </li>
                 <li class="mobile-nav__item dashboard-current">
-                    <a href="view-all-rides.html">View Avaliable Rides</a>
+                    <a href="view-all-rides.html">Avaliable Rides</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="register-driver.html">Join Drivers</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="signup.html">Sign Up</a>
                 </li>
                 <li class="mobile-nav__item" title="use google map">
                     <a class="" href="map.html">Google Map</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="index.html">Log Out</a>
+                    <a href="index.html">Log In</a>
                 </li>
             </ul>
         </nav>

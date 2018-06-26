@@ -1,0 +1,101 @@
+<div class="backdrop-modal"></div>
+
+class="view-details"
+
+<div class="modal">
+        <div class="card card-sm modal-card-container">
+            <div class="card-content p-1">
+                <h1 class="six">Daniel Adek</h1>
+                <span>Toyota Corola |2017 </span>
+                <hr>
+                <p class="departure">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Departure: Unilag -- 10:49 AM 27/11/2018
+                </p>
+                <hr>
+                <p class="arival">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Arival: Andela --235 Ikorodu Road
+                </p>
+                <hr>
+                <p class="time">Time: 04:56 AM</p>
+                <hr>
+                <p class="cost">Cost: $3.00</p>
+                <hr>
+                <p class="seat">3 Passengers More</p>
+                <hr>
+                <button type="submit" class="btn block-xl btn-success font-md close-modal">Request Ride</button>
+                <button class="btn block-xl btn-danger font-md close-modal mt-3 text-light">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+.modal-card-container {
+    font-family: Roboto;
+    font-size: 1.1rem;
+    width: 60%;
+    background: #ccc;
+}
+
+.backdrop-modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: 200;
+    display: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../imgs/vnicecar.jpg');
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 20%;
+    right: 25%;
+    top: 20%;
+    bottom: 25%;
+    width: 100vw;
+    z-index: 300;
+}
+
+.openModal {
+    display: block;
+}
+
+.openBackdrop {
+    display: block;
+}
+
+const modal = document.querySelector('.modal');
+const backdropOverLay = document.querySelector('.backdrop-modal');
+const modalButton = document.querySelectorAll('.close-modal');
+const viewDetailLink = document.querySelectorAll('.view-details');
+
+viewDetailLink.forEach((element) => {
+    element.addEventListener('click', showModal);
+});
+
+modalButton.forEach((element) => {
+    element.addEventListener('click', closeModal);
+});
+
+function showModal() {
+    backdropOverLay.classList.add('openBackdrop');
+    modal.classList.add('openModal');   
+}
+
+function closeModal() {
+    backdropOverLay.classList.remove('openBackdrop');
+    modal.classList.remove('openModal');
+}
+

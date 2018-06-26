@@ -68,7 +68,7 @@ display: none;
 }
 
 .mobile-nav__item a {
-    color: #2f19a8;
+    color: #1b0c74;
     padding: 0.2rem 0;
     text-transform: capitalize;
 }
@@ -442,13 +442,6 @@ display: none;
     font-size: 1.1rem;
 }
 
-.font-s-md {
-    font-size: 1.3rem;
-}
-
-.font-s-lg {
-    font-size: 1.5rem;
-}
 /* ======================
     anchor tag
 ======================== */
@@ -469,7 +462,7 @@ a {
     --brown: #851d1d;
     --success: #098b09;
     --danger: #db0a0a;
-    --skyblue: #0a0abb;
+    --skyblue: #1010d1;
 }
 
 .text-blue {
