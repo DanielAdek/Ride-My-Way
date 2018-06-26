@@ -4,7 +4,7 @@
 }
 .space > div {
     animation: fallIn 1s linear 500ms;
-    transform: translateY(120px);
+    transform: translateY(135px);
 }
 .space > div > h1 {
     font-family: Roboto;
@@ -77,6 +77,6 @@
         transform: translateY(-300px)
     }
     to {
-        transform: translateY(120px);
+        transform: translateY(130px);
     }
 }
