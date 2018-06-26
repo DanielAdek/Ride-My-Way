@@ -16,9 +16,7 @@
 .time-date {
     width: 100%;
 }
-div.date, div.time {
-    width: 80%;
-}
+
 
 .grid-col-sm {
     grid-column: 1 / 2;
