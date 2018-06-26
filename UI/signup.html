@@ -27,21 +27,16 @@
         </button>
         <div class="wrapper flex-row justify-content-sb">
             <div class="logo-brand">
-                <h3>
-                    <i class="fas fa-car text-light"></i>
-                    <a class="text-light" href="index.html">Ride-My-Way</a>
+                <h3 class="font-s-md">
+                    <i class="fas fa-car text-light font-s-lg"></i>
+                    <a class="text-light" href="index.html">RMW</a>
                 </h3>
             </div>
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
-                    <li class="list-group-item pl-3" title="Log in to your account">
-                        <a class="text-white" href="about.html">About Us</a>
                     </li>
                     <li class="list-group-item pl-3" title="Log in to your account">
                         <a class="text-white" href="index.html">Log in</a>
-                    </li>
-                    <li class="list-group-item pl-3" title="Sign up as a user">
-                        <a class="text-white current" href="#">Sign Up</a>
                     </li>
                     <li class="list-group-item current pl-3" title="Sign up as a driver">
                         <a class="text-white" href="register-driver.html">Join Drivers</a>
@@ -56,9 +51,6 @@
     <nav class="mobile-nav">
         <ul class="mobile-nav__items">
             <li class="mobile-nav__item">
-                <a href="about.html">About Us</a>
-            </li>
-            <li class="mobile-nav__item">
                 <a href="index.html">Log In</a>
             </li>
             <li class="mobile-nav__item">
@@ -72,42 +64,39 @@
     <!-- =================================================
                     Sign up form for users
     ====================================================== -->
-    <section class="main-container" id="bg-pic__main-section">
+    <section class="main-container" id="">
         <div class="container m-1">
-            <div class="p-1 sign-up-card card">
+            <div class="p-1 sign-up-card">
                 <div class="card-title text-center">
-                    <h3 class="text-center sign-up-title">Create An Account With Ride-My-Way</h3>
+                    <h3 class="text-center sign-up-title text-blue">Create An Account With Ride-My-Way</h3>
                 </div>
-                <div class="form-group-div">
-                    <form class="form-group" action="passenger-dashboard.html">
+                <div class="form-group-div flex-row justify-content-center">
+                    <form class="form-group card p-2" action="passenger-dashboard.html">
 
                         <label class="label" for="username">Username:</label>
                         <input class="p-4" type="text" name="username" id="username" required>
-
+                        <br>
                         <label class="label" for="email">Email:</label>
                         <input class="p-4" type="email" name="email" id="email" required>
-
+                        <br>
                         <label class="label" for="password">Password:</label>
                         <input class="p-4" type="password" name="password" id="password" required>
-
+                        <br>
                         <label class="label" for="confirm-password">Confirm Password:</label>
                         <input class="p-4" type="password" name="confirm-password" id="confirm-password" required>
-
+                        <br>
                         <label class="label" for="phone">Contact Number: </label>
                         <input class="p-4" type="text" name="phone" />
-
+                        <br>
                         <label class="label" for="gender">Gender:</label>
                         <select name="gender" id="">
                             <option>Select Gender Type</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
-                        <div class="signup-checkbox mt-3 flex-row justify-content-center">
-                            <input type="checkbox">
-                            <a href="#">I Agree To Terms And Conditions</a>
-                        </div>
-                        <div class="clearfix mb-4"></div>
-                        <button type="submit" class="btn block-lg btn-blue sign-up-btn">Sign Up</button>
+                        <div class="clearfix mt-2"></div>
+                        <button type="submit" class="btn btn-blue">Sign Up</button>
+                        <a href="#" class="text-blue text-center mt-3">Forget Password?</a>
                     </form>
                 </div>
             </div>
