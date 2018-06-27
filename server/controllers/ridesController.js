@@ -3,6 +3,7 @@ import ridesdb from '../dummydb/ridesdb';
 
 // let id = 2;
 const onRequest = [];
+
 /**
  * @class Rides
  */
@@ -108,18 +109,25 @@ export default class Rides {
   static requestRide(req, res) {
     const { rideId } = req.params;
     let requestSent = false;
-    const { message } = req.body;
+    let availableSeats;
+    const { message, requestId } = req.body;
     return new Promise((resolve, reject) => {
       ridesdb
         .forEach((ride) => {
           if (ride.rideId === rideId) {
             ride.seats -= 1;
-            ride.onRequest.push({ message });
-            requestSent = true;
+            availableSeats = ride.seats;
+            if (availableSeats < 0) {
+              ride.seats = 0;
+              reject(new Error('Sorry no available seat, try another ride'));
+            } else {
+              ride.onRequest.push({ requestId, message });
+              requestSent = true;
+            }
           }
         });
       if (!requestSent) {
-        reject(new Error('There was a problem sending request. check ride identification'));
+        return reject(new Error('There was a problem sending request. check ride identification'));
       }
       resolve({
         message: 'Your request has beean successfully sent!',
