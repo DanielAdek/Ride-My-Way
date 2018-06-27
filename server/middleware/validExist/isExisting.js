@@ -38,14 +38,13 @@ export default class CheckExistence {
   static requestRide(req, res, next) {
     const { requestId } = req.body;
     let requested = false;
-    ridedb
-      .forEach((ride) => {
-        for (const request of ride.onRequest) {
-          if (request.requestId === requestId) {
-            requested = true;
-          }
+    for (let ride of ridedb) {
+      ride.onRequest.forEach((request) => {
+        if (request.requestId === requestId) {
+          requested = true;
         }
-      });
+      })
+    };
     if (requested) {
       return res.status(400).json({
         message: 'eh! you cannot request twice'
