@@ -1,6 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
+import ridesdb from '../dummydb/ridesdb';
 
 const { should } = chai;
 
@@ -9,7 +10,6 @@ chai.use(chaiHttp);
 
 describe('Test all rides APIs', () => {
   describe('/GET route find all rides', () => {
-    const rides = [{}, {}];
     it('should return all rides and return 200 status code', (done) => {
       chai.request(app)
         .get('/api/v1/rides')
@@ -17,9 +17,25 @@ describe('Test all rides APIs', () => {
           res.should.have.status(200);
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
-          res.body.message.should.be.eql(`Here You Are!, ${rides.length} rides for You`);
+          res.body.message.should.be.eql(`Here You Are!, ${ridesdb.length} rides for You`);
           res.body.should.have.property('rides');
           res.body.rides.should.be.an('array');
+          done();
+        });
+    });
+    it('should not return any ride and return 404 status code', (done) => {
+      chai.request(app)
+        .get('/api/v1/rides')
+        .end((err, res) => {
+          res.should.have.status(200);
+          if (ridesdb.length === 0) {
+            res.body.should.have.property('error');
+            res.body.error.should.be.a('string');
+            res.body.error.should.be.eql('Oops Sorry!,');
+            res.body.should.have.property('message');
+            res.body.message.should.be.a('string');
+            res.body.message.should.be.eql('Cannot find any ride offers yet! please, Try Again In 20 Minutes');
+          }
           done();
         });
     });
@@ -57,10 +73,10 @@ describe('Test all rides APIs', () => {
     const newRide = {
       rideId: '3#4744b-6%888-3',
       departure: 'Unilag',
-      arrival: 'Andela',
+      destination: 'Andela',
       time: '04:49AM',
       date: '25/06/2018',
-      spotInCar: 3,
+      seats: 3,
       cost: '$3.0'
     };
     it('should create a ride and return 200 status code', (done) => {
@@ -72,6 +88,8 @@ describe('Test all rides APIs', () => {
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
           res.body.message.should.be.eql('new Ride successfully created');
+          res.body.should.have.property('ride');
+          res.body.ride.should.be.an('object');
           done();
         });
     });
