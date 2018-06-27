@@ -79,7 +79,7 @@ describe('Test all rides APIs', () => {
       seats: 3,
       cost: '$3.0'
     };
-    it('should create a ride and return 200 status code', (done) => {
+    it('should create a ride and return 201 status code', (done) => {
       chai.request(app)
         .post('/api/v1/rides')
         .send(newRide)
@@ -105,7 +105,10 @@ describe('Test all rides APIs', () => {
     });
   });
   describe('/POST route create a request', () => {
-    const newRequest = { message: 'I was hoping to join you on this trip' };
+    const newRequest = {
+      requestId: '538d-f862-420e-bcdc',
+      message: 'I was hoping to join you on this trip'
+    };
     it('should create a request and return 201 status code', (done) => {
       chai.request(app)
         .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
@@ -122,10 +125,32 @@ describe('Test all rides APIs', () => {
           done();
         });
     });
+    it('should not create a ride twice and return 400 status code', (done) => {
+      chai.request(app)
+        .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
+        .send(newRequest)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.have.property('message');
+          res.body.message.should.be.a('string');
+          res.body.message.should.be.eql('eh! you cannot request twice');
+          done();
+        });
+    });
+    it('should not create a ride and return 422 status code', (done) => {
+      chai.request(app)
+        .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
+        .send({})
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.have.property('errors');
+          done();
+        });
+    });
     it('should not create a ride and return 404 status code', (done) => {
       chai.request(app)
-        .post('/api/v1/rides/419/request')
-        .send(newRequest)
+        .post('/api/v1/rides/a6553d-f862-420e-cdc-80743df068/request')
+        .send({ requestId: 'a6553d-f862' })
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.have.property('error');
