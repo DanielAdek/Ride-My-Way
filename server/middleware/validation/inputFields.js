@@ -2,21 +2,26 @@ import { check } from 'express-validator/check';
 
 export default {
   checker: [
+    check('rideId')
+      .trim()
+      .not()
+      .isEmpty()
+      .withMessage('Please specify an Id for this ride'),
     check('departure')
       .trim()
       .not()
       .isEmpty()
       .withMessage('Please fill the departures field'),
-    check('arrival')
+    check('destination')
       .trim()
       .not()
       .isEmpty()
-      .withMessage('Please fill the arrival field'),
-    check('spotInCar')
+      .withMessage('Please fill the destination field'),
+    check('seats')
       .trim()
       .not()
       .isEmpty()
-      .withMessage('Please specify spot in car field'),
+      .withMessage('Please specify the available seats in car'),
     check('date')
       .trim()
       .not()
