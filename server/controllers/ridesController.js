@@ -3,6 +3,7 @@ import ridesdb from '../dummydb/ridesdb';
 
 // let id = 2;
 const onRequest = [];
+
 /**
  * @class Rides
  */
@@ -17,7 +18,7 @@ export default class Rides {
   static getAllRides(req, res) {
     return new Promise((resolve, reject) => {
       const offeredRides = ridesdb.map(allAvailableRides => allAvailableRides);
-      if (offeredRides.length < +true) {
+      if (offeredRides.length < 1) {
         reject(new Error('Cannot find any ride offers yet! please, Try Again In 20 Minutes'));
       }
       resolve(offeredRides);
@@ -27,7 +28,7 @@ export default class Rides {
         rides
       });
     }).catch((err) => {
-      res.status(404).json({
+      res.status(200).json({
         error: 'Oops Sorry!,',
         message: err.message
       });
@@ -79,18 +80,21 @@ export default class Rides {
      */
   static createRideOffer(req, res) {
     const {
-      rideId, departure, arrival, time, date, spotInCar, cost
+      rideId, departure, destination, time, date, seats, cost
     } = req.body;
     return new Promise((resolve, reject) => {
       ridesdb
         .push({
-          rideId, departure, arrival, time, date, spotInCar, cost, onRequest
+          rideId, departure, destination, time, date, seats, cost, onRequest
         });
       resolve('new Ride successfully created');
       reject(new Error('There was a problem creating the ride offer, try again'));
     })
       .then(newRideOffer => res.status(201).json({
-        message: newRideOffer
+        message: newRideOffer,
+        ride: {
+          rideId, departure, destination, time, date, seats, cost
+        }
       })).catch(err => res.status(500).json({ message: err.message }));
   }
 
@@ -105,18 +109,25 @@ export default class Rides {
   static requestRide(req, res) {
     const { rideId } = req.params;
     let requestSent = false;
-    const { message } = req.body;
+    let availableSeats;
+    const { message, requestId } = req.body;
     return new Promise((resolve, reject) => {
       ridesdb
         .forEach((ride) => {
           if (ride.rideId === rideId) {
-            ride.spotInCar -= 1;
-            ride.onRequest.push({ message });
-            requestSent = true;
+            ride.seats -= 1;
+            availableSeats = ride.seats;
+            if (availableSeats < 0) {
+              ride.seats = 0;
+              reject(new Error('Sorry no available seat, try another ride'));
+            } else {
+              ride.onRequest.push({ requestId, message });
+              requestSent = true;
+            }
           }
         });
       if (!requestSent) {
-        reject(new Error('There was a problem sending request. check ride identification'));
+        return reject(new Error('There was a problem sending request. check ride identification'));
       }
       resolve({
         message: 'Your request has beean successfully sent!',

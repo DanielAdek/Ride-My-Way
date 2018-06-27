@@ -1,6 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
+import ridesdb from '../dummydb/ridesdb';
 
 const { should } = chai;
 
@@ -9,7 +10,6 @@ chai.use(chaiHttp);
 
 describe('Test all rides APIs', () => {
   describe('/GET route find all rides', () => {
-    const rides = [{}, {}];
     it('should return all rides and return 200 status code', (done) => {
       chai.request(app)
         .get('/api/v1/rides')
@@ -17,9 +17,25 @@ describe('Test all rides APIs', () => {
           res.should.have.status(200);
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
-          res.body.message.should.be.eql(`Here You Are!, ${rides.length} rides for You`);
+          res.body.message.should.be.eql(`Here You Are!, ${ridesdb.length} rides for You`);
           res.body.should.have.property('rides');
           res.body.rides.should.be.an('array');
+          done();
+        });
+    });
+    it('should not return any ride and return 404 status code', (done) => {
+      chai.request(app)
+        .get('/api/v1/rides')
+        .end((err, res) => {
+          res.should.have.status(200);
+          if (ridesdb.length === 0) {
+            res.body.should.have.property('error');
+            res.body.error.should.be.a('string');
+            res.body.error.should.be.eql('Oops Sorry!,');
+            res.body.should.have.property('message');
+            res.body.message.should.be.a('string');
+            res.body.message.should.be.eql('Cannot find any ride offers yet! please, Try Again In 20 Minutes');
+          }
           done();
         });
     });
@@ -57,13 +73,13 @@ describe('Test all rides APIs', () => {
     const newRide = {
       rideId: '3#4744b-6%888-3',
       departure: 'Unilag',
-      arrival: 'Andela',
+      destination: 'Andela',
       time: '04:49AM',
       date: '25/06/2018',
-      spotInCar: 3,
+      seats: 3,
       cost: '$3.0'
     };
-    it('should create a ride and return 200 status code', (done) => {
+    it('should create a ride and return 201 status code', (done) => {
       chai.request(app)
         .post('/api/v1/rides')
         .send(newRide)
@@ -72,6 +88,8 @@ describe('Test all rides APIs', () => {
           res.body.should.have.property('message');
           res.body.message.should.be.a('string');
           res.body.message.should.be.eql('new Ride successfully created');
+          res.body.should.have.property('ride');
+          res.body.ride.should.be.an('object');
           done();
         });
     });
@@ -87,7 +105,10 @@ describe('Test all rides APIs', () => {
     });
   });
   describe('/POST route create a request', () => {
-    const newRequest = { message: 'I was hoping to join you on this trip' };
+    const newRequest = {
+      requestId: '538d-f862-420e-bcdc',
+      message: 'I was hoping to join you on this trip'
+    };
     it('should create a request and return 201 status code', (done) => {
       chai.request(app)
         .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
@@ -104,10 +125,32 @@ describe('Test all rides APIs', () => {
           done();
         });
     });
+    it('should not create a ride twice and return 400 status code', (done) => {
+      chai.request(app)
+        .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
+        .send(newRequest)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.have.property('message');
+          res.body.message.should.be.a('string');
+          res.body.message.should.be.eql('eh! you cannot request twice');
+          done();
+        });
+    });
+    it('should not create a ride and return 422 status code', (done) => {
+      chai.request(app)
+        .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
+        .send({})
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.have.property('errors');
+          done();
+        });
+    });
     it('should not create a ride and return 404 status code', (done) => {
       chai.request(app)
-        .post('/api/v1/rides/419/request')
-        .send(newRequest)
+        .post('/api/v1/rides/a6553d-f862-420e-cdc-80743df068/request')
+        .send({ requestId: 'a6553d-f862' })
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.have.property('error');
