@@ -17,7 +17,7 @@ export default class Rides {
   static getAllRides(req, res) {
     return new Promise((resolve, reject) => {
       const offeredRides = ridesdb.map(allAvailableRides => allAvailableRides);
-      if (offeredRides.length < +true) {
+      if (offeredRides.length < 1) {
         reject(new Error('Cannot find any ride offers yet! please, Try Again In 20 Minutes'));
       }
       resolve(offeredRides);
@@ -27,7 +27,7 @@ export default class Rides {
         rides
       });
     }).catch((err) => {
-      res.status(404).json({
+      res.status(200).json({
         error: 'Oops Sorry!,',
         message: err.message
       });
@@ -79,18 +79,21 @@ export default class Rides {
      */
   static createRideOffer(req, res) {
     const {
-      rideId, departure, arrival, time, date, spotInCar, cost
+      rideId, departure, destination, time, date, seats, cost
     } = req.body;
     return new Promise((resolve, reject) => {
       ridesdb
         .push({
-          rideId, departure, arrival, time, date, spotInCar, cost, onRequest
+          rideId, departure, destination, time, date, seats, cost, onRequest
         });
       resolve('new Ride successfully created');
       reject(new Error('There was a problem creating the ride offer, try again'));
     })
       .then(newRideOffer => res.status(201).json({
-        message: newRideOffer
+        message: newRideOffer,
+        ride: {
+          rideId, departure, destination, time, date, seats, cost
+        }
       })).catch(err => res.status(500).json({ message: err.message }));
   }
 
@@ -110,7 +113,7 @@ export default class Rides {
       ridesdb
         .forEach((ride) => {
           if (ride.rideId === rideId) {
-            ride.spotInCar -= 1;
+            ride.seats -= 1;
             ride.onRequest.push({ message });
             requestSent = true;
           }
