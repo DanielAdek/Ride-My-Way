@@ -1,7 +1,7 @@
 import { check } from 'express-validator/check';
 
 export default {
-  checker: [
+  validOfferRide: [
     check('rideId')
       .trim()
       .not()
@@ -31,6 +31,19 @@ export default {
       .trim()
       .not()
       .isEmpty()
-      .withMessage('Please specify time for the trip')
+      .withMessage('Please specify time for the trip'),
+    check('cost')
+      .trim()
+      .not()
+      .isEmpty()
+      .withMessage('How much for this trip')
+  ],
+
+  validRequestRide: [
+    check('requestId')
+      .trim()
+      .not()
+      .isEmpty()
+      .withMessage('Please specify an Id for this request')
   ]
 };
