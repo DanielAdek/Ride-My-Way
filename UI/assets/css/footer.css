@@ -1,0 +1,9 @@
+footer {
+    background: var(--skyblue);
+    height: 2rem;
+}
+
+.footer p {
+    font-family: Roboto;
+    font-size: .8rem;
+}

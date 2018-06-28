@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ride-My-Way | View Rides</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=5 initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/modules/main.css" />
+</head>
+
+<body class="grid-row-3 grid-areas">
+    <div class="backdrop"></div>
+    <!--=================================================
+       header section with toggle button for mobile view
+       and naviation links for desktop view, and logo-brand.
+    =====================================================-->
+    <header class="header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <div class="wrapper flex-row justify-content-sb">
+            <div class="logo-brand">
+                <h3>
+                    <i class="fas fa-car text-light"></i>
+                    <a class="text-light" href="">Ride-My-Way</a>
+                </h3>
+            </div>
+            <nav class="nav-links">
+                <ul class="list-group-items">
+                    <li class="list-group-item" title="Driver's Profile">
+                        <a class="text-light" href="passenger-profile.html">Profile</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ================================================
+        Navigation links for mobiles view
+    ====================================================== -->
+    <div class="mobile-nav">
+        <div class="driver-name mt-4 p-4">
+            <h1>Daniel Adekunle</h1>
+        </div>
+        <nav class="">
+            <ul class="mobile-nav__items">
+                <li class="mobile-nav__item dashboard-current">
+                    <a href="passenger-dashboard.html">Dashboard</a>
+                </li>
+                <li class="mobile-nav__item" title="use google map">
+                    <a class="" href="passenger-profile.html">Profile</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="view-all-rides.html">View Avaliable Rides</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="index.html">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- ============================================================
+        Main section containing a sidebar navigation and div to show
+        A table to show list of all rides taken/offerd
+    ================================================================= -->
+    <section class="main-container">
+        <div class="container-wrapper grid-row-1 grid-column-4">
+            <div class="sidebar flex-column">
+                <div class="sidebar-container mt-1">
+                    <div class="driver-name mt-4 p-4">
+                        <h1>Daniel Adekunle</h1>
+                    </div>
+                    <nav class="sidebar-nav-links">
+                        <ul class="list-group-items">
+                            <li class="list-group-item p-3 dashboard-current" title="Dashboard Home page">
+                                <a class="#">Dashboard</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view passenger's request">
+                                <a href="view-all-rides.html">View Avaliable Rides</a>
+                            </li>
+                            <li class="list-group-item p-3" title="log out">
+                                <a class="" href="index.html" id="log-out">Log Out</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="dashboard-main-wrapper dashboard-grid-row-3 bg-none">
+                <div class="head-container flex-row justify-content-sb p-3">
+                    <div class="time">
+                        <p>Monday, 18th June 2018 12:53 AM</p>
+                    </div>
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+                <div class="flex-row flex-wrap info-card-container justify-content-se">
+                    <div class="card card-sm p-3 info-card">
+                        <h1>Ride Offers Taken</h1>
+                        <p>235 Rides Taken</p>
+                    </div>
+                </div>
+                <div class="list-rides">
+                    <h1>List Of Rides Taken</h1>
+                    <table>
+                        <tr>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Date</th>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                        <tr>
+                            <td>Unilag --225 Akoka Road</td>
+                            <td>Andela --235 Ikorodu Road</td>
+                            <td> 27/11/2018</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--===============================================
+            footer section with copy right text
+    ===================================================-->
+    <footer class="main-footer">
+        <div class="footer">
+            <p class="text-center text-light">Ride-My-Way &copy; 2018 Daniel Adekunle. Andela</p>
+        </div>
+    </footer>
+    <script src="./assets/jsfiles/mobile-nav.js"></script>
+</body>
+
+</html>

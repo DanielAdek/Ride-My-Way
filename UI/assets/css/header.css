@@ -1,0 +1,99 @@
+.header {
+    background: var(--skyblue);
+}
+
+.wrapper {
+    padding: .5rem;
+}
+
+.list-group-items {
+    list-style: none;
+}
+
+.logo-brand {
+    animation: slideIn 2s ease-in-out 100ms;
+    transform: translate(40px, -10px);
+}
+
+.logo-brand > h3 a {
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+
+.logo-brand > h3 > i {
+    font-size: 2rem;
+}
+.nav-links {
+    transform: translateX(-10px);
+    animation: slidIn 2.5s ease-in-out 100ms;
+    font-family: Roboto;
+}
+
+/* ===================
+    Toggle Button
+======================= */
+
+.toggle-button {
+    width: 3rem;
+    background: var(--crystal);
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-button__bar {
+    margin: 0.3rem 0;
+    display: block;
+    height: 0.3rem;
+    background: var(--white);
+}
+
+
+@media (max-width: 40rem) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-links {
+        display: none;
+    }
+
+    .toggle-button {
+        display: block;
+    }
+}
+@keyframes slidIn {
+    from {
+        transform: translateX(300px)
+    }
+    to {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-300px)
+    }
+    to {
+        transform: translateX(50px);
+    }
+}
+
+@media (max-width: 40rem) {
+    .logo-brand {
+        transform: translate(-10px, -10px);
+    }
+    .logo-brand > h3 a {
+        font-family: Roboto;
+        font-size: 1.5rem;
+    }
+    
+    .logo-brand > h3 > i {
+        font-size: 2.1rem;
+    }
+}
