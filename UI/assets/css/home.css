@@ -1,5 +1,5 @@
 .space {
-    width: 60%;
+    width: 100%;
     height: 500px;
 }
 .space > div {
@@ -28,6 +28,10 @@
 
 .form-wrapper {
     width: inherit;
+}
+
+#home-page-body {
+    overflow: hidden;
 }
 
 #index-page {
@@ -68,7 +72,7 @@
         /* margin-right: 23px; */
     }
     .space > div {
-        transform: translateY(50px);
+        transform: translateY(230px);
     }
 }
 

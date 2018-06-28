@@ -12,7 +12,7 @@
 
 .logo-brand {
     animation: slideIn 2s ease-in-out 100ms;
-    transform: translate(80px, -10px);
+    transform: translate(40px, -10px);
 }
 
 .logo-brand > h3 a {
@@ -86,11 +86,11 @@
 
 @media (max-width: 40rem) {
     .logo-brand {
-        transform: translate(-10px, -5px);
+        transform: translate(-10px, -10px);
     }
     .logo-brand > h3 a {
         font-family: Roboto;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     
     .logo-brand > h3 > i {

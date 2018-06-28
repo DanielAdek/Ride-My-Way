@@ -186,7 +186,7 @@ display: none;
 
 .grid-row-3 {
     display: grid;
-    grid-template-rows: 5rem auto fit-content(10rem);
+    grid-template-rows: 4rem auto fit-content(5rem);
 }
 
 .grid-row-1 {
@@ -489,7 +489,7 @@ a {
 
 .card {
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 2px #000;
+    /* box-shadow: 2px 2px 2px #000; */
     border-radius: 9px;
 }
 
@@ -517,11 +517,6 @@ a {
     input styling
 ========================== */
 
-input:not([type="checkbox"]) {
-    border-radius: 5px;
-    /* width: auto; */
-}
-
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
@@ -542,7 +537,7 @@ select {
 
 .btn {
     padding: .7rem;
-    border-radius: 9px;
+    /* border-radius: 9px; */
     cursor: pointer;
     border: none;
     font-family: Roboto;

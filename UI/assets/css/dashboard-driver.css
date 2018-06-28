@@ -1,6 +1,10 @@
-.info-card {
-    background: #fff;
-    margin: 0 10px;
+.main-wrapper-container {
+    overflow-y: auto;
+    height: 300px;
+}
+
+.sidebar-container {
+    height: 640px;
 }
 
 .info-card-container {
@@ -35,7 +39,6 @@ tr:nth-child(even) {
 .dashboard-grid-row-3 {
     display: grid;
     grid-template-rows: 2rem, 10rem, auto;
-    grid-gap: 50px;
 }
 
 .list-rides {
@@ -45,9 +48,9 @@ tr:nth-child(even) {
 .list-rides h1 {
     color: #fff;
 }
-
+/* 
 @media (max-width: 40rem) {
     .info-card {
         margin: 10px 0;
     }
-}
+} */

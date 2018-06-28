@@ -26,7 +26,7 @@
     color: var(--success);
 }
 
-.arival {
+.Destination {
     color: var(--danger);
 }
 
@@ -34,11 +34,19 @@
     width: 80%;
 }
 
-.card-all-rides {
-    background: #fff;
-    box-shadow: 10px 10px 5px #ccc;
+.cards-container {
+    overflow-y: auto;
+    height: 395px;
 }
 
+.card-all-rides {
+    background: #fff;
+    /* box-shadow: 10px 10px 5px #ccc; */
+}
+
+.d-all-avail-ride-container {
+    height: 600px;
+}
 .modal-card-container {
     font-family: Roboto;
     font-size: 1.1rem;
@@ -104,5 +112,9 @@
     .quick-search-form {
         display: flex;
         flex-direction: column;
+    }
+    .cards-container {
+        overflow-y: auto;
+        height: 200px;
     }
 }
