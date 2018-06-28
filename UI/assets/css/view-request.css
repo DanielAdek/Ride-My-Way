@@ -37,6 +37,11 @@
     background: #ebeff2;
 }
 
+.requests {
+    height: 550px;
+    overflow-y: auto;
+}
+
 .dashboard-current {
     background: #fff;
     border-left: 5px solid var(--skyblue);

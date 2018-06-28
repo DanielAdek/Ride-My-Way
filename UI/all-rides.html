@@ -36,11 +36,12 @@
             </div>
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
-                    <li class="list-group-item pr-2" title="Join the ride">
-                        <a class="text-light" href="signup.html">Sign Up</a>
+                    <li class="list-group-item" title="Driver's Profile">
+                        <a class="text-light" href="d-profile.html">Profile</a>
                     </li>
-                    <li class="list-group-item pr-2" title="Join the ride">
-                        <a class="text-light" href="login.html">Log In</a>
+                    <li class="list-group-item pl-3" title="See all Notifications">
+                        <!-- <a class="text-white">Notifications</a> -->
+                        <i class="fas fa-bell text-light"></i>
                     </li>
                 </ul>
             </nav>
@@ -82,7 +83,30 @@
         A form to search new offer rides, and divs to show result
     ============================================================= -->
     <section class="main-container">
-        <div class="wrapper">
+        <div class="d-all-avail-ride-container container-wrapper grid-row-1 grid-column-4">
+            <div class="sidebar flex-column">
+                <div class="sidebar-container mt-1">
+                    <div class="driver-name mt-4 p-4">
+                        <h4>Daniel Adekunle</h4>
+                    </div>
+                    <nav class="sidebar-nav-links">
+                        <ul class="list-group-items">
+                            <li class="list-group-item p-3 dashboard-current" title="Dashboard Home page">
+                                <a class="#">Dashboard</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view all Offers from driver">
+                                <a class="" href="driver.dashboard.html">Create Rides Offer</a>
+                            </li>
+                            <li class="list-group-item p-3" title="view passenger's request">
+                                <a href="view-request.html">View Requests</a>
+                            </li>
+                            <li class="list-group-item p-3" title="log out">
+                                <a class="" href="index.html" id="log-out">Log Out</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
             <div class="dashboard-main-wrapper">
                 <div class="search-rides flex-row justify-content-center align-items-center">
                     <div class="search-form">

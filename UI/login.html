@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/modules/main.css" />
 </head>
 
-<body class="grid-row-3" id="home-page-body">
+<body class="grid-row-3 grid-areas">
 
     <!-- Backdrop layout -->
     <div class="backdrop"></div>
@@ -35,7 +35,7 @@
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
                     <li class="list-group-item pl-1 nav-link" title="Log in here">
-                        <a class="text-white" href="login.html">Log In</a>
+                        <a class="text-white login-form-link" href="#">Log In</a>
                     </li>
                     <li class="list-group-item pl-1 nav-link" title="Sign up here">
                         <a class="text-white" href="signup.html">Sign Up</a>
@@ -55,10 +55,7 @@
     <nav class="mobile-nav">
         <ul class="mobile-nav__items">
             <li class="mobile-nav__item">
-                <a href="login.html">Log In</a>
-            </li>
-            <li class="mobile-nav__item">
-                <a href="view-all-rides.html">Search Ride</a>
+                <a href="all-rides.html">Search Ride</a>
             </li>
             <li class="mobile-nav__item">
                 <a href="signup.html">Sign Up</a>
@@ -71,30 +68,61 @@
     <!-- =============================================
     main section with login form with more-info button
     ================================================== -->
-    <section class="main-container flex-row align-items-center" id="index-page">
-        <div class="space flex-row justify-content-center">
-            <div class="text-center text-white">
-                <h1>Tap A Button, Ride My Way</h1>
-                <a href="login.html">
-                    <button class="btn btn-blue block-lg ml-1">
-                        <!-- <i class="fas fa-info-circle text-light"></i> -->
-                        <i class="fas fa-car text-light"></i>
-                        Getting Started
-                    </button>
-                </a>
+    <!-- <section class=" flex-row align-items-center" id="index-page">
+        <div class="login-container flex-row justify-content-center">
+            <div class="card card-sm p-1 login-form flex-column align-items-center">
+                <div class="card-title text-center">
+                    <h3 class="login-title text-blue">Login To Your Ride-My-Way Account</h3>
+                </div>
+                <div class="form-wrapper">
+                    <form action="driver.dashboard.html">
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="text" name="user-detail" placeholder="Username/Email/Phone" required>
+                        </div>
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="password" name="password" placeholder="Password" id="password" required>
+                        </div>
+                        <button class="btn block-xl p-4 btn-blue">
+                            <i class="fas fa-sign-in-alt text-light"></i>
+                            Log In
+                        </button>
+                    </form>
+                    <hr>
+                </div>
+                <div class="mt-4">
+                    <a href="#" class="text-blue drivers-link">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="main-container">
+        <div class="container mt-1">
+            <div class="p-1">
+                <div class="form-group-div flex-row justify-content-center">
+                    <form class="form-group p-2" action="passenger-dashboard.html">
+                        <input class="p-4" type="text" placeholder="Username or Email here" name="username" id="username" required>
+                        <br>
+                        <input class="p-4" type="password" name="password" placeholder="password here" id="password" required>
+                        <div class="clearfix mt-2"></div>
+                        <button type="submit" class="btn btn-blue">Log In</button>
+                        <div class="mt-4">
+                            <a href="#" class="text-blue text-center">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
     <!--===============================================
             footer section with copy right text
     ===================================================-->
-    <!-- <footer class="main-footer">
+    <footer class="main-footer">
         <div class="footer">
             <p class="text-center text-light">
                 Ride-My-Way &copy; 2018 Daniel Adekunle. Andela
             </p>
         </div>
-    </footer> -->
+    </footer>
     <script src="./assets/jsfiles/mobile-nav.js"></script>
 </body>
 
