@@ -1,0 +1,182 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app.",
+      "version": "1.0.0",
+      "title": "Ride-My-Way",
+      "contact": {
+        "email": "maildaniel.me1@gmail.com"
+      }
+    },
+    "host": "ridemyway-danieladek.herokuapp.com",
+    "basePath": "/api/v1/",
+    "tags": [
+      {
+        "name": "rides",
+        "description": "Rides that can be booked"
+      }
+    ],
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "paths": {
+      "/rides": {
+        "post": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "Add a new ride detail",
+          "description": "",
+          "operationId": "addRide",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Ride object that needs to be added",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Ride"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "New ride offer created"
+            },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "Retrieves all existing ride offers",
+          "description": "",
+          "operationId": "getRides",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Retrieved all ride offers"
+            }
+          }
+        }
+      },
+      "/rides/{rideId}": {
+        "get": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "Find ride by ID",
+          "description": "Returns a single ride detail",
+          "operationId": "getRifdeById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "rideId",
+              "in": "path",
+              "description": "ID of ride to retrieve",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ride details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Ride"
+              }
+            },
+            "404": {
+              "description": "Ride not found"
+            }
+          }
+        }
+      },
+      "/rides/{rideId}/request": {
+        "post": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "New request on ride",
+          "description": "Returns a single ride detail",
+          "operationId": "addRequestByrideId",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "rideId",
+              "in": "path",
+              "description": "request a ride by ID",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Ride details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Ride"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Ride": {
+        "type": "object",
+        "properties": {
+          "rideId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "departure": {
+            "type": "string"
+          },
+          "arrival": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "spotInCar": {
+            "type": "integer"
+          },
+          "carModel": {
+            "type": "string"
+          },
+          "carPlateNo": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "string"
+          },
+          "onRequest": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }

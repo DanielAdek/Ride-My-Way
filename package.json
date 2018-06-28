@@ -1,0 +1,50 @@
+{
+  "name": "ride-my-way",
+  "version": "1.0.0",
+  "description": "Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node server/bin/www",
+    "start:dev": "nodemon --exec babel-node server/bin/www",
+    "lint": "eslint --fix server/",
+    "test": "nyc --reporter=html --reporter=text mocha server/test --compilers js:babel-core/register --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielAdek/Ride-My-Way.git"
+  },
+  "keywords": [
+    "Ride-My-Way"
+  ],
+  "author": "Daniel Adek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielAdek/Ride-My-Way/issues"
+  },
+  "homepage": "https://github.com/DanielAdek/Ride-My-Way#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-validator": "^5.2.0",
+    "mocha": "^5.2.0",
+    "swagger-ui-express": "^3.0.10"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "nodemon": "^1.17.5",
+    "nyc": "^12.0.2"
+  }
+}
