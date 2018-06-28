@@ -6,7 +6,7 @@ import db from '../models/connect';
  */
 export default class Users {
   /**
-   * createRideOffer();
+   * createUser();
      * @description Create ride offers
      * @param {*} req HTTP request object
      * @param {*} res HTTP response object
