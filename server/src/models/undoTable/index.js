@@ -1,25 +1,5 @@
-import db from '../connect';
+import schema from './dropTable';
 
-export default {
-
-  dropUserTable() {
-    return new Promise((resolve, rejects) => {
-      const userModel = `
-    DROP TABLE IF EXISTS users CASCADE;`;
-    return db.query(userModel);
-    })
-    
-  },
-
-  dropRideTable() {
-    const rideModel = `
-    DROP TABLE IF EXISTS rides CASCADE;`;
-    return db.query(rideModel);
-  },
-
-  dropRequestTable() {
-    const requestModal = `
-    DROP TABLE IF EXISTS request CASCADE;`;
-    return db.query(requestModal);
-  }
-};
+schema.dropUserTable();
+schema.dropRideTable();
+schema.dropRequestTable();
