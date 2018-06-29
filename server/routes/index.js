@@ -15,4 +15,6 @@ const router = express.Router();
 router.post('/auth/signup', user.createUser);
 router.post('/auth/login', user.loginUser);
 router.get('/rides', rides.getAllRides);
+router.get('/rides/:rideId', rides.getSingleRide);
+
 export default router;
