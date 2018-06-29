@@ -21,11 +21,15 @@ export default {
     const rideModel = `
     CREATE TABLE rides (
       id SERIAL primary key,
-      firstName text NOT NULL,
-      lastName text NOT NULL,
-      role text NOT NULL,
-      email text NOT NULL,
-      password text NOT NULL
+      departure text NOT NULL,
+      destination text NOT NULL,
+      time text NOT NULL,
+      date text NOT NULL,
+      seats text NOT NULL,
+      cost text NOT NULL,
+      message text,
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     `;
     return db.query(rideModel);

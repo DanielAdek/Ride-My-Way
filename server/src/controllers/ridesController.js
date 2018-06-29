@@ -41,14 +41,36 @@ export default class Rides {
     db.query(queryRide, param)
       .then((ride) => {
         if (ride.rows.length < 1) {
-          return res.status(200).json({
+          return res.status(404).json({
             message: 'Oops Sorry! the requested ride does not exist'
           });
         }
-        return res.status(404).json({
+        return res.status(200).json({
           message: 'Here You Are! good to go!',
           ride: ride.rows
         });
       }).catch(err => res.status(500).json({ message: err.message }));
+  }
+
+  /**
+   * createRideOffer();
+     * @description Create ride offers
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     * @returns {object} json
+     */
+  static createRideOffer(req, res) {
+    const {
+      departure, destination, time, date, seats, cost, message
+    } = req.body;
+    const rideOffer = 'INSERT INTO rides (departure, destination, time, date, seats, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
+    const params = [departure, destination, time, date, seats, cost, message];
+    db.query(rideOffer, params)
+      .then(() => res.status(201).json({
+        message: 'new ride successfully created',
+        ride: {
+          departure, destination, time, date, seats, cost, message
+        }
+      })).catch(err => res.status(500).json({ message: err.message }));
   }
 }
