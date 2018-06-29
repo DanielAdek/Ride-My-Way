@@ -12,5 +12,6 @@ const router = express.Router();
 // router.post('/rides/:rideId/request', existing.requestRide, checkInput.validRequestRide, auth.validateInput, rides.requestRide);
 
 router.post('/auth/signup', user.createUser);
+router.post('/auth/login', user.loginUser);
 
 export default router;
