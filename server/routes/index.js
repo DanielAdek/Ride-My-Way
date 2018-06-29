@@ -1,5 +1,6 @@
 import express from 'express';
 import user from '../src/controllers/userController';
+import rides from '../src/controllers/ridesController';
 // import auth from '../middleware/validation/auth';
 // import checkInput from '../middleware/validation/inputFields';
 // import existing from '../middleware/validExist/isExisting';
@@ -13,5 +14,5 @@ const router = express.Router();
 
 router.post('/auth/signup', user.createUser);
 router.post('/auth/login', user.loginUser);
-
+router.get('/rides', rides.getAllRides);
 export default router;
