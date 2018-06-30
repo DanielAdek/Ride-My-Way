@@ -1,6 +1,7 @@
 import express from 'express';
 import user from '../src/controllers/userController';
 import rides from '../src/controllers/ridesController';
+import request from '../src/controllers/requestController';
 // import auth from '../middleware/validation/auth';
 // import checkInput from '../middleware/validation/inputFields';
 // import existing from '../middleware/validExist/isExisting';
@@ -17,5 +18,6 @@ router.post('/auth/login', user.loginUser);
 router.get('/rides', rides.getAllRides);
 router.get('/rides/:rideId', rides.getSingleRide);
 router.post('/users/rides', rides.createRideOffer);
+router.post('/rides/:rideId/request', request.requestRide);
 
 export default router;
