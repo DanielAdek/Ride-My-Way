@@ -5,11 +5,11 @@ export default {
   createUserTable() {
     const userModel = `
     CREATE TABLE users (
-      id SERIAL primary key,
-      fullName text NOT NULL,
-      username text NOT NULL,
-      email text NOT NULL,
-      password text NOT NULL,
+      userId SERIAL PRIMARY KEY,
+      fullName VARCHAR(255) NOT NULL,
+      username VARCHAR(80) NOT NULL,
+      email TEXT NOT NULL UNIQUE,
+      password VARCHAR(80) NOT NULL,
       created_at TIMESTAMP DEFAULT NOW(),
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -20,14 +20,15 @@ export default {
   createRideTable() {
     const rideModel = `
     CREATE TABLE rides (
-      id SERIAL primary key,
-      departure text NOT NULL,
-      destination text NOT NULL,
-      time text NOT NULL,
-      date text NOT NULL,
-      seats text NOT NULL,
-      cost text NOT NULL,
-      message text,
+      rideId SERIAL PRIMARY KEY,
+      userId INTEGER REFERENCES users(userId),
+      departure TEXT NOT NULL,
+      destination TEXT NOT NULL,
+      time VARCHAR(30) NOT NULL,
+      date VARCHAR(30) NOT NULL,
+      seats INTEGER NOT NULL,
+      cost TEXT NOT NULL,
+      message TEXT,
       created_at TIMESTAMP DEFAULT NOW(),
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -37,13 +38,14 @@ export default {
 
   createRequestTable() {
     const requestModal = `
-    CREATE TABLE request (
-      id SERIAL primary key,
-      firstName text NOT NULL,
-      lastName text NOT NULL,
-      role text NOT NULL,
-      email text NOT NULL,
-      password text NOT NULL
+    CREATE TABLE requests (
+      requestId SERIAL PRIMARY KEY,
+      userId INTEGER REFERENCES users(userId),
+      rideId INTEGER REFERENCES rides(rideId),
+      username VARCHAR(80) NOT NULL,
+      message TEXT,
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     `;
     return db.query(requestModal);

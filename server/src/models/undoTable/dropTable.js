@@ -16,7 +16,7 @@ export default {
 
   dropRequestTable() {
     const requestModal = `
-    DROP TABLE IF EXISTS request CASCADE;`;
+    DROP TABLE IF EXISTS requests CASCADE;`;
     return db.query(requestModal);
   }
 };

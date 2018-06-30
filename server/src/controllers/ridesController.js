@@ -61,15 +61,15 @@ export default class Rides {
      */
   static createRideOffer(req, res) {
     const {
-      departure, destination, time, date, seats, cost, message
+      departure, destination, time, date, seats, cost, message, userId
     } = req.body;
-    const rideOffer = 'INSERT INTO rides (departure, destination, time, date, seats, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *';
-    const params = [departure, destination, time, date, seats, cost, message];
+    const rideOffer = 'INSERT INTO rides (userId, departure, destination, time, date, seats, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
+    const params = [userId, departure, destination, time, date, seats, cost, message];
     db.query(rideOffer, params)
       .then(() => res.status(201).json({
         message: 'new ride successfully created',
         ride: {
-          departure, destination, time, date, seats, cost, message
+          userId, departure, destination, time, date, seats, cost, message
         }
       })).catch(err => res.status(500).json({ message: err.message }));
   }
