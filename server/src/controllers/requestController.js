@@ -14,31 +14,36 @@ export default class Rides {
      */
   static requestRide(req, res) {
     const { rideId } = req.params;
-    const queryRide =  'INSERT INTO requests (message) VALUES ($1) returning *';
-    const param = [rideId];
-    const requestSent = false;
-    const noSpace = false;
+    const { username, message, userId } = req.body;
+    const findRideById = 'SELECT * FROM rides WHERE rideId = $1';
+    const queryRide = 'INSERT INTO requests (userId, rideId, username, message) VALUES ($1, $2, $3, $4) returning *';
     let availableSeats;
-    db.query(queryRide, param)
-      .then((newRequest) => {
-        newRequest.forEach((ride) => {
-            if (ride.rideId === rideId) {
-              ride.seats -= 1;
-              availableSeats = ride.seats;
-              if (availableSeats < 0) {
-                ride.seats = 0;
-                noSpace = true;
-              } else {
-                ride.onRequest.push({ requestId, message });
-                requestSent = true;
-              }
-            }
-          });
-          if (!requestSent) {
-            return res.status(404).json({ message: 'There was a problem sending request. check ride identification' }));
+    db.query(findRideById, [rideId]).then((rides) => {
+      rides.rows.forEach((ride) => {
+        if (ride.rideid === parseInt(rideId, 10)) {
+          ride.seats -= 1;
+          availableSeats = ride.seats;
+          db.query('UPDATE rides SET seats=$1', [availableSeats]);
+          if (availableSeats < 0) {
+            db.query('UPDATE rides SET seats=$1', [ride.seats = 0]);
+            return res.status(400).json({
+              message: 'Sorry no available seat, try another ride'
+            });
           }
-        res.status(201).json({ newRequest });
-      })
-      .catch(err => res.status(404).json({ error: err.message }));
+          db.query(queryRide, [userId, rideId, username, message])
+            .then(() => {
+              res.status(201).json({
+                message: 'Your request has beean successfully sent!',
+                status: 'pending....',
+                request: {
+                  username, message, userId, rideId
+                }
+              });
+            })
+            .catch(err => res.status(404).json({ error: err.message }));
+        }
+      });
+    })
+      .catch(err => res.status(400).json({ message: err.message }));
   }
 }
