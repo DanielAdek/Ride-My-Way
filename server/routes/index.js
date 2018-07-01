@@ -19,5 +19,6 @@ router.get('/rides', rides.getAllRides);
 router.get('/rides/:rideId', rides.getSingleRide);
 router.post('/users/rides', rides.createRideOffer);
 router.post('/rides/:rideId/request', request.requestRide);
+router.get('/users/rides/:rideId/requests', request.getRequests);
 
 export default router;

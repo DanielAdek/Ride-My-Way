@@ -48,4 +48,30 @@ export default class Rides {
     })
       .catch(err => res.status(400).json({ message: err.message }));
   }
+
+  /**
+   * getRequests();
+     * @description get all rides
+     * @param {*} req
+     * @param {*} res
+     * @returns {object} json
+     */
+  static getRequests(req, res) {
+    const { rideId } = req.params;
+    const queryRequest = 'SELECT * FROM requests WHERE rideid=$1';
+    db.query(queryRequest, [rideId])
+      .then((requests) => {
+        if (requests.rows.length < 1) {
+          return res.status(200).json({
+            message: 'Oops Sorry! no available request yet'
+          });
+        }
+        return res.status(200).json({
+          message: `Here You Are!, ${requests.rows.length} requests for You`,
+          requests: requests.rows
+        });
+      }).catch(err => res.status(500).json({ message: err.message }));
+  }
+
+  
 }
