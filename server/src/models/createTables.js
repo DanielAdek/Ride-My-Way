@@ -44,6 +44,7 @@ export default {
       rideId INTEGER REFERENCES rides(rideId),
       username VARCHAR(80) NOT NULL,
       message TEXT,
+      action VARCHAR(50),
       created_at TIMESTAMP DEFAULT NOW(),
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
