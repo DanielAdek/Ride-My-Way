@@ -51,9 +51,9 @@ export default class Rides {
 
   /**
    * getRequests();
-     * @description get all rides
-     * @param {*} req
-     * @param {*} res
+     * @description get all requests
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
      * @returns {object} json
      */
   static getRequests(req, res) {
@@ -73,5 +73,26 @@ export default class Rides {
       }).catch(err => res.status(500).json({ message: err.message }));
   }
 
-  
+  /**
+   * updateRequest();
+     * @description get all rides
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     * @returns {object} json
+     */
+  static updateRequest(req, res) {
+    const { rideId, requestId } = req.params;
+    const { action } = req.body;
+    const queryRide = 'SELECT * FROM rides WHERE rideid=$1';
+    const queryRequest = 'UPDATE requests SET action=$1 WHERE requestId=$2';
+    db.query(queryRide, [rideId]).then((rides) => {
+      rides.rows.forEach((ride) => {
+        if (ride.rideid === parseInt(rideId, 10)) {
+          db.query(queryRequest, [action, requestId]).then(() => res.status(200).json({
+            message: `Request successfully ${action}`
+          }));
+        }
+      });
+    });
+  }
 }
