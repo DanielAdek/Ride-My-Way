@@ -1,6 +1,6 @@
 import db from '../models/connect';
 
-
+let availableSeats;
 /**
  * @class Rides
  */
@@ -17,7 +17,6 @@ export default class Rides {
     const { username, message, userId } = req.body;
     const findRideById = 'SELECT * FROM rides WHERE rideId = $1';
     const queryRequest = 'INSERT INTO requests (userId, rideId, username, message) VALUES ($1, $2, $3, $4) returning *';
-    let availableSeats;
     db.query(findRideById, [rideId]).then((rides) => {
       rides.rows.forEach((ride) => {
         if (ride.rideid === parseInt(rideId, 10)) {
@@ -25,7 +24,7 @@ export default class Rides {
           availableSeats = ride.seats;
           db.query('UPDATE rides SET seats=$1', [availableSeats]);
           if (availableSeats < 1) {
-            db.query('UPDATE rides SET seats=$1', [ride.seats = 0]);
+            db.query('UPDATE rides SET seats=$1', [availableSeats * 0]);
             return res.status(400).json({
               message: 'Sorry no available seat, try another ride'
             });
@@ -85,14 +84,31 @@ export default class Rides {
     const { action } = req.body;
     const queryRide = 'SELECT * FROM rides WHERE rideid=$1';
     const queryRequest = 'UPDATE requests SET action=$1 WHERE requestId=$2';
-    db.query(queryRide, [rideId]).then((rides) => {
-      rides.rows.forEach((ride) => {
-        if (ride.rideid === parseInt(rideId, 10)) {
-          db.query(queryRequest, [action, requestId]).then(() => res.status(200).json({
-            message: `Request successfully ${action}`
-          }));
-        }
+    if (action.toLowerCase() === 'accepted') {
+      db.query(queryRide, [rideId]).then((rides) => {
+        rides.rows.forEach((ride) => {
+          if (ride.rideid === parseInt(rideId, 10)) {
+            db.query(queryRequest, [action, requestId]).then(() => res.status(200).json({
+              message: `Request successfully ${action}`
+            }));
+          }
+        });
+      })
+        .catch(err => res.status(500).json({ message: err.message }));
+    }
+    if (action.toLowerCase() === 'rejected') {
+      db.query(queryRide, [rideId]).then((rides) => {
+        rides.rows.forEach((ride) => {
+          if (ride.rideid === parseInt(rideId, 10)) {
+            db.query('DELETE FROM requests WHERE requestId=$1', [requestId]).then(() => {
+              res.status(200).json({ message: `Request ${action}` });
+              db.query('UPDATE rides SET seats = $1', [ride.seats += 1]);
+            })
+              .catch(err => res.status(400).json({ message: err.message }));
+          }
+        });
       });
-    });
+    }
   }
 }
+
