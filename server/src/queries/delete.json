@@ -1,0 +1,3 @@
+{
+    "requestByRequestId" : "DELETE FROM requests WHERE requestId=$1"
+}

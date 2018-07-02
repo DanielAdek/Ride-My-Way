@@ -1,0 +1,4 @@
+{
+    "seats" : "UPDATE rides SET seats=$1",
+    "actionByRequestId" : "UPDATE requests SET action=$1 WHERE requestId=$2"
+}

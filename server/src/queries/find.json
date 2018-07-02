@@ -1,0 +1,7 @@
+{
+    "userByEmail" : "SELECT * FROM users WHERE email = $1 LIMIT 1;",
+    "requestByRideId" : "SELECT * FROM requests WHERE rideid=$1",
+    "findRideById" : "SELECT * FROM rides WHERE rideId = $1",
+    "allRides" : "SELECT * FROM rides",
+    "rideById" : "SELECT * FROM rides WHERE rideId = $1;"
+}
