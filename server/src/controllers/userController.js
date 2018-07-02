@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
 import db from '../models/connect';
+import find from '../queries/find.json';
+import insert from '../queries/insert.json';
 
 /**
  * @class Users
@@ -17,10 +19,9 @@ export default class Users {
     const {
       fullName, username, email
     } = req.body;
-    const query = 'INSERT INTO users (fullName, username, email, password) VALUES ($1, $2, $3, $4) returning *';
-    const params = [fullName, username, email, password];
+    const valuesIntoTable = [fullName, username, email, password];
     db
-      .query(query, params)
+      .query(insert.userSignup, valuesIntoTable)
       .then(newUser => res.status(201).json({ message: newUser.rows }))
       .catch(err => res.status(500).json({ message: err.message }));
   }
@@ -32,10 +33,9 @@ export default class Users {
      */
   static loginUser(req, res) {
     const { email, password } = req.body;
-    const query = 'SELECT * FROM users WHERE email = $1 LIMIT 1;';
-    const param = [email];
+    const userEmail = [email];
     db
-      .query(query, param)
+      .query(find.userByEmail, userEmail)
       .then((user) => {
         if (user.rows[0] && bcrypt.compareSync(password, user.rows[0].password)) {
           return res.status(200).json({ message: 'user logged in' });
