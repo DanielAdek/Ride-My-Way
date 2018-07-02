@@ -1,4 +1,6 @@
 import db from '../models/connect';
+import insert from '../queries/insert.json';
+import find from '../queries/find.json';
 
 /**
  * @class Rides
@@ -12,8 +14,7 @@ export default class Rides {
      * @returns {object} json
      */
   static getAllRides(req, res) {
-    const allRides = 'SELECT * FROM rides';
-    db.query(allRides)
+    db.query(find.allRides)
       .then((rides) => {
         if (rides.rows.length < 1) {
           return res.status(200).json({
@@ -36,9 +37,7 @@ export default class Rides {
      */
   static getSingleRide(req, res) {
     const { rideId } = req.params;
-    const queryRide = 'SELECT * FROM rides WHERE rideId = $1;';
-    const param = [rideId];
-    db.query(queryRide, param)
+    db.query(find.rideById, [rideId])
       .then((ride) => {
         if (ride.rows.length < 1) {
           return res.status(404).json({
@@ -63,9 +62,8 @@ export default class Rides {
     const {
       departure, destination, time, date, seats, cost, message, userId
     } = req.body;
-    const rideOffer = 'INSERT INTO rides (userId, departure, destination, time, date, seats, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) returning *';
-    const params = [userId, departure, destination, time, date, seats, cost, message];
-    db.query(rideOffer, params)
+    const valuesIntoTable = [userId, departure, destination, time, date, seats, cost, message];
+    db.query(insert.rideOffer, valuesIntoTable)
       .then(() => res.status(201).json({
         message: 'new ride successfully created',
         ride: {
