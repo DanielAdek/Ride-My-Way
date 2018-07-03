@@ -3,5 +3,9 @@
     "requestByRideId" : "SELECT * FROM requests WHERE rideid=$1",
     "findRideById" : "SELECT * FROM rides WHERE rideId = $1",
     "allRides" : "SELECT * FROM rides",
-    "rideById" : "SELECT * FROM rides WHERE rideId = $1;"
+    "rideById" : "SELECT * FROM rides WHERE rideId = $1;",
+    "allUsers": "SELECT * FROM users",
+    "userByUsername": "SELECT * FROM users WHERE username = $1",
+    "rideByTimeAndDate": "SELECT * FROM rides WHERE time = $1 AND date=$2",
+    "requestByUsername": "SELECT * FROM requests WHERE username=$1"
 }
