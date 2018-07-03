@@ -17,6 +17,7 @@ export default class Rides {
      * @returns {object} json
      */
   static requestRide(req, res) {
+    // const { userid } = req.decoded;
     const { rideId } = req.params;
     const { username, message, userId } = req.body;
     const valuesIntoTable = [userId, rideId, username, message];
