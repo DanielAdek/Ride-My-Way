@@ -119,26 +119,26 @@ describe('Test all rides APIs', () => {
     });
   });
   describe('/POST route create a request', () => {
-    const newRequest = {
-      username: 'danielijni',
-      message: 'I was hoping to join you on this trip'
-    };
-    it.only('should create a request and return 201 status code', (done) => {
-      chai.request(app)
-        .post(`${baseUrl}/rides/4/request`)
-        .set('x-access-token', token.user)
-        .send(newRequest)
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.have.property('request');
-          res.body.request.should.have.be.an('object');
-          res.body.should.have.property('message');
-          res.body.should.have.property('status');
-          res.body.status.should.be.eql('pending....');
-          res.body.message.should.be.eql('Your request has beean successfully sent!');
-          done();
-        });
-    });
+    // const newRequest = {
+    //   username: 'danielijni',
+    //   message: 'I was hoping to join you on this trip'
+    // };
+    // it('should create a request and return 201 status code', (done) => {
+    //   chai.request(app)
+    //     .post(`${baseUrl}/rides/4/request`)
+    //     .set('x-access-token', token.user)
+    //     .send(newRequest)
+    //     .end((err, res) => {
+    //       res.should.have.status(201);
+    //       res.body.should.have.property('request');
+    //       res.body.request.should.have.be.an('object');
+    //       res.body.should.have.property('message');
+    //       res.body.should.have.property('status');
+    //       res.body.status.should.be.eql('pending....');
+    //       res.body.message.should.be.eql('Your request has beean successfully sent!');
+    //       done();
+    //     });
+    // });
     // it('should not create a ride twice and return 400 status code', (done) => {
     //   chai.request(app)
     //     .post('/api/v1/rides/8a65538d-f862-420e-bcdc-80743df06578/request')
