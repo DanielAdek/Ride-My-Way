@@ -4,7 +4,7 @@ import insert from '../queries/insert.json';
 import update from '../queries/update.json';
 import find from '../queries/find.json';
 
-let availableSeats;
+// let availableSeats;
 /**
  * @class Rides
  */
@@ -24,28 +24,17 @@ export default class Rides {
     db.query(find.rideById, [rideId]).then((rides) => {
       rides.rows.forEach((ride) => {
         if (ride.rideid === parseInt(rideId, 10)) {
-          ride.seats -= 1;
-          availableSeats = ride.seats;
-          db.query(update.seats, [availableSeats]);
-          if (availableSeats < 1) {
-            db.query(update.seats, [availableSeats * 0]);
-            return res.status(400).json({
-              message: 'Sorry no available seat, try another ride'
-            });
-          }
-          if (availableSeats > 0) {
-            db.query(insert.userRequest, valuesIntoTable)
-              .then(() => {
-                res.status(201).json({
-                  message: 'Your request has beean successfully sent!',
-                  status: 'pending....',
-                  request: {
-                    username, message, userId, rideId
-                  }
-                });
-              })
-              .catch(err => res.status(404).json({ error: err.message }));
-          }
+          db.query(insert.userRequest, valuesIntoTable)
+            .then(() => {
+              res.status(201).json({
+                message: 'Your request has beean successfully sent!',
+                status: 'pending....',
+                request: {
+                  username, message, userId, rideId
+                }
+              });
+            })
+            .catch(err => res.status(409).json({ error: err.message }));
         }
       });
     })
@@ -85,16 +74,23 @@ export default class Rides {
   static updateRequest(req, res) {
     const { rideId, requestId } = req.params;
     const { action } = req.body;
-  
+    let availableSeats;
     if (action.toLowerCase() === 'accept') {
       db.query(find.rideById, [rideId]).then((rides) => {
-        rides.rows.forEach((ride) => {
-          if (ride.rideid === parseInt(rideId, 10)) {
-            db.query(update.actionByRequestId, [action, requestId]).then(() => res.status(200).json({
+        if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+          db.query(update.actionByRequestId, [action, requestId]).then(() => {
+            // QUERY TO DECREMENT SEATS
+            availableSeats = rides.rows[0].seats;
+            db.query(update.seats, [availableSeats -= 1, rideId]);
+            if (availableSeats === 0) {
+              db.query(update.seats, [rides.rows[0].seats = 0, rideId]);
+              return res.json({ message: 'no more slot in your car' });
+            }
+            res.status(200).json({
               message: `Request successfully ${action}`
-            }));
-          }
-        });
+            });
+          });
+        }
       })
         .catch(err => res.status(500).json({ message: err.message }));
     }
