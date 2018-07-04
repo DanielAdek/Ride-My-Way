@@ -36,7 +36,7 @@ router.post(
   auth.validateInput, user.loginUser
 );
 
-router.get('/rides', verifyUser, rides.getAllRides);
+router.get('/rides', rides.getAllRides);
 
 router.get('/rides/:rideId', verifyUser, rides.getSingleRide);
 
