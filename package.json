@@ -9,7 +9,7 @@
     "lint": "eslint --fix server/",
     "migrate": "babel-node server/src/models/index",
     "migrate:undo:all": "babel-node server/src/models/undoTable/index",
-    "test": "nyc --reporter=html --reporter=text mocha server/src/test --compilers js:babel-core/register --exit",
+    "test": "nyc --reporter=html --reporter=text mocha server/src/test --compilers js:babel-core/register --timeout 50000ms --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
