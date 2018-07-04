@@ -4,7 +4,7 @@ export default {
 
   createUserTable() {
     const userModel = `
-    CREATE TABLE users (
+    CREATE TABLE IF NOT EXISTS users (
       userId SERIAL PRIMARY KEY,
       fullName VARCHAR(255) NOT NULL,
       username VARCHAR(80) NOT NULL,
@@ -19,7 +19,7 @@ export default {
 
   createRideTable() {
     const rideModel = `
-    CREATE TABLE rides (
+    CREATE TABLE IF NOT EXISTS rides (
       rideId SERIAL PRIMARY KEY,
       userId INTEGER REFERENCES users(userId),
       departure TEXT NOT NULL,
@@ -38,7 +38,7 @@ export default {
 
   createRequestTable() {
     const requestModal = `
-    CREATE TABLE requests (
+    CREATE TABLE IF NOT EXISTS requests (
       requestId SERIAL PRIMARY KEY,
       userId INTEGER REFERENCES users(userId),
       rideId INTEGER REFERENCES rides(rideId),
