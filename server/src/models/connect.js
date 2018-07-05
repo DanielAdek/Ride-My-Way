@@ -2,21 +2,21 @@
 import { Client } from 'pg';
 import configPath from '../config/config';
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV;
+const local = configPath.development;
 const config = configPath[env];
-// const basename = path.basename(module.filename);
 
 let dbConnection;
-if (config.use_env_variables) {
-  dbConnection = new Client(process.env[config.use_env_variables]);
-} else {
+if (local) {
   dbConnection = new Client({
-    user: config.username,
-    host: config.host,
-    database: config.database,
-    password: config.password,
-    port: config.port
+    user: local.username,
+    host: local.host,
+    database: local.database,
+    password: local.password,
+    port: local.port
   });
+} else {
+  dbConnection = new Client({ config });
 }
 
 
