@@ -31,14 +31,6 @@ export default {
   request: [
     check('action')
       .trim().not().isEmpty()
-      .withMessage('Please specify an action for this request'),
+      .withMessage('Please specify an action for this request')
   ],
-
-  makeFieldsRequest: [
-    check('username')
-      .trim().not().isEmpty()
-      .withMessage('Please specify your username')
-      .matches(/^[a-zA-Z ]+$/)
-      .withMessage('username should be letters only')
-  ]
 };
