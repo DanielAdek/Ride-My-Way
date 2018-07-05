@@ -23,7 +23,10 @@ export default class Users {
     const {
       fullName, username, email
     } = req.body;
-    const valuesIntoTable = [fullName, username, email, password];
+
+    const valuesIntoTable = [fullName.toLowerCase(),
+      username.toLowerCase(),
+      email, password];
     db
       .query(insert.userSignup, valuesIntoTable)
       .then((newUser) => {
@@ -49,8 +52,8 @@ export default class Users {
       .query(find.userByEmail, userEmail)
       .then((user) => {
         if (user.rows[0] && bcrypt.compareSync(password, user.rows[0].password)) {
-          const { userid } = user.rows[0];
-          const token = jwt.sign({ email, userid }, secret, { expiresIn: '24h' });
+          const { userid, username } = user.rows[0];
+          const token = jwt.sign({ userid, email, username }, secret, { expiresIn: '24h' });
           return res.status(200).json({ message: 'user logged in', token });
         }
         return res.status(400).json({ message: 'email/password incorrect' });
