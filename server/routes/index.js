@@ -38,7 +38,7 @@ router.post(
 
 router.get('/rides', rides.getAllRides);
 
-router.get('/rides/:rideId', verifyUser, rides.getSingleRide);
+router.get('/rides/:rideId', rides.getSingleRide);
 
 router.post(
   '/users/rides', verifyUser, checkInput.validOfferRide,
@@ -46,8 +46,8 @@ router.post(
 );
 
 router.post(
-  '/rides/:rideId/request', verifyUser, checkInput.makeFieldsRequest,
-  auth.validateInput, validateRequestMessage, requestExit, request.requestRide
+  '/rides/:rideId/request', verifyUser,
+  validateRequestMessage, requestExit, request.requestRide
 );
 
 router.get('/users/rides/:rideId/requests', verifyUser, request.getRequests);
