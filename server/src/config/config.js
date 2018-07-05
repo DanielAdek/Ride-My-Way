@@ -18,7 +18,7 @@ export default {
     port: '5432'
   },
   production: {
-    username: process.env.USERNAME,
+    username: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
     host: process.env.HOST,
