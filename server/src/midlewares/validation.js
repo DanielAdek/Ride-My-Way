@@ -20,7 +20,7 @@ export default class Exting {
         });
       }
       next();
-    }).catch(err => console.log(err.message));
+    });
   }
 
   /**
@@ -32,14 +32,16 @@ export default class Exting {
      */
   static username(req, res, next) {
     const { username } = req.body;
-    db.query(find.userByUsername, [username]).then((user) => {
+    const userNme = username.toLowerCase();
+    db.query(find.userByUsername, [userNme]).then((user) => {
       if (user.rows.length > 0) {
         return res.status(400).json({
+          status: 'fail',
           message: 'Username already existed, choose another username'
         });
       }
       next();
-    }).catch(err => console.log(err.message));
+    });
   }
 
   /**
@@ -50,14 +52,17 @@ export default class Exting {
      * @returns {function} json
      */
   static ride(req, res, next) {
+    const { userid } = req.decoded;
     const { time, date } = req.body;
-    db.query(find.rideByTimeAndDate, [time, date]).then((ride) => {
-      if (ride.rows.length > 0) {
+    db.query(find.timeAndDateByUserId, [userid]).then((ride) => {
+      const existRide = ride.rows.filter(val => val.time === time && val.date === date);
+      if (existRide.join('')) {
         return res.status(400).json({
+          status: 'fail',
           message: 'You cannot create a ride that has the same date and time'
         });
       }
       next();
-    }).catch(err => console.log(err.message));
+    });
   }
 }
