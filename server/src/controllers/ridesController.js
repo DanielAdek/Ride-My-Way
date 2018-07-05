@@ -41,7 +41,8 @@ export default class Rides {
       .then((ride) => {
         if (ride.rows.length < 1) {
           return res.status(404).json({
-            message: 'Oops Sorry! the requested ride does not exist'
+            error: 'Oops Sorry!',
+            message: 'Cannot find any ride from this driver'
           });
         }
         return res.status(200).json({

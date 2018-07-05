@@ -27,10 +27,10 @@ export default class Users {
     db
       .query(insert.userSignup, valuesIntoTable)
       .then((newUser) => {
-        const { id } = newUser;
-        const token = jwt.sign({ email, id }, secret, { expiresIn: '24h' });
+        const { userid } = newUser.rows[0];
+        const token = jwt.sign({ userid, email, username }, secret, { expiresIn: '24h' });
         res.status(201).json({
-          message: newUser.rows,
+          message: newUser.rows[0],
           token
         });
       })
