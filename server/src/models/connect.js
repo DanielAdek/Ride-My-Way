@@ -4,7 +4,7 @@ import configPath from '../config/config';
 
 // const env = process.env.NODE_ENV;
 const local = configPath.development;
-const config = configPath.production;
+const config = configPath.production.data;
 console.log(config);
 let dbConnection;
 if (!config) {
@@ -16,7 +16,7 @@ if (!config) {
     port: local.port
   });
 } else {
-  dbConnection = new Client(config);
+  dbConnection = new Client({ config, ssl: true });
 }
 
 
