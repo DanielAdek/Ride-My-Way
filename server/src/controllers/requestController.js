@@ -1,5 +1,4 @@
 import db from '../models/connect';
-import destroy from '../queries/delete.json';
 import insert from '../queries/insert.json';
 import update from '../queries/update.json';
 import find from '../queries/find.json';
@@ -21,7 +20,14 @@ export default class Rides {
     const { rideId } = req.params;
     const { message } = req.body;
     const valuesIntoTable = [userid, rideId, username, message];
+
     db.query(find.rideById, [rideId]).then((rides) => {
+      if (userid === rides.rows[0].userid) {
+        return res.status(400).json({
+          status: 'fail',
+          message: 'You cannnot request your own ride'
+        });
+      }
       if (rides.rows[0].rideid === parseInt(rideId, 10)) {
         db.query(insert.userRequest, valuesIntoTable)
           .then(() => {
@@ -55,11 +61,13 @@ export default class Rides {
       .then((requests) => {
         if (requests.rows.length < 1) {
           return res.status(200).json({
+            status: 'success',
             message: 'Oops Sorry! no available request yet'
           });
         }
         return res.status(200).json({
-          message: `Here You Are!, ${requests.rows.length} requests for You`,
+          status: 'Success',
+          message: 'Found a ride for your request',
           requests: requests.rows
         });
       }).catch(err => res.status(500).json({ message: err.message }));
@@ -74,47 +82,71 @@ export default class Rides {
      */
   static updateRequest(req, res) {
     const { rideId, requestId } = req.params;
+    const { userid } = req.decoded;
     const { action } = req.body;
     let availableSeats;
-    db.query(find.rideById, [rideId]).then((rides) => {
-      if (rides.rows[0].rideid === parseInt(rideId, 10)) {
-        if (action.toLowerCase() === 'accept') {
-          db.query(update.actionByRequestId, [action, requestId]).then(() => {
-          // QUERY TO DECREMENT SEATS
-            availableSeats = rides.rows[0].seats;
-            db.query(update.seats, [availableSeats -= 1, rideId]);
-            if (availableSeats < 1) {
-              db.query(update.seats, [rides.rows[0].seats = 0, rideId]);
-              return res.json({ message: 'no more slot in your car' });
-            }
-            res.status(200).json({
-              status: 200,
-              message: 'Request successfully accepted'
-            });
-          });
-        } if (action.toLowerCase() === 'reject' && rides.rows[0].action === 'accept') {
-
-        }
-      } else {
-        return res.status(404).json({
-          error: true,
-          message: 'cannot find request'
+    db.query(find.requestByReqId, [requestId]).then(((request) => {
+      if (request.rows[0].userid === userid) {
+        return res.status(400).json({
+          status: 'fail',
+          message: 'This ride does not belong to you',
         });
       }
-    })
-      .catch(err => res.status(500).json({ message: err.message }));
-
-    if (action.toLowerCase() === 'reject') {
-      db.query(find.rideById, [rideId]).then((rides) => {
-        if (rides.rows[0].rideid === parseInt(rideId, 10)) {
-          db.query(destroy.requestByRequestId, [requestId]).then(() => {
-            res.status(200).json({ message: `Request ${action}` });
-            db.query(update.seats, [ride.seats += 1]);
-          })
-            .catch(err => res.status(400).json({ message: err.message }));
+      if (!request.rows[0].rideid || !request.rows[0].requestid) {
+        return res.status(400).json({
+          status: 'fail',
+          message: 'No request found!'
+        });
+      }
+      if (action.toLowerCase() === 'accept' && request.rows[0].userid !== userid) {
+        if (request.rows[0].action === 'accept') {
+          res.status(400).json({
+            status: 'fail',
+            message: 'Cannot accept a request twice'
+          });
+        } else {
+          db.query(update.actionByRequestId, [action, rideId, requestId]).then(() => {
+            // QUERY TO DECREMENT SEATS
+            db.query(find.rideByIdAndUserid, [rideId, userid]).then((rides) => {
+              availableSeats = rides.rows[0].seats;
+              availableSeats -= 1;
+              if (availableSeats > 1) {
+                db.query(update.seats, [availableSeats, rideId, userid]);
+              } else {
+                db.query(update.seats, [rides.rows[0].seats = 0, rideId, userid]);
+                return res.json({
+                  status: 'fail',
+                  message: 'no more slot in your car'
+                });
+              }
+              res.status(200).json({
+                status: 'Success',
+                message: 'Request successfully accepted'
+              });
+            });
+          });
         }
-      });
-    }
+      } if (action.toLowerCase() === 'reject' && request.rows[0].action !== null) {
+        if (request.rows[0].action === 'reject') {
+          res.status(400).json({
+            status: 'fail',
+            message: 'Cannot reject a request twice'
+          });
+        } else {
+          db.query(find.rideByIdAndUserid, [rideId, userid]).then((rides) => {
+            db.query(update.actionByRequestId, [action, rideId, requestId]);
+            db.query(update.seats, [rides.rows[0].seats += 1, rideId, userid]);
+            return res.status(200).json({
+              status: 'Success',
+              message: 'Request successfully rejected'
+            });
+          });
+        }
+      }
+    })).catch(err => res.status(400).json({
+      status: 'fail',
+      message: err.message
+    }));
   }
 }
 
