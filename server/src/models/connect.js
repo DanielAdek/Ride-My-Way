@@ -2,22 +2,20 @@
 import { Pool } from 'pg';
 import configPath from '../config/config';
 
-// const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
 const local = configPath.development;
-const config = configPath.production;
-console.log(config, 'sadfsdf');
+const config = configPath[env];
 let dbConnection;
+
 if (!config) {
-  console.log('no config seen')
   dbConnection = new Pool({
-    user: local.username,
+    user: local.user,
     host: local.host,
     database: local.database,
     password: local.password,
     port: local.port
   });
 } else {
-  console.log('config seen');
   dbConnection = new Pool(config);
 }
 

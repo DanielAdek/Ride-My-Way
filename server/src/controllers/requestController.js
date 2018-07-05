@@ -76,11 +76,11 @@ export default class Rides {
     const { rideId, requestId } = req.params;
     const { action } = req.body;
     let availableSeats;
-    if (action.toLowerCase() === 'accept') {
-      db.query(find.rideById, [rideId]).then((rides) => {
-        if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+    db.query(find.rideById, [rideId]).then((rides) => {
+      if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+        if (action.toLowerCase() === 'accept') {
           db.query(update.actionByRequestId, [action, requestId]).then(() => {
-            // QUERY TO DECREMENT SEATS
+          // QUERY TO DECREMENT SEATS
             availableSeats = rides.rows[0].seats;
             db.query(update.seats, [availableSeats -= 1, rideId]);
             if (availableSeats < 1) {
@@ -92,26 +92,27 @@ export default class Rides {
               message: 'Request successfully accepted'
             });
           });
-        } else {
-          return res.status(404).json({
-            error: true,
-            message: 'cannot find request'
-          })
+        } if (action.toLowerCase() === 'reject' && rides.rows[0].action === 'accept') {
+
         }
-      })
-        .catch(err => res.status(500).json({ message: err.message }));
-    }
+      } else {
+        return res.status(404).json({
+          error: true,
+          message: 'cannot find request'
+        });
+      }
+    })
+      .catch(err => res.status(500).json({ message: err.message }));
+
     if (action.toLowerCase() === 'reject') {
       db.query(find.rideById, [rideId]).then((rides) => {
-        rides.rows.forEach((ride) => {
-          if (ride.rideid === parseInt(rideId, 10)) {
-            db.query(destroy.requestByRequestId, [requestId]).then(() => {
-              res.status(200).json({ message: `Request ${action}` });
-              db.query(update.seats, [ride.seats += 1]);
-            })
-              .catch(err => res.status(400).json({ message: err.message }));
-          }
-        });
+        if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+          db.query(destroy.requestByRequestId, [requestId]).then(() => {
+            res.status(200).json({ message: `Request ${action}` });
+            db.query(update.seats, [ride.seats += 1]);
+          })
+            .catch(err => res.status(400).json({ message: err.message }));
+        }
       });
     }
   }
