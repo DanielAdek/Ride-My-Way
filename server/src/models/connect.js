@@ -1,14 +1,15 @@
 /* eslint-disable import/no-mutable-exports */
-import { Client } from 'pg';
+import { Pool } from 'pg';
 import configPath from '../config/config';
 
 // const env = process.env.NODE_ENV;
 const local = configPath.development;
-const config = configPath.production.data;
-console.log(config);
+const config = configPath.production;
+console.log(config, 'sadfsdf');
 let dbConnection;
 if (!config) {
-  dbConnection = new Client({
+  console.log('no config seen')
+  dbConnection = new Pool({
     user: local.username,
     host: local.host,
     database: local.database,
@@ -16,7 +17,8 @@ if (!config) {
     port: local.port
   });
 } else {
-  dbConnection = new Client({ config, ssl: true });
+  console.log('config seen');
+  dbConnection = new Pool(config);
 }
 
 

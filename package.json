@@ -4,7 +4,7 @@
   "description": "Ride my way connect drivers and passengers together so that a passenger can get a ride through the Ride-My-Way app",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node server/bin/www",
+    "start": "NODE_ENV=production babel-node server/bin/www",
     "start:dev": "nodemon --exec babel-node server/bin/www",
     "lint": "eslint --fix server/",
     "migrate": "babel-node server/src/models/index",
