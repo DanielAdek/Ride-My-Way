@@ -18,6 +18,10 @@ export default {
     port: '5432'
   },
   production: {
-    use_env_variables: 'DATABASE_URL'
+    username: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    host: process.env.HOST,
+    port: process.env.PORT
   }
 };
