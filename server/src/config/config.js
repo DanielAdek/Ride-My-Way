@@ -22,7 +22,6 @@ export default {
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
     host: process.env.HOST,
-    port: process.env.PORT,
-    data: process.env.DATABASE_URL
+    port: process.env.DB_PORT
   }
 };
