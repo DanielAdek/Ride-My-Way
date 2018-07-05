@@ -2,12 +2,12 @@
 import { Client } from 'pg';
 import configPath from '../config/config';
 
-const env = process.env.NODE_ENV;
+// const env = process.env.NODE_ENV;
 const local = configPath.development;
 const config = configPath.production.connectionString;
 console.log(config);
 let dbConnection;
-if (local) {
+if (!config) {
   dbConnection = new Client({
     user: local.username,
     host: local.host,
