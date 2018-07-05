@@ -23,6 +23,6 @@ export default {
     database: process.env.DATABASE,
     host: process.env.HOST,
     port: process.env.PORT,
-    connectionUrl: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL
   }
 };
