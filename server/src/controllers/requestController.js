@@ -17,28 +17,29 @@ export default class Rides {
      * @returns {object} json
      */
   static requestRide(req, res) {
-    // const { userid } = req.decoded;
+    const { userid, username } = req.decoded;
     const { rideId } = req.params;
-    const { username, message, userId } = req.body;
-    const valuesIntoTable = [userId, rideId, username, message];
+    const { message } = req.body;
+    const valuesIntoTable = [userid, rideId, username, message];
     db.query(find.rideById, [rideId]).then((rides) => {
-      rides.rows.forEach((ride) => {
-        if (ride.rideid === parseInt(rideId, 10)) {
-          db.query(insert.userRequest, valuesIntoTable)
-            .then(() => {
-              res.status(201).json({
-                message: 'Your request has beean successfully sent!',
-                status: 'pending....',
-                request: {
-                  username, message, userId, rideId
-                }
-              });
-            })
-            .catch(err => res.status(409).json({ error: err.message }));
-        }
-      });
-    })
-      .catch(err => res.status(400).json({ message: err.message }));
+      if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+        db.query(insert.userRequest, valuesIntoTable)
+          .then(() => {
+            res.status(201).json({
+              message: 'Your request has beean successfully sent!',
+              status: 'pending....',
+              request: {
+                userid, rideId, username, message
+              }
+            });
+          });
+      } else {
+        return res.status(400).json({
+          error: true,
+          message: 'No ride with this rideId'
+        });
+      }
+    }).catch(err => res.status(500).json({ message: err.message }));
   }
 
   /**
@@ -82,14 +83,20 @@ export default class Rides {
             // QUERY TO DECREMENT SEATS
             availableSeats = rides.rows[0].seats;
             db.query(update.seats, [availableSeats -= 1, rideId]);
-            if (availableSeats === 0) {
+            if (availableSeats < 1) {
               db.query(update.seats, [rides.rows[0].seats = 0, rideId]);
               return res.json({ message: 'no more slot in your car' });
             }
             res.status(200).json({
-              message: `Request successfully ${action}`
+              status: 200,
+              message: 'Request successfully accepted'
             });
           });
+        } else {
+          return res.status(404).json({
+            error: true,
+            message: 'cannot find request'
+          })
         }
       })
         .catch(err => res.status(500).json({ message: err.message }));
