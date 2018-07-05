@@ -4,8 +4,8 @@ import configPath from '../config/config';
 
 const env = process.env.NODE_ENV;
 const local = configPath.development;
-const config = configPath[env];
-
+const config = configPath.production.connectionString;
+console.log(config);
 let dbConnection;
 if (local) {
   dbConnection = new Client({
@@ -16,7 +16,7 @@ if (local) {
     port: local.port
   });
 } else {
-  dbConnection = new Client({ config });
+  dbConnection = new Client(config);
 }
 
 
