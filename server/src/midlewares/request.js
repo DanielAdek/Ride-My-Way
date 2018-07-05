@@ -17,7 +17,10 @@ export default class Verify {
     if (action.trim().toLowerCase() === 'accept' || action.trim().toLowerCase() === 'reject') {
       next();
     } else {
-      return res.status(400).json({ message: 'action can only be accept or reject' });
+      return res.status(400).json({
+        status: 'failed',
+        message: 'action can only be accept or reject'
+      });
     }
   }
 
@@ -37,7 +40,10 @@ export default class Verify {
       if (test) {
         next();
       } else {
-        return res.status(400).json({ message: 'message can only contain letters' });
+        return res.status(400).json({
+          status: 'failed',
+          message: 'message can only contain letters'
+        });
       }
     } else {
       next();
@@ -52,15 +58,18 @@ export default class Verify {
      * @returns {function} json
      */
   static requestExit(req, res, next) {
-    const { username } = req.body;
-    db.query(find.requestByUsername, [username]).then((request) => {
-      if (request.rows.length > 0) {
+    const { userid } = req.decoded;
+    const rideId = parseInt(req.params.rideId, 10);
+    db.query(find.requestByUserId, [userid]).then((request) => {
+      const found = request.rows.map(ride => ride.rideid === rideId);
+      if (found.indexOf(true) !== -1) {
         return res.status(400).json({
-          message: 'You cannot request twice'
+          status: 'fail',
+          message: 'You have already requested for this ride'
         });
       }
       next();
-    }).catch(err => console.log(err.message));
+    });
   }
 }
 
