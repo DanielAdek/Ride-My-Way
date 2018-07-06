@@ -42,7 +42,7 @@ export default class Auth {
     }
     const decoded = jwt.verify(token, secret);
     if (!decoded) {
-      res.status(403).json({ message: 'Invalid token' });
+      res.status(401).json({ message: 'Invalid token' });
     }
     req.decoded = decoded;
     next();

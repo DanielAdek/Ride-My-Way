@@ -23,7 +23,7 @@ export default class Rides {
 
     db.query(find.rideById, [rideId]).then((rides) => {
       if (rides.rows.length === 0) {
-        return res.status(400).json({
+        return res.status(404).json({
           error: true,
           status: 'fail',
           message: 'No ride with this rideId'

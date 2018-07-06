@@ -21,7 +21,7 @@
       "http"
     ],
     "paths": {
-      "/rides": {
+      "/users/rides": {
         "post": {
           "tags": [
             "rides"
@@ -51,7 +51,19 @@
               "description": "New ride offer created"
             },
             "400": {
+              "description": {
+                "status": "fail",
+                "message": "You cannot create a ride that has the same date and time"
+              }
+            },
+            "401": {
               "description": "Invalid input"
+            },
+            "403": {
+              "description": "No Token provided"
+            },
+            "500": {
+              "description" : "Internal error"
             }
           }
         },
@@ -105,6 +117,38 @@
           }
         }
       },
+      "/rides": {
+        "get": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "Get all ride",
+          "description": "Returns a single ride detail",
+          "operationId": "getRifdeById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "rideId",
+              "in": "path",
+              "description": "ID of ride to retrieve",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ride details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Rides"
+              }
+            },
+            "404": {
+              "description": "Rides not found"
+            }
+          }
+        }
+      },
       "/rides/{rideId}/request": {
         "post": {
           "tags": [
@@ -134,6 +178,94 @@
               "schema": {
                 "$ref": "#/definitions/Ride"
               }
+            },
+            "401": {
+              "description": "Invalid input"
+            },
+            "403": {
+              "description": "No Token provided"
+            },
+            "404": {
+              "description": "No ride found"
+            },
+            "401": {
+              "description": "Cannot request one's ride"
+            }
+          }
+        }
+      },
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "New user account",
+          "description": "Returns a new user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "create new user",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "new user account",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Username/Email already exist"
+            },
+            "500": {
+              "description": "server error"
+            }
+          }
+        }
+      },
+      "/auth/login": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "login user account",
+          "description": "login user into account",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "login a user",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "user login into account",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Email/password invalid"
+            },
+            "500": {
+              "description": "server error"
             }
           }
         }

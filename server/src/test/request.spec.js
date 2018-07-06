@@ -75,7 +75,7 @@ describe('Test request APIs', () => {
         .set('x-access-token', token.userPlus)
         .send(utils.message.request)
         .end((err, res) => {
-          res.should.have.status(400);
+          res.should.have.status(404);
           res.body.should.have.property('message');
           res.body.should.have.property('status');
           res.body.message.should.be.a('string');
