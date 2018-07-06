@@ -68,7 +68,7 @@ export default class Rides {
           });
         }
         return res.status(200).json({
-          status: 'Success',
+          status: 'success',
           message: 'Found a ride for your request',
           requests: requests.rows
         });

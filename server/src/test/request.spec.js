@@ -20,7 +20,7 @@ describe('Test request APIs', () => {
           res.body.should.have.property('message');
           res.body.should.have.property('status');
           res.body.status.should.be.a('string');
-          res.body.status.should.be.eql('Success');
+          res.body.status.should.be.eql('success');
           res.body.message.should.be.a('string');
           res.body.message.should.be.eql('Found a ride for your request');
           res.body.should.have.property('requests');
