@@ -3,11 +3,9 @@ import chaiHttp from 'chai-http';
 import app from '../../app';
 import setup from './setup.spec';
 import utils from './utils/data';
-import db from '../models/connect';
-import find from '../queries/find.json';
 
 const { should } = chai;
-const { baseUrl, token, data } = setup;
+const { baseUrl, token } = setup;
 should();
 
 chai.use(chaiHttp);
