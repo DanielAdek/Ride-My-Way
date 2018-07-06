@@ -4,7 +4,7 @@ import configPath from '../config/config';
 
 const env = process.env.NODE_ENV;
 const local = configPath.development;
-const config = configPath[env];
+
 let dbConnection;
 
 if (!config) {

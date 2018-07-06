@@ -24,5 +24,4 @@ export default {
     database: process.env.DB,
     host: '127.0.0.1',
     port: '5432'
-  }
 };
