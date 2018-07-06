@@ -15,6 +15,8 @@ if (!config) {
     password: local.password,
     port: local.port
   });
+} else if (config === 'test') {
+  dbConnection = new Pool(config.test);
 } else {
   dbConnection = new Pool(config);
 }
