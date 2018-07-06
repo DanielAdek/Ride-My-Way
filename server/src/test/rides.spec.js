@@ -46,7 +46,7 @@ describe('Test all rides APIs', () => {
   describe('/GET route find a ride', () => {
     it('should return a ride and return 200 status code', (done) => {
       chai.request(app)
-        .get(`${baseUrl}/rides/1`)
+        .get(`${baseUrl}/rides/7`)
         .set('x-access-token', token.user)
         .end((err, res) => {
           res.should.have.status(200);
