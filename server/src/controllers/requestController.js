@@ -22,6 +22,13 @@ export default class Rides {
     const valuesIntoTable = [userid, rideId, username, message];
 
     db.query(find.rideById, [rideId]).then((rides) => {
+      if (rides.rows.length === 0) {
+        return res.status(400).json({
+          error: true,
+          status: 'fail',
+          message: 'No ride with this rideId'
+        });
+      }
       if (userid === rides.rows[0].userid) {
         return res.status(400).json({
           status: 'fail',
@@ -39,11 +46,6 @@ export default class Rides {
               }
             });
           });
-      } else {
-        return res.status(400).json({
-          error: true,
-          message: 'No ride with this rideId'
-        });
       }
     }).catch(err => res.status(500).json({ message: err.message }));
   }
@@ -119,7 +121,7 @@ export default class Rides {
                   message: 'no more slot in your car'
                 });
               }
-              res.status(200).json({
+              res.status(201).json({
                 status: 'Success',
                 message: 'Request successfully accepted'
               });
@@ -136,7 +138,7 @@ export default class Rides {
           db.query(find.rideByIdAndUserid, [rideId, userid]).then((rides) => {
             db.query(update.actionByRequestId, [action, rideId, requestId]);
             db.query(update.seats, [rides.rows[0].seats += 1, rideId, userid]);
-            return res.status(200).json({
+            return res.status(201).json({
               status: 'Success',
               message: 'Request successfully rejected'
             });
