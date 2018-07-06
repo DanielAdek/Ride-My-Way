@@ -7,7 +7,7 @@ export default {
 
   login: {
     existingUser: {
-      email: 'maildaniel@gmail.com',
+      email: 'maildaniel.me@gmail.com',
       password: 'dontbescared',
     },
 
@@ -22,6 +22,24 @@ export default {
   },
 
   noData: {},
+  message: {
+    request: 'I hope to join you on this trip',
+    wrong: 'are you a 419?'
+  },
+
+  request: {
+    expectedAction: {
+      reject: {
+        action: 'reject'
+      },
+      accept: {
+        action: 'accept'
+      }
+    },
+    action: {
+      action: 'a bad action '
+    }
+  },
 
   signup: {
     rightDetails: {
