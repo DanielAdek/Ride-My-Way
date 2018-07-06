@@ -21,7 +21,7 @@ export default {
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB,
-    host: '127.0.0.1',
-    port: '5432'
+    host: process.env.HOST,
+    port: process.env.DB_PORT
   }
 };
