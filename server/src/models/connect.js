@@ -19,12 +19,12 @@ if (!config) {
   dbConnection = new Pool(config);
 }
 
-
+const { log } = console;
 dbConnection
   .connect()
   .then(() => {
-    console.log('connection is established');
+    log('connection is established');
   })
-  .catch(err => console.log(`unable to connect to the database ${err.message}`));
+  .catch(err => log(`unable to connect to the database ${err.message}`));
 
 export default dbConnection;

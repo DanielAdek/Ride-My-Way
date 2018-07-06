@@ -1,11 +1,12 @@
 import schema from './createTables';
 
+const { log } = console;
 schema.createUserTable()
-  .then(() => console.log('User table successfully migrated'))
-  .catch(err => console.log(err.message));
+  .then(() => log('User table successfully migrated'))
+  .catch(err => log(err.message));
 schema.createRideTable()
-  .then(() => console.log('Ride table successfully migrated'))
-  .catch(err => console.log(err.message));
+  .then(() => log('Ride table successfully migrated'))
+  .catch(err => log(err.message));
 schema.createRequestTable()
-  .then(() => console.log('Request table successfully migrated'))
-  .catch(err => console.log(err.message));
+  .then(() => log('Request table successfully migrated'))
+  .catch(err => log(err.message));
