@@ -5,25 +5,42 @@ import setup from './setup.spec';
 import utils from './utils/data';
 
 const { should } = chai;
-const { baseUrl } = setup;
+const { baseUrl, token } = setup;
 should();
 
 chai.use(chaiHttp);
 describe('Test users APIs', () => {
+  before('Create new user to seed database', (done) => {
+    chai.request(app).post('/api/v1/auth/signup')
+      .send({
+        username: 'baba',
+        password: 'password',
+        fullName: 'Walee',
+        email: 'wemail@wemail.com',
+      })
+      .end((error) => {
+        if (error) {
+          console.log('An error occured while creating seeduser data');
+        } else {
+          console.log('User created successfully');
+        }
+        done();
+      });
+  });
   describe('/POSt route create user', () => {
-    // it('should create a new user and return 201 status code', (done) => {
-    //   chai.request(app)
-    //     .post(`${baseUrl}/auth/signup`)
-    //     .send(utils.signup.rightDetails)
-    //     .end((err, res) => {
-    //       res.should.have.status(201);
-    //       res.body.should.have.property('message');
-    //       res.body.message.should.be.an('object');
-    //       res.body.should.have.property('token');
-    //       res.body.token.should.be.an('string');
-    //       done();
-    //     });
-    // });
+    it('should create a new user and return 201 status code', (done) => {
+      chai.request(app)
+        .post(`${baseUrl}/auth/signup`)
+        .send(utils.signup.rightDetails)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('message');
+          res.body.message.should.be.an('object');
+          res.body.should.have.property('token');
+          res.body.token.should.be.an('string');
+          done();
+        });
+    });
     it('should not create a new user and return 422 status code', (done) => {
       chai.request(app)
         .post(`${baseUrl}/auth/signup`)
