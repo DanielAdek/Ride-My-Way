@@ -1,5 +1,19 @@
 import schema from './dropTable';
 
-schema.dropUserTable();
-schema.dropRideTable();
-schema.dropRequestTable();
+const { log } = console;
+schema.dropUserTable().then(() => {
+  log('Users table droped');
+}).catch((err) => {
+  log(err.messagge);
+});
+schema.dropRideTable().then(() => {
+  log('Rides table droped');
+}).catch((err) => {
+  log(err.messagge);
+});
+schema.dropRequestTable().then(() => {
+  log('Request table droped');
+  process.exit();
+}).catch((err) => {
+  log(err.messagge);
+});

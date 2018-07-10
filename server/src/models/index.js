@@ -8,5 +8,9 @@ schema.createRideTable()
   .then(() => log('Ride table successfully migrated'))
   .catch(err => log(err.message));
 schema.createRequestTable()
-  .then(() => log('Request table successfully migrated'))
+  .then(() => {
+    log('Request table successfully migrated');
+    process.exit();
+  })
   .catch(err => log(err.message));
+
