@@ -54,9 +54,15 @@ export default class Users {
         if (user.rows[0] && bcrypt.compareSync(password, user.rows[0].password)) {
           const { userid, username } = user.rows[0];
           const token = jwt.sign({ userid, email, username }, secret, { expiresIn: '24h' });
-          return res.status(200).json({ message: `${username} is successfully logged in`, token });
+          return res.status(200).json({
+            success: true,
+            message: `${username} is successfully logged in`,
+            token
+          });
         }
-        return res.status(400).json({ failed: 'Your email or password is incorrect' });
+        return res.status(400).json({
+          success: false,
+          message: 'Your email or password is incorrect' });
       }).catch((err) => {
         res.status(500).json({ message: `server error ${err.message} ` });
       });

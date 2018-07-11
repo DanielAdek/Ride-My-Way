@@ -2,6 +2,7 @@ const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const url = 'http://ridemyway-danieladek.herokuapp.com/api/v1/auth/login';
 const error = document.querySelector('.error');
+const sucessLogin = document.querySelector('.success-login');
 const button = document.querySelector('#login-form button');
 
 button.addEventListener('click', (e) => {
@@ -19,10 +20,10 @@ button.addEventListener('click', (e) => {
   })
     .then(res => res.json())
     .then((user) => {
-      if (user.sucess === true) {
-        console.log(user);
+      if (user.success === true) {
+        sucessLogin.textContent = user.message;
       }
-      error.textContent = user.errors || user.message;
+      error.textContent = user.errors || user.failed;
       console.log(user);
     });
 });
