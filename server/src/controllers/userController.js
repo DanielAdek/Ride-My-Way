@@ -62,7 +62,8 @@ export default class Users {
         }
         return res.status(400).json({
           success: false,
-          message: 'Your email or password is incorrect' });
+          message: 'Your email or password is incorrect'
+        });
       }).catch((err) => {
         res.status(500).json({ message: `server error ${err.message} ` });
       });
