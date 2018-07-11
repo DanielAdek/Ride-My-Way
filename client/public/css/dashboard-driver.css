@@ -1,0 +1,56 @@
+.main-wrapper-container {
+    overflow-y: auto;
+    height: 300px;
+}
+
+.sidebar-container {
+    height: 640px;
+}
+
+.info-card-container {
+    margin: 0 10px;
+}
+
+.bg-none {
+    background: #fff;
+}
+
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+    background: #fff;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table tr > th {
+    background: var(--skyblue);
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.dashboard-grid-row-3 {
+    display: grid;
+    grid-template-rows: 2rem, 10rem, auto;
+}
+
+.list-rides {
+    margin: 20px;
+}
+
+.list-rides h1 {
+    color: #fff;
+}
+/* 
+@media (max-width: 40rem) {
+    .info-card {
+        margin: 10px 0;
+    }
+} */

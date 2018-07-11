@@ -1,0 +1,86 @@
+.space {
+    width: 100%;
+    height: 500px;
+}
+.space > div {
+    animation: fallIn 1s linear 500ms;
+    transform: translateY(120px);
+}
+.space > div > h1 {
+    font-family: Roboto;
+    font-size: 1.3rem;
+}
+
+.space > div > a > button {
+    font-family: Roboto;
+}
+
+.login-container {
+    width: 40%;
+   
+}
+
+.login-form {
+    width: 70%;
+    height: 400px;
+    background: var(--white);
+}
+
+.form-wrapper {
+    width: inherit;
+}
+
+#home-page-body {
+    overflow: hidden;
+}
+
+#index-page {
+    background: linear-gradient(rgb(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url('../imgs/vnicecar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-title {
+    color: var(--blue);
+    font-size: .8rem;
+}
+
+.drivers-link {
+    font-size: 1rem;
+}
+
+.form-wrapper form > button {
+    font-family: Roboto;
+}
+
+@media (max-width: 40rem) {
+    #index-page {
+        display: flex;
+        flex-direction: column;
+    }
+    .space {
+        height: auto;
+    }
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 5rem 0;
+    }
+    .login-form {
+        width: 90%;
+        /* margin-right: 23px; */
+    }
+    .space > div {
+        transform: translateY(230px);
+    }
+}
+
+@keyframes fallIn {
+    from {
+        transform: translateY(-300px)
+    }
+    to {
+        transform: translateY(120px);
+    }
+}

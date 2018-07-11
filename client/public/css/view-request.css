@@ -1,0 +1,67 @@
+.dashboard-main-wrapper {
+    grid-column: 2 / -1;
+    /* background: #ebeff2; */
+    /* background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.5)); */
+}
+
+.sidebar-container > nav > ul li {
+    font-family: Roboto;
+    font-size: .8rem;
+}
+
+.sidebar-container > nav > ul li a {
+    color: #333;
+}
+
+.sidebar-container > nav > ul li:hover,
+.sidebar-container > nav > ul li:active {
+    background: #fff;
+    border-left: 5px solid var(--skyblue);
+}
+.head-container  > .time > p {
+    font-size: .8rem;
+}
+
+.request-card-container {
+    width: 60%;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.grid-column-4 {
+   grid-template-columns: 1fr 40% 30% 15%;
+}
+
+.sidebar {
+    grid-column: 1 / 1;
+    background: #ebeff2;
+}
+
+.requests {
+    height: 550px;
+    overflow-y: auto;
+}
+
+.dashboard-current {
+    background: #fff;
+    border-left: 5px solid var(--skyblue);
+}
+
+.sidebar-nav-links > ul {
+    padding: 0;
+}
+
+@media (max-width: 40rem) {
+    .sidebar {
+        display: none;
+    }
+    .dashboard-main-wrapper {
+        grid-column: 1 / -1;
+    }
+    .request-card-container {
+        width: 90%;
+    }
+    .driver-name > h1 {
+        font-size: .9rem;
+    }
+}

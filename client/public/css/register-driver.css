@@ -1,0 +1,63 @@
+/* .grid-areas {
+    grid-template-areas: "header" "main" "footer";
+} */
+
+#bg-pic__main-section .container > .card {
+    /* background: #fff; */
+    margin: 16px 0;
+}
+
+/* .header {
+    grid-area: header;
+}
+
+.main-container {
+    grid-area: main;
+}
+
+.main-footer {
+    grid-area: footer;
+} */
+/* 
+.container {
+    height: 70rem;
+}
+ */
+
+ 
+.register-form-group {
+    /* margin: 30px; */
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    box-shadow: 10px 10px 3px #ccc;
+}
+
+.register-form-group > input, 
+.register-form-group > select {
+    border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc;
+}
+
+.register-form-group button {
+    border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc;
+    width: 100%;
+    
+}
+
+.register-form-group label {
+    font-size: 1rem;
+}
+
+ .card-title {
+     font-family: Roboto;
+ }
+
+#bg-pic__main-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+}
+
+.main-card_form {
+    width: 90%;
+}

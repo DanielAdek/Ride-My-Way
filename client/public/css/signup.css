@@ -1,0 +1,68 @@
+.container {
+    height: auto;
+}
+
+.sign-up-title {
+    font-family: Roboto;
+    font-size: 1.1rem;
+}
+
+.form-group-div {
+    width: 100%; 
+}
+
+.form-group {
+    /* margin: 30px; */
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    /* border: 2px solid #ccc;
+    box-shadow: 10px 10px 3px #ccc; */
+}
+
+/* .form-group > input, 
+.form-group > select {
+    border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc;
+} */
+
+.form-group button {
+    /* border: 1px solid var(--skyblue);
+    box-shadow: 5px 6px 5px #ccc; */
+    width: 100%;
+    
+}
+
+/* .form-group label {
+    font-size: 1rem;
+} */
+
+#form-background-page {
+    background: linear-gradient(rgb(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgs/vnicecar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-pic__main-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+@media (max-width: 40rem) {
+    .form-group {
+        min-width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group label {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 60rem) {
+    .form-group {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+    }
+}
