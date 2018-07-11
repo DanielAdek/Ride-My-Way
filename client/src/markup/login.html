@@ -67,9 +67,10 @@
     <section class="main-container">
         <div class="container mt-1">
             <div class="p-1">
+                <div class="flex-row justify-content-center text-danger error"></div>
                 <div class="form-group-div flex-row justify-content-center">
-                    <form class="form-group p-2" action="all-rides.html">
-                        <input class="p-4" type="text" placeholder="Username or Email here" name="username" id="username" required>
+                    <form class="form-group p-2" id="login-form">
+                        <input class="p-4" type="email" placeholder="Email here" name="email" id="email" required>
                         <br>
                         <input class="p-4" type="password" name="password" placeholder="password here" id="password" required>
                         <div class="clearfix mt-2"></div>
@@ -93,6 +94,7 @@
         </div>
     </footer>
     <script src="../../public/js/mobile-nav.js"></script>
+    <script src="../assets/login.js"></script>
 </body>
 
 </html>
