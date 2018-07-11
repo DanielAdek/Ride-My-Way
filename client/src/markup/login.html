@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RMW | Login</title>
+    <link rel="shortcut icon" href="../../public/imgs/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, maximum-scale=5 initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/modules/main.css" />
+</head>
+
+<body class="grid-row-3 grid-areas">
+
+    <!-- Backdrop layout -->
+    <div class="backdrop"></div>
+
+    <!--=================================================
+       header section with toggle button for mobile view
+       and naviation links for desktop view, and logo-brand.
+    =====================================================-->
+    <header class="header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <div class="wrapper flex-row justify-content-sb">
+            <div class="logo-brand">
+                <h3 class="font-s-md">
+                    <i class="fas fa-car text-light font-s-lg"></i>
+                    <a class="text-light" href="index.html">RMW</a>
+                </h3>
+            </div>
+            <nav class="nav-links">
+                <ul class="list-group-items flex-row">
+                    <li class="list-group-item pl-1 nav-link" title="Log in here">
+                        <a class="text-white login-form-link" href="#">Log In</a>
+                    </li>
+                    <li class="list-group-item pl-1 nav-link" title="Sign up here">
+                        <a class="text-white" href="signup.html">Sign Up</a>
+                    </li>
+
+                    <!-- <li class="list-group-item pl-1" title="Read About Us">
+                        <i class="fas fa-info-circle text-light"></i>
+                        <a class="text-white nav-link" href="#">More Info</a>
+                    </li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ================================================
+        Navigation links for mobiles view
+    ====================================================== -->
+    <nav class="mobile-nav">
+        <ul class="mobile-nav__items">
+            <li class="mobile-nav__item">
+                <a href="all-rides.html">Search Ride</a>
+            </li>
+            <li class="mobile-nav__item">
+                <a href="signup.html">Sign Up</a>
+            </li>
+            <li class="mobile-nav__item">
+                <a href="#">Google Map</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- =============================================
+    main section with login form with more-info button
+    ================================================== -->
+    <!-- <section class=" flex-row align-items-center" id="index-page">
+        <div class="login-container flex-row justify-content-center">
+            <div class="card card-sm p-1 login-form flex-column align-items-center">
+                <div class="card-title text-center">
+                    <h3 class="login-title text-blue">Login To Your Ride-My-Way Account</h3>
+                </div>
+                <div class="form-wrapper">
+                    <form action="driver.dashboard.html">
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="text" name="user-detail" placeholder="Username/Email/Phone" required>
+                        </div>
+                        <div class="mb-2">
+                            <input class="p-4 block-xl" type="password" name="password" placeholder="Password" id="password" required>
+                        </div>
+                        <button class="btn block-xl p-4 btn-blue">
+                            <i class="fas fa-sign-in-alt text-light"></i>
+                            Log In
+                        </button>
+                    </form>
+                    <hr>
+                </div>
+                <div class="mt-4">
+                    <a href="#" class="text-blue drivers-link">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="main-container">
+        <div class="container mt-1">
+            <div class="p-1">
+                <div class="form-group-div flex-row justify-content-center">
+                    <form class="form-group p-2" action="all-rides.html">
+                        <input class="p-4" type="text" placeholder="Username or Email here" name="username" id="username" required>
+                        <br>
+                        <input class="p-4" type="password" name="password" placeholder="password here" id="password" required>
+                        <div class="clearfix mt-2"></div>
+                        <button type="submit" class="btn btn-blue">Log In</button>
+                        <div class="mt-4">
+                            <a href="#" class="text-blue text-center">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--===============================================
+            footer section with copy right text
+    ===================================================-->
+    <footer class="main-footer">
+        <div class="footer">
+            <p class="text-center text-light">
+                Ride-My-Way &copy; 2018 Daniel Adekunle. Andela
+            </p>
+        </div>
+    </footer>
+    <script src="./assets/jsfiles/mobile-nav.js"></script>
+</body>
+
+</html>
