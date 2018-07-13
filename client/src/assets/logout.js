@@ -9,7 +9,7 @@ const user = {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('username');
     window.localStorage.removeItem('email');
-    window.location.replace('login.html');
+    window.location.replace('index.html');
   }
 };
 
