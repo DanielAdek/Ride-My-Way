@@ -58,7 +58,7 @@ export default class Exting {
       const existRide = ride.rows.filter(val => val.time === time && val.date === date);
       if (existRide.join('')) {
         return res.status(400).json({
-          status: 'fail',
+          success: false,
           message: 'You cannot create a ride that has the same date and time'
         });
       }
