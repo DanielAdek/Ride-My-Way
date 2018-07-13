@@ -16,8 +16,8 @@ export default {
     check('date')
       .trim().not().isEmpty()
       .withMessage('Please specify date for the trip')
-      .matches(/^\d\d-\d\d-\d\d\d\d$/)
-      .withMessage('date should look like 02-07-2018'),
+      .matches(/^\d\d\/\d\d\/\d\d\d\d$/)
+      .withMessage('date should look like 02/07/2018'),
     check('time')
       .trim().not().isEmpty()
       .withMessage('Please specify time for the trip')
