@@ -15,14 +15,10 @@ export default {
       .withMessage('seats contains only numbers'),
     check('date')
       .trim().not().isEmpty()
-      .withMessage('Please specify date for the trip')
-      .matches(/^\d\d\/\d\d\/\d\d\d\d$/)
-      .withMessage('date should look like 02/07/2018'),
+      .withMessage('Please specify date for the trip'),
     check('time')
       .trim().not().isEmpty()
-      .withMessage('Please specify time for the trip')
-      .matches(/^\d\d:\d\d$/)
-      .withMessage('Time should look like 18:48'),
+      .withMessage('Please specify time for the trip'),
     check('cost')
       .trim().not().isEmpty()
       .withMessage('How much for this trip')
