@@ -33,11 +33,15 @@ export default class Users {
         const { userid } = newUser.rows[0];
         const token = jwt.sign({ userid, email, username }, secret, { expiresIn: '24h' });
         res.status(201).json({
-          message: newUser.rows[0],
-          token
+          success: true,
+          message: 'Success',
+          user: { username, email, token }
         });
       })
-      .catch(err => res.status(500).json({ message: err.message }));
+      .catch(err => res.status(500).json({
+        success: false,
+        message: `There was an internal error! ${err.message}`
+      }));
   }
 
   /**
@@ -57,7 +61,7 @@ export default class Users {
           return res.status(200).json({
             success: true,
             message: `${username} is successfully logged in`,
-            token
+            result: { username, email, token },
           });
         }
         return res.status(400).json({
@@ -65,7 +69,10 @@ export default class Users {
           message: 'Your email or password is incorrect'
         });
       }).catch((err) => {
-        res.status(500).json({ message: `server error ${err.message} ` });
+        res.status(500).json({
+          success: false,
+          message: `There was an internal/server error ${err.message} `
+        });
       });
   }
 }
