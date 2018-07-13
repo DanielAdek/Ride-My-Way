@@ -67,6 +67,7 @@ export default class Rides {
     const valuesIntoTable = [userid, departure, destination, time, date, seats, cost, message];
     db.query(insert.rideOffer, valuesIntoTable)
       .then(() => res.status(201).json({
+        success: true,
         message: 'new ride successfully created',
         ride: {
           userid, departure, destination, time, date, seats, cost, message
