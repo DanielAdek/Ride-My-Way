@@ -38,7 +38,10 @@ export default class Auth {
   static verifyUser(req, res, next) {
     const token = req.headers['x-access-token'] || req.query.token || req.headers.authorization;
     if (!token) {
-      res.status(403).json({ message: 'No token provided' });
+      res.status(403).json({
+        success: false,
+        message: 'No token provided, please signup or login'
+      });
     }
     const decoded = jwt.verify(token, secret);
     if (!decoded) {
