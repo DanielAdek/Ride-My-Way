@@ -46,7 +46,9 @@ const User = {
           setTimeout(() => {
             sucessLogin.textContent = user.message;
           }, 2000);
-          window.localStorage.setItem('token', user.token);
+          window.localStorage.setItem('token', user.result.token);
+          window.localStorage.setItem('username', user.result.username);
+          window.localStorage.setItem('email', user.result.email);
           window.location.replace('user-dashboard.html');
         }
       });
