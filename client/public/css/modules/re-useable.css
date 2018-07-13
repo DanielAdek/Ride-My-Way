@@ -126,6 +126,11 @@ display: none;
     width: 80%
 }
 
+.inline-block-sm {
+    display: inline-block;
+    width: 18%
+}
+
 .d-none {
     display: none;
 }

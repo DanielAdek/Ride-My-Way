@@ -1,5 +1,7 @@
 .header {
     background: var(--skyblue);
+    position: relative;
+    z-index: 4;
 }
 
 .wrapper {

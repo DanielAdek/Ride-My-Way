@@ -3,6 +3,7 @@
     /* margin-left: 10px; */
     width: 100%;
     height: auto;
+    
 }
 .main-container {
     position: relative;
@@ -11,13 +12,15 @@
 #map {
     width: 100%;
     height: 669px;
-    
 }
-.time-date {
+
+form .second {
+    display: none;
+}
+
+.form-ride {
     width: 100%;
 }
-
-
 .grid-col-sm {
     grid-column: 1 / 2;
 }
@@ -28,10 +31,18 @@
 
 .add-ride-form {
     position: absolute;
-    z-index: 2;
+    z-index: 999;
     background: #fff;
     top: 50px;
     left: 20px;
+    width: 25%;
+    /* max-width: 30%; */
+}
+
+.next-btn, .previous-btn {
+    background-color: #6f6ff3;
+    color: #fff;
+    width: 70px;
 }
 .share-ride-btn {
     position: relative;
@@ -55,6 +66,31 @@
     background-color: #080847;
 }
 
+label > span {
+    color: var(--danger);
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    border: 1px solid #ccc;
+    background-color: var(--white);
+}
+
+.dropdown-li:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul li {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.dropdown ul li:hover {
+    background-color: #ccc;
+}
+
 @media (max-width: 40rem) {
     .add-ride-form {
         display: none;
@@ -71,19 +107,9 @@
         right: 5%;
         color: #333;
         padding: 30px;
-    }
-    .width-1{
-        width: 100%;
-    }
-    .width-2 {
-        width: 80%;
-    }
-    .time > label.time,
-    .date > label.date {
-        display: block;
-    }
-    .remove-add-ride-form {
-        display: none;
+        width: 90%;
+        height: 450px;
+        overflow-y: scroll;
     }
     #create-ride {
         cursor: pointer;
@@ -92,5 +118,12 @@
         width: 100%;
         height: 625px;
         
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .add-ride-form {
+        min-width: 40%;
     }
 }
