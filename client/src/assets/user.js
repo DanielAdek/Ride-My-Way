@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const url = 'http://ridemyway-danieladek.herokuapp.com/api/v1/auth/login';
+const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const error = document.querySelector('.error');
@@ -24,15 +24,15 @@ const User = {
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
-    fetch(url, {
+    fetch(`${baseUrl}/auth/login`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        email: email.value,
-        password: password.value
+        email: email.value.trim(),
+        password: password.value.trim()
       })
     })
       .then(res => res.json())
@@ -43,16 +43,26 @@ const User = {
             error.textContent = null;
           }, 5000);
         } else {
+          sucessLogin.textContent = `Welcome Back ${user.result.username}`;
           setTimeout(() => {
-            sucessLogin.textContent = user.message;
-          }, 2000);
+            sucessLogin.textContent = null;
+          }, 4000);
           window.localStorage.setItem('token', user.result.token);
           window.localStorage.setItem('username', user.result.username);
           window.localStorage.setItem('email', user.result.email);
-          window.location.replace('user-dashboard.html');
+          setTimeout(() => {
+            window.location.replace('user-dashboard.html');
+          }, 3900);
         }
+      }).catch((err) => {
+        error.textContent = `There was a problem with the server ${err.message}`;
+        setTimeout(() => {
+          error.textContent = null;
+        }, 5000);
       });
-  }
+  },
+
+
 };
 
 button.addEventListener('click', User.loginUser);
