@@ -16,6 +16,7 @@ export default class Exting {
     db.query(find.userByEmail, [email]).then((user) => {
       if (user.rows.length > 0) {
         return res.status(400).json({
+          success: false,
           message: 'Email already existed'
         });
       }
@@ -36,7 +37,7 @@ export default class Exting {
     db.query(find.userByUsername, [userNme]).then((user) => {
       if (user.rows.length > 0) {
         return res.status(400).json({
-          status: 'fail',
+          success: false,
           message: 'Username already existed, choose another username'
         });
       }
