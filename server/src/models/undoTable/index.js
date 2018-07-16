@@ -6,14 +6,20 @@ schema.dropUserTable().then(() => {
 }).catch((err) => {
   log(err.messagge);
 });
-schema.dropRideTable().then(() => {
-  log('Rides table droped');
-}).catch((err) => {
-  log(err.messagge);
-});
-schema.dropRequestTable().then(() => {
-  log('Request table droped');
-  process.exit();
-}).catch((err) => {
-  log(err.messagge);
-});
+
+setTimeout(() => {
+  schema.dropRideTable().then(() => {
+    log('Rides table droped');
+  }).catch((err) => {
+    log(err.messagge);
+  });
+}, 4000);
+
+setTimeout(() => {
+  schema.dropRequestTable().then(() => {
+    log('Request table droped');
+    process.exit();
+  }).catch((err) => {
+    log(err.messagge);
+  });
+}, 4000);
