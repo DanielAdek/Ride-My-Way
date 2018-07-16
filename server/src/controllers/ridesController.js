@@ -60,17 +60,26 @@ export default class Rides {
      * @returns {object} json
      */
   static createRideOffer(req, res) {
-    const { userid } = req.decoded;
+    const { userid, username } = req.decoded;
     const {
       departure, destination, time, date, seats, cost, message
     } = req.body;
-    const valuesIntoTable = [userid, departure, destination, time, date, seats, cost, message];
+    const valuesIntoTable = [userid, username,
+      departure, destination, time, date, seats, cost, message];
     db.query(insert.rideOffer, valuesIntoTable)
       .then(() => res.status(201).json({
         success: true,
         message: 'Successfully created!',
         ride: {
-          userid, departure, destination, time, date, seats, cost, message
+          userid,
+          driver: username,
+          departure,
+          destination,
+          time,
+          date,
+          seats,
+          cost,
+          message
         }
       })).catch(err => res.status(500).json({ message: err.message }));
   }

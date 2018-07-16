@@ -42,7 +42,10 @@ export default class Rides {
               message: 'Your request has beean successfully sent!',
               status: 'pending....',
               request: {
-                userid, rideId, username, message
+                userid,
+                rideId,
+                passenger: username,
+                message
               }
             });
           });
