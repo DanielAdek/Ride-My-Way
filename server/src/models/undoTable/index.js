@@ -1,14 +1,14 @@
-import schema from './dropTable';
+import model from './dropTable';
 
 const { log } = console;
-schema.dropUserTable().then(() => {
+model.dropUserTable().then(() => {
   log('Users table droped');
 }).catch((err) => {
   log(err.messagge);
 });
 
 setTimeout(() => {
-  schema.dropRideTable().then(() => {
+  model.dropRideTable().then(() => {
     log('Rides table droped');
   }).catch((err) => {
     log(err.messagge);
@@ -16,7 +16,7 @@ setTimeout(() => {
 }, 4000);
 
 setTimeout(() => {
-  schema.dropRequestTable().then(() => {
+  model.dropRequestTable().then(() => {
     log('Request table droped');
     process.exit();
   }).catch((err) => {
