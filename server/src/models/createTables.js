@@ -10,6 +10,7 @@ export default {
       username VARCHAR(80) NOT NULL,
       email TEXT NOT NULL UNIQUE,
       password VARCHAR(80) NOT NULL,
+      notification TEXT,
       created_at TIMESTAMP DEFAULT NOW(),
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -22,6 +23,7 @@ export default {
     CREATE TABLE IF NOT EXISTS rides (
       rideId SERIAL PRIMARY KEY,
       userId INTEGER REFERENCES users(userId),
+      driver TEXT NOT NULL,
       departure TEXT NOT NULL,
       destination TEXT NOT NULL,
       time VARCHAR(30) NOT NULL,
@@ -42,7 +44,7 @@ export default {
       requestId SERIAL PRIMARY KEY,
       userId INTEGER REFERENCES users(userId),
       rideId INTEGER REFERENCES rides(rideId),
-      username VARCHAR(80) NOT NULL,
+      passenger VARCHAR(80) NOT NULL,
       message TEXT,
       action VARCHAR(50),
       created_at TIMESTAMP DEFAULT NOW(),
