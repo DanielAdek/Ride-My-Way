@@ -1,1 +1,1 @@
-web: npm start
+web: npm run migrate:undo:all && npm run migrate && npm start
