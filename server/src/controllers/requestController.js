@@ -19,8 +19,6 @@ export default class Rides {
     const { userid, username } = req.decoded;
     const { rideId } = req.params;
     const { message } = req.body;
-    const valuesIntoTable = [userid, rideId, username, message];
-
     db.query(find.rideById, [rideId]).then((rides) => {
       if (rides.rows.length === 0) {
         return res.status(404).json({
@@ -36,6 +34,11 @@ export default class Rides {
         });
       }
       if (rides.rows[0].rideid === parseInt(rideId, 10)) {
+        const {
+          departure, destination, time, date
+        } = rides.rows[0];
+        const valuesIntoTable = [userid, rideId, username,
+          departure, destination, time, date, message];
         db.query(insert.userRequest, valuesIntoTable)
           .then(() => {
             res.status(201).json({
@@ -44,7 +47,11 @@ export default class Rides {
               request: {
                 userid,
                 rideId,
+                time,
+                date,
                 passenger: username,
+                startLocation: departure,
+                stopLocation: destination,
                 message
               }
             });
