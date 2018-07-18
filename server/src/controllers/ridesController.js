@@ -43,6 +43,7 @@ export default class Rides {
           return res.status(200).json({
             status: 'success',
             found: false,
+            count: rides.rows.length,
             message: 'No Ride Found'
           });
         }

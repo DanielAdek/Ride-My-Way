@@ -100,6 +100,7 @@ export default class Rides {
           return res.status(200).json({
             status: 'success',
             found: false,
+            count: requests.rows.length,
             message: 'You have not request any ride'
           });
         }
