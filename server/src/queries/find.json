@@ -9,5 +9,6 @@
     "timeAndDateByUserId": "SELECT time, date FROM rides WHERE userid = $1",
     "requestByUserId": "SELECT * FROM requests WHERE userid=$1",
     "requestByReqId": "SELECT * FROM requests WHERE requestid=$1",
-    "rideByIdAndUserid" : "SELECT * FROM rides WHERE rideId = $1 AND userid=$2"
+    "rideByIdAndUserid" : "SELECT * FROM rides WHERE rideId = $1 AND userid=$2",
+    "ridesByUserId": "SELECT * FROM rides WHERE userid = $1"
 }
