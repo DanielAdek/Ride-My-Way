@@ -86,6 +86,34 @@ export default class Rides {
   }
 
   /**
+   * getOneUserRequests();
+     * @description get all requests
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     * @returns {object} json
+     */
+  static getOneUserRequests(req, res) {
+    const { userid } = req.decoded;
+    db.query(find.requestByUserId, [userid])
+      .then((requests) => {
+        if (requests.rows.length < 1) {
+          return res.status(200).json({
+            status: 'success',
+            found: false,
+            message: 'You have not request any ride'
+          });
+        }
+        return res.status(200).json({
+          status: 'success',
+          found: true,
+          message: 'All your requests',
+          requests: requests.rows,
+          count: requests.rows.length
+        });
+      }).catch(err => res.status(500).json({ message: err.message }));
+  }
+
+  /**
    * updateRequest();
      * @description get all rides
      * @param {*} req HTTP request object

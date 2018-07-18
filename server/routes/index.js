@@ -36,6 +36,14 @@ router.post(
   auth.validateInput, user.loginUser
 );
 
+router.get(
+  '/user/rides', verifyUser,
+  rides.getOneUserRides
+);
+router.get(
+  '/user/requests', verifyUser,
+  request.getOneUserRequests
+);
 router.get('/rides', rides.getAllRides);
 
 router.get('/rides/:rideId', rides.getSingleRide);
