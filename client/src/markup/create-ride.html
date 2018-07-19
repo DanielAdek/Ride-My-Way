@@ -30,30 +30,33 @@
             <div class="logo-brand">
                 <h3 class="font-s-md">
                     <i class="fas fa-car text-light font-s-lg"></i>
-                    <a class="text-light" href="index.html">RMW</a>
+                    <a class="text-light" href="dashboard.html">RMW</a>
                 </h3>
             </div>
             <nav class="nav-links">
                 <ul class="list-group-items flex-row">
                     <li class="list-group-item pl-4" title="Dashboard Home page">
-                        <a class="text-white" href="dashboard-driver.html">Dashboard</a>
+                        <a class="text-white" href="dashboard.html">Dashboard</a>
                     </li>
                     <li class="list-group-item pl-4 dropdown-li" title="share your ride with passangers">
-                         <a href="#" class="text-white username">Owner</a> 
+                        <a href="#" class="text-white username">Owner</a>
                         <i class="fas fa-caret-down text-white"></i>
                         <div class="dropdown">
                             <ul class="list-group-items p-3 flex-column">
                                 <li class="list-group-item">Edit Profile</li>
                                 <li class="list-group-item">Notifications</li>
-                                <li class="list-group-item" id="logout">Log out</li>
+                                <li class="list-group-item" id="logout">
+                                    <i class="fas fa-power-off"></i>
+                                    Log out
+                                </li>
                             </ul>
                         </div>
                     </li>
                     <li class="list-group-item pl-4" title="view all request from passangers">
-                        <a class="text-white" href="view-request.html">Requests</a>
+                        <a class="text-white" href="request.html">Requests</a>
                     </li>
                     <li class="list-group-item pl-4" title="You can also join Avaliable Rides">
-                        <a href="all-rides.html" class="text-white">Rides</a>
+                        <a href="all-rides.html" class="text-white">Available Rides</a>
                     </li>
                 </ul>
             </nav>
@@ -64,12 +67,12 @@
     =============================================== -->
     <div class="mobile-nav">
         <div class="driver-name mt-4 p-4">
-            <h4>Daniel Adekunle</h4>
+            <h4 class="usernameMobile">Owner's Name</h4>
         </div>
         <nav class="">
             <ul class="mobile-nav__items">
                 <li class="mobile-nav__item">
-                    <a href="dashboard-driver.html">Dashboard</a>
+                    <a href="dashboard.html">Dashboard</a>
                 </li>
                 <li class="mobile-nav__item dashboard-current">
                     <a id="create-ride">Create Ride</a>
@@ -84,10 +87,13 @@
                     <a class="" href="d-profile.html">Edit Profile</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="#" id="logout">Notifications</a>
+                    <a href="#" id="">Notifications</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="index.html" id="logout">Log Out</a>
+                    <a href="#" id="logoutMobile">
+                        <i class="fas fa-power-off"></i>
+                        Log Out
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -103,29 +109,35 @@
                 <div class="flex-row justify-content-center text-danger error"></div>
                 <form class="form-ride">
                     <div class="first flex-column">
-                        <label for="from" class="p-4">Departure<span>*</span>
+                        <label for="from" class="p-4">Departure
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="text" name="from" id="departure" placeholder="Start location" required>
-                        <label for="to" class="p-4">Destination<span>*</span>
+                        <label for="to" class="p-4">Destination
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="text" name="to" id="destination" placeholder="Stop location" required>
 
-                        <label for="time" class="p-4">Time<span>*</span>
+                        <label for="time" class="p-4">Time
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="time" name="time" id="time" required>
 
-                        <label for="date" class="p-4">Date<span>*</span>
+                        <label for="date" class="p-4">Date
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="date" name="date" id="date" required>
                         <div class="btn next-btn mt-3">Next</div>
                     </div>
 
                     <div class="second flex-column">
-                        <label for="slots" class="p-4">slots<span>*</span>
+                        <label for="slots" class="p-4">slots
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="number" name="slots" id="slots" required>
 
-                        <label for="cost" class="p-4">cost<span>*</span>
+                        <label for="cost" class="p-4">cost
+                            <span>*</span>
                         </label>
                         <input class="p-5" type="text" name="cost" id="cost" required>
                         <div class="message mb-4">
@@ -151,7 +163,7 @@
             <p class="text-center text-light">Ride-My-Way &copy; 2018 Daniel Adekunle. Andela</p>
         </div>
     </footer>
-    <script src="../assets/rides.js"></script>
+    <script src="../assets/createRide.js"></script>
     <script src="../../public/js/map.js"></script>
     <script src="../../public/js/mobile-nav.js"></script>
     <script src="../../public/js/d-dashboard.js"></script>
