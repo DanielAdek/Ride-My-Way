@@ -47,6 +47,10 @@
     border-left: 5px solid var(--skyblue);
 }
 
+.request-page-nav {
+    transform: translateX(-100px);
+}
+
 .sidebar-nav-links > ul {
     padding: 0;
 }

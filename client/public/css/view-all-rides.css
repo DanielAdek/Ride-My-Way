@@ -1,21 +1,6 @@
-/* #bg-pic-view-all-rides {
-   background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.3)), url('../imgs/vnicecar.jpg');
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   z-index: -2;
-   opacity: .6;
-} */
-
 .cards-container .card > div {
      border-radius: 50%;
 }
-/* .cards-container .card > div img {
-    width: 50%;
-    height: auto;
-} */
 
 .card-content > .span {
     float: right;
@@ -41,18 +26,21 @@
 
 .card-all-rides {
     background: #fff;
-    /* box-shadow: 10px 10px 5px #ccc; */
 }
 
 .d-all-avail-ride-container {
     height: 600px;
 }
+
+.driver-name {
+    text-transform: capitalize;
+}
 .modal-card-container {
     font-family: Roboto;
-    font-size: 1.1rem;
-    width: 50%;
+    font-size: .7rem;
+    width: 40%;
     background: #ccc;
-    height: 50%;
+    height: 20%;
 }
 
 .backdrop-modal {
@@ -80,7 +68,6 @@
 }
 
 .openModal {
-    animation: rotate 500ms linear .2s;
     opacity: 1;
     visibility: visible;
     
@@ -90,15 +77,6 @@
     display: block;
 }
 
-@keyframes rotate {
-    from {
-        transform: rotateY(90deg);
-    }
-    to {
-        transform: rotateY(0);
-    }
-}
-
 @media (max-width: 40rem) {
     .modal {
         left: 5%;
@@ -106,7 +84,6 @@
         top: 15px;
     }
     .modal-card-container {
-        font-size: 1rem;
         width: 90%;
     }
     .quick-search-form {
@@ -116,5 +93,9 @@
     .cards-container {
         overflow-y: auto;
         height: 200px;
+    }
+
+    .line-rule {
+        width: 50%;
     }
 }

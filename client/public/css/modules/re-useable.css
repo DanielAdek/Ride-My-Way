@@ -36,6 +36,13 @@ z-index: 200;
 display: none;
 }
 
+.error, .success-signup,
+.success-login{
+    text-shadow: 3px 1px #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
 /*===================
     Mobile navbar
 ====================*/
@@ -487,6 +494,10 @@ a {
 }
 .text-danger {
     color: var(--danger);
+}
+
+.text-brown {
+    color: var(--brown);
 }
 /* =================
     card styling

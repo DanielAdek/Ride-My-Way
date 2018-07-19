@@ -2,7 +2,9 @@
     overflow-y: auto;
     height: 300px;
 }
-
+.dashbord-nav {
+    transform: translateX(-100px);
+}
 .sidebar-container {
     height: 640px;
 }
@@ -17,23 +19,28 @@
 
 table {
     font-family: arial, sans-serif;
-    width: 100%;
+    width: 98%;
     background: #fff;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #fff;
     text-align: left;
-    padding: 8px;
+    padding: 16px;
+    border-bottom: 1px solid #dddddd;
 }
 
 table tr > th {
-    background: var(--skyblue);
+    background: #6c7ae0;
     color: #fff;
+    border: 1px solid #6c7ae0;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #ebeff2;
 }
 
 .dashboard-grid-row-3 {
@@ -41,6 +48,9 @@ tr:nth-child(even) {
     grid-template-rows: 2rem, 10rem, auto;
 }
 
+.history-btn {
+    background-color: #ebeff2;
+}
 .list-rides {
     margin: 20px;
 }
