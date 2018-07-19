@@ -11,13 +11,17 @@ const message = document.querySelector('.message');
 const error = document.querySelector('.error');
 const button = document.querySelector('#create-ride-btn');
 const owner = document.querySelector('.username');
+const mobileOwner = document.querySelector('.usernameMobile');
+const formRide = document.querySelector('.form-ride');
 
 const getUserName = window.localStorage.getItem('username');
 const split = getUserName.split('');
 const username = split[0].toUpperCase() + split.slice(1).join('');
 const email = window.localStorage.getItem('email');
 owner.textContent = username;
+mobileOwner.textContent = username;
 owner.setAttribute('title', `${email}`);
+mobileOwner.setAttribute('title', `${email}`);
 
 const Ride = {
   /**
@@ -26,6 +30,10 @@ const Ride = {
    */
   createRide(event) {
     event.preventDefault();
+    if (window.navigator.onLine === false) {
+      window.alert('It Seems Your computer is in offline mode'); // eslint-disable-line no-alert
+      return false;
+    }
     if (departure.value.trim() === ''
     || destination.value.trim() === ''
     || time.value.trim() === ''
@@ -39,7 +47,8 @@ const Ride = {
       }, 3000);
       return false;
     }
-    button.style.cursor = 'progress';
+    formRide.style.cursor = 'progress';
+    error.textContent = 'Loading.....';
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
@@ -62,13 +71,21 @@ const Ride = {
     })
       .then(res => res.json())
       .then((ride) => {
+        formRide.style.cursor = 'default';
         if (!ride.success) {
           error.textContent = ride.errors || ride.message;
           setTimeout(() => {
             error.textContent = null;
           }, 7000);
         } else {
-          message.textContent = ride.message;
+          error.textContent = 'Please Wait!....';
+          setTimeout(() => {
+            error.textContent = null;
+          }, 2000);
+          error.textContent = 'Please Wait!....';
+          setTimeout(() => {
+            message.textContent = ride.message;
+          }, 2000);
           setTimeout(() => {
             message.textContent = null;
           }, 10000);

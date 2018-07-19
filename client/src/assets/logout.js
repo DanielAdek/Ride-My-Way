@@ -1,5 +1,6 @@
 /* eslint-env browser */
 const logout = document.querySelector('#logout');
+const mobileLogoutBtn = document.querySelector('#logoutMobile');
 
 const user = {
   /**
@@ -14,3 +15,4 @@ const user = {
 };
 
 logout.addEventListener('click', user.logoutUser);
+mobileLogoutBtn.addEventListener('click', user.logoutUser);

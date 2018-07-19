@@ -5,6 +5,8 @@ const password = document.querySelector('#password');
 const error = document.querySelector('.error');
 const sucessLogin = document.querySelector('.success-login');
 const button = document.querySelector('#login-form button');
+const body = document.querySelector('body');
+
 
 const User = {
   /**
@@ -13,6 +15,10 @@ const User = {
    */
   loginUser(e) {
     e.preventDefault();
+    if (window.navigator.onLine === false) {
+      window.alert('It Seems Your computer is in offline mode'); // eslint-disable-line no-alert
+      return false;
+    }
     if (email.value.trim() === '' || password.value.trim() === '') {
       error.textContent = 'Please Enter Your Email And Password';
       setTimeout(() => {
@@ -20,7 +26,8 @@ const User = {
       }, 3000);
       return false;
     }
-    button.style.cursor = 'progress';
+    body.style.cursor = 'progress';
+    error.textContent = 'Loading.....';
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
@@ -37,13 +44,20 @@ const User = {
     })
       .then(res => res.json())
       .then((user) => {
+        body.style.cursor = 'default';
         if (!user.success) {
           error.textContent = user.errors || user.message;
           setTimeout(() => {
             error.textContent = null;
           }, 5000);
         } else {
-          sucessLogin.textContent = `Welcome Back ${user.result.username}`;
+          error.textContent = 'Please Wait!....';
+          setTimeout(() => {
+            error.textContent = null;
+          }, 2000);
+          setTimeout(() => {
+            sucessLogin.textContent = `Welcome Back ${user.result.username}`;
+          }, 2000);
           setTimeout(() => {
             sucessLogin.textContent = null;
           }, 4000);
@@ -51,7 +65,7 @@ const User = {
           window.localStorage.setItem('username', user.result.username);
           window.localStorage.setItem('email', user.result.email);
           setTimeout(() => {
-            window.location.replace('user-dashboard.html');
+            window.location.replace('create-ride.html');
           }, 3900);
         }
       }).catch((err) => {
@@ -61,8 +75,6 @@ const User = {
         }, 5000);
       });
   },
-
-
 };
 
 button.addEventListener('click', User.loginUser);
