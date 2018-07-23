@@ -36,6 +36,9 @@ z-index: 200;
 display: none;
 }
 
+.reset-info {
+    font-size: 20px;
+}
 .error, .success-signup,
 .success-login{
     text-shadow: 3px 1px #fff;
