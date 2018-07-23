@@ -128,7 +128,7 @@ export default class Users {
       if (user.rows.length < 1) {
         return res.status(400).json({
           success: false,
-          message: 'Link incorrect please copy the link properly or click it from your mail'
+          message: 'Token incorrect, please copy token from your mail'
         });
       }
       mailSender.resetPasswordMail(user.rows[0].email);
