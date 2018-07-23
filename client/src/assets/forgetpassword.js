@@ -50,10 +50,10 @@ const user = {
           }, 2000);
           setTimeout(() => {
             sucess.textContent = null;
-          }, 3000);
+          }, 7000);
           setTimeout(() => {
-            window.location.replace('https://mail.google.com');
-          }, 3000);
+            window.location.replace('resetPassword.html');
+          }, 6900);
         }
       });
   }

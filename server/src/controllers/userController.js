@@ -88,7 +88,6 @@ export default class Users {
      */
   static forgetPassword(req, res) {
     const { email } = req.body;
-    const token = randomStr({ length: 50 });
     db
       .query(find.userByEmail, [email])
       .then((user) => {
@@ -99,6 +98,7 @@ export default class Users {
             message: 'This Email is either incorrect or not yet registered'
           });
         }
+        const token = randomStr({ length: 10 });
         mailSender.forgotPasswordMail(token, email);
         db
           .query(update.passwordResetToken, [token]).then(() => res.status(200).json({
@@ -132,12 +132,12 @@ export default class Users {
         });
       }
       mailSender.resetPasswordMail(user.rows[0].email);
+      db
+        .query(update.password, userPassword).then(() => res.status(200).json({
+          success: true,
+          message: 'New password is successfully created'
+        }))
+        .catch(error => res.status(500).json({ message: `Internal error ${error.message}` }));
     }).catch(err => res.status(500).json({ message: `Internal error ${err.message}` }));
-    db
-      .query(update.password, userPassword).then(() => res.status(200).json({
-        success: true,
-        message: 'New password is successfully created'
-      }))
-      .catch(error => res.status(500).json({ message: `Internal error ${error.message}` }));
   }
 }
