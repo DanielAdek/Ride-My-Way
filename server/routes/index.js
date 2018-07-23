@@ -7,10 +7,10 @@ import checkInput from '../src/validations/rides';
 import validateInput from '../src/validations/users';
 import existing from '../src/midlewares/validation';
 import requestAction from '../src/midlewares/request';
-// import singleRoute from '../src/midlewares/singleRoute';
+import search from '../src/midlewares/singleRoute';
 
 const { verifyUser } = auth;
-// const { forgetPassword } = singleRoute;
+const { searchRide } = search;
 const { email, username, ride } = existing;
 const { userSignUpDetails, userLoginDetails } = validateInput;
 const { validateRequestAction, validateRequestMessage, requestExit } = requestAction;
@@ -26,13 +26,11 @@ router.get(
   request.getOneUserRequests
 );
 
-router.get('/rides', rides.getAllRides);
+router.get('/rides', searchRide, rides.getAllRides);
 
 router.get('/rides/:rideId', rides.getSingleRide);
 
 router.get('/users/rides/:rideId/requests', verifyUser, request.getRequests);
-
-// router.get('/search/rides', rides.searchRide);
 
 router.post(
   '/auth/login', userLoginDetails,
