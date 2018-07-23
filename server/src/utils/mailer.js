@@ -30,7 +30,7 @@ class Mailer {
     });
 
     const mailOptions = {
-      from: '"Ride My Way" <noreply@ride-my-way.com>',
+      from: '"Ride My Way" <noreply@ride-my-way.com',
       to,
       subject,
       html: message
@@ -52,8 +52,9 @@ class Mailer {
       `<div>
       <p style="text-transform: capitalize;">Hi,</p>
       <p>You recently requested to reset your password. If this wasn't you, please ignore this mail.</p>
-      <p>You can click on or copy this link: <a href='http://${url}/user/reset-password?token=${token}'>
-      http://${url}/user/reset-password?token=${token}</a> to reset your password</p>
+      <p>To reset your password</p>, <p>Copy (carefully copy the token to avoid invalid token issues) token:<span>${token}</span>
+        and paste it in the input field provided for your token on our
+        site: click here: <a href='http://${url}/user/reset-password'></a></p>
       <p>Have a great day.</p>
       </div>`;
 
@@ -76,7 +77,7 @@ class Mailer {
       `<div>
       <p style="text-transform: capitalize;">Hi,</p>
       <p>Your password was reset succesfully.</p>
-      <p><a href='http://${url}/auth/login'>Login</a> to your account.</p>
+      <p>You can now <a href='http://${url}/auth/login'>Login</a> to your account again.</p>
       </div>`;
 
     return Mailer.sendMail({
