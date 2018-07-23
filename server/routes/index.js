@@ -7,10 +7,10 @@ import checkInput from '../src/validations/rides';
 import validateInput from '../src/validations/users';
 import existing from '../src/midlewares/validation';
 import requestAction from '../src/midlewares/request';
-import singleRoute from '../src/midlewares/singleRoute';
+// import singleRoute from '../src/midlewares/singleRoute';
 
 const { verifyUser } = auth;
-const { forgetPassword } = singleRoute;
+// const { forgetPassword } = singleRoute;
 const { email, username, ride } = existing;
 const { userSignUpDetails, userLoginDetails } = validateInput;
 const { validateRequestAction, validateRequestMessage, requestExit } = requestAction;
@@ -54,7 +54,8 @@ router.post(
   auth.validateInput, ride, rides.createRideOffer
 );
 
-router.put('/user/reset-password', forgetPassword, user.resetPassword);
+router.put('/user/forgot-password', user.forgetPassword);
+router.put('/user/reset-password', user.resetPassword);
 
 router.put(
   '/users/rides/:rideId/requests/:requestId',
