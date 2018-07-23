@@ -52,9 +52,11 @@ class Mailer {
       `<div>
       <p style="text-transform: capitalize;">Hi,</p>
       <p>You recently requested to reset your password. If this wasn't you, please ignore this mail.</p>
-      <p>To reset your password</p>, <p>Copy (carefully copy the token to avoid invalid token issues) token:<span>${token}</span>
+      <p>To reset your password</p>,
+      <p>Copy (carefully copy the token to avoid invalid token issues) token: <span>${token}</span>
         and paste it in the input field provided for your token on our
-        site: click here: <a href='http://${url}/user/reset-password'></a></p>
+        site: click here: <a href='http://${url}/user/reset-password'></a>
+      </p>
       <p>Have a great day.</p>
       </div>`;
 
