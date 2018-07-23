@@ -10,6 +10,7 @@ export default {
       username VARCHAR(80) NOT NULL,
       email TEXT NOT NULL UNIQUE,
       password VARCHAR(80) NOT NULL,
+      passwordResetToken TEXT,
       notification TEXT,
       created_at TIMESTAMP DEFAULT NOW(),
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

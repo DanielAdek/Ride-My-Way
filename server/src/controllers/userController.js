@@ -4,6 +4,8 @@ import { config } from 'dotenv';
 import db from '../models/connect';
 import find from '../queries/find.json';
 import insert from '../queries/insert.json';
+import update from '../queries/update.json';
+import mailSender from '../utils/mailer';
 
 config();
 const secret = process.env.SECRET;
@@ -74,5 +76,32 @@ export default class Users {
           message: `There was an internal/server error ${err.message} `
         });
       });
+  }
+
+  /**
+    * resetPassword()
+     * @returns {object} json
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     */
+  static resetPassword(req, res) {
+    const { token } = req.query;
+    const password = bcrypt.hashSync(req.body.password, 10);
+    const userPassword = [password, token];
+    db.query(find.userByResetToken, [token]).then((user) => {
+      if (user.rows.length < 1) {
+        return res.status(400).json({
+          success: false,
+          message: 'Link incorrect please copy the link properly or click it from your mail'
+        });
+      }
+      mailSender.resetPasswordMail(user.rows[0].email);
+    }).catch(err => res.status(500).json({ message: `Internal error ${err.message}` }));
+    db
+      .query(update.password, userPassword).then(() => res.status(200).json({
+        success: true,
+        message: 'New password is successfully created'
+      }))
+      .catch(error => res.status(500).json({ message: `Internal error ${error.message}` }));
   }
 }
