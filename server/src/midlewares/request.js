@@ -18,6 +18,7 @@ export default class Verify {
       next();
     } else {
       return res.status(400).json({
+        error: true,
         status: 'failed',
         message: 'action can only be accept or reject'
       });
@@ -41,6 +42,7 @@ export default class Verify {
         next();
       } else {
         return res.status(400).json({
+          error: true,
           status: 'failed',
           message: 'message can only contain letters'
         });
