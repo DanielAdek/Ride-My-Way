@@ -64,7 +64,7 @@ export default class Verify {
       const found = request.rows.map(ride => ride.rideid === rideId);
       if (found.indexOf(true) !== -1) {
         return res.status(400).json({
-          status: 'fail',
+          error: true,
           message: 'You have already requested for this ride'
         });
       }

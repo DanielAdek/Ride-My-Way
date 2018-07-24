@@ -29,6 +29,7 @@ export default class Rides {
       }
       if (userid === rides.rows[0].userid) {
         return res.status(400).json({
+          error: true,
           status: 'fail',
           message: 'You cannnot request your own ride'
         });
@@ -43,6 +44,7 @@ export default class Rides {
           .then(() => {
             res.status(201).json({
               message: 'Your request has beean successfully sent!',
+              error: false,
               status: 'pending....',
               request: {
                 userid,
