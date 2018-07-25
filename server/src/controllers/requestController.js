@@ -19,6 +19,7 @@ export default class Rides {
     const { userid, username } = req.decoded;
     const { rideId } = req.params;
     const { message } = req.body;
+    const action = 'Pending...';
     db.query(find.rideById, [rideId]).then((rides) => {
       if (rides.rows.length === 0) {
         return res.status(404).json({
@@ -39,7 +40,7 @@ export default class Rides {
           driver, departure, destination, time, date, cost
         } = rides.rows[0];
         const valuesIntoTable = [userid, rideId, username.toLowerCase(),
-          driver.toLowerCase(), departure, destination, time, date, cost, message];
+          driver.toLowerCase(), departure, destination, time, date, cost, message, action];
         db.query(insert.userRequest, valuesIntoTable)
           .then(() => {
             res.status(201).json({

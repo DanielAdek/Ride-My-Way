@@ -1,5 +1,5 @@
 {
     "userSignup": "INSERT INTO users (fullName, username, email, password) VALUES ($1, $2, $3, $4) returning *",
-    "userRequest" : "INSERT INTO requests (userId, rideId, passenger, driver, departure, destination, time, date, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) returning *",
+    "userRequest" : "INSERT INTO requests (userId, rideId, passenger, driver, departure, destination, time, date, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) returning *",
     "rideOffer" : "INSERT INTO rides (userId, driver, departure, destination, time, date, seats, cost, message) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *"
 }
