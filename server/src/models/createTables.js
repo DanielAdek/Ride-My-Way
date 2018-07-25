@@ -12,8 +12,7 @@ export default {
       password VARCHAR(80) NOT NULL,
       passwordResetToken TEXT,
       notification TEXT,
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      created_at TIMESTAMP DEFAULT NOW()
     );
     `;
     return db.query(userModel);
@@ -30,10 +29,9 @@ export default {
       time VARCHAR(30) NOT NULL,
       date VARCHAR(30) NOT NULL,
       seats INTEGER NOT NULL,
-      cost TEXT NOT NULL,
+      cost NUMERIC NOT NULL,
       message TEXT,
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      created_at TIMESTAMP DEFAULT NOW()
     );
     `;
     return db.query(rideModel);
@@ -46,14 +44,15 @@ export default {
       userId INTEGER REFERENCES users(userId),
       rideId INTEGER REFERENCES rides(rideId),
       passenger VARCHAR(80) NOT NULL,
+      driver TEXT,
       departure TEXT,
       destination TEXT,
       time VARCHAR(30),
       date VARCHAR(30),
+      cost NUMERIC NOT NULL,
       message TEXT,
       action VARCHAR(50),
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      created_at TIMESTAMP DEFAULT NOW()
     );
     `;
     return db.query(requestModal);

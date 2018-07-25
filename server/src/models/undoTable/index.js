@@ -22,4 +22,4 @@ setTimeout(() => {
   }).catch((err) => {
     log(err.messagge);
   });
-}, 4000);
+}, 6000);
