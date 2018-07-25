@@ -175,7 +175,7 @@ export default class Rides {
           message: 'No request found!'
         });
       }
-      if (action.toLowerCase() === 'accept' && request.rows[0].userid !== userid) {
+      if (action === 'Request Accepted' && request.rows[0].userid !== userid) {
         if (request.rows[0].action === 'accept') {
           res.status(400).json({
             success: false,
@@ -206,7 +206,7 @@ export default class Rides {
             });
           });
         }
-      } if (action.toLowerCase() === 'reject' && request.rows[0].action !== null) {
+      } if (action === 'Request Rejected' && request.rows[0].action !== 'Pending...') {
         if (request.rows[0].action === 'reject') {
           res.status(400).json({
             success: false,
