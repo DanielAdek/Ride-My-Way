@@ -14,13 +14,13 @@ export default class Verify {
        */
   static validateRequestAction(req, res, next) {
     const { action } = req.body;
-    if (action.trim().toLowerCase() === 'accept' || action.trim().toLowerCase() === 'reject') {
+    if (action.trim().toLowerCase() === 'Request Accepted' || action.trim().toLowerCase() === 'Request Rejected') {
       next();
     } else {
       return res.status(400).json({
         error: true,
         status: 'failed',
-        message: 'action can only be accept or reject'
+        message: 'action can only be "Request Accepted" or "Request Accepted"'
       });
     }
   }
