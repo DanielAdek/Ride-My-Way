@@ -92,7 +92,7 @@ export default class Rides {
     const {
       departure, destination, time, date, seats, cost, message
     } = req.body;
-    const valuesIntoTable = [userid, username,
+    const valuesIntoTable = [userid, username.trim().toLowerCase(),
       departure.trim().toLowerCase(), destination.trim().toLowerCase(),
       time, date, seats, cost, message];
     db.query(insert.rideOffer, valuesIntoTable)

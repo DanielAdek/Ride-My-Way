@@ -27,9 +27,9 @@ export default class Users {
       fullName, username, email
     } = req.body;
 
-    const valuesIntoTable = [fullName.toLowerCase(),
-      username.toLowerCase(),
-      email, password];
+    const valuesIntoTable = [fullName.trim().toLowerCase(),
+      username.trim().toLowerCase(),
+      email.trim(), password.trim()];
     db
       .query(insert.userSignup, valuesIntoTable)
       .then((newUser) => {
@@ -54,11 +54,11 @@ export default class Users {
      */
   static loginUser(req, res) {
     const { email, password } = req.body;
-    const userEmail = [email];
+    const userEmail = [email.trim()];
     db
       .query(find.userByEmail, userEmail)
       .then((user) => {
-        if (user.rows[0] && bcrypt.compareSync(password, user.rows[0].password)) {
+        if (user.rows[0] && bcrypt.compareSync(password.trim(), user.rows[0].password)) {
           const { userid, username } = user.rows[0];
           const token = jwt.sign({ userid, email, username }, secret, { expiresIn: '24h' });
           return res.status(200).json({
@@ -123,8 +123,8 @@ export default class Users {
   static resetPassword(req, res) {
     const { token } = req.body;
     const password = bcrypt.hashSync(req.body.password, 10);
-    const userPassword = [password, token];
-    db.query(find.userByResetToken, [token]).then((user) => {
+    const userPassword = [password.trim(), token.trim()];
+    db.query(find.userByResetToken, [token.trim()]).then((user) => {
       if (user.rows.length < 1) {
         return res.status(400).json({
           success: false,

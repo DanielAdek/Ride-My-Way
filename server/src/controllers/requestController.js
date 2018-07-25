@@ -22,14 +22,14 @@ export default class Rides {
     db.query(find.rideById, [rideId]).then((rides) => {
       if (rides.rows.length === 0) {
         return res.status(404).json({
-          error: true,
+          success: false,
           status: 'fail',
           message: 'No ride with this rideId'
         });
       }
       if (userid === rides.rows[0].userid) {
         return res.status(400).json({
-          error: true,
+          success: false,
           status: 'fail',
           message: 'You cannnot request your own ride'
         });
@@ -38,13 +38,13 @@ export default class Rides {
         const {
           driver, departure, destination, time, date, cost
         } = rides.rows[0];
-        const valuesIntoTable = [userid, rideId, username,
-          driver, departure, destination, time, date, cost, message];
+        const valuesIntoTable = [userid, rideId, username.toLowerCase(),
+          driver.toLowerCase(), departure, destination, time, date, cost, message];
         db.query(insert.userRequest, valuesIntoTable)
           .then(() => {
             res.status(201).json({
               message: 'Your request has beean successfully sent!',
-              error: false,
+              success: true,
               status: 'pending....',
               request: {
                 userid,
