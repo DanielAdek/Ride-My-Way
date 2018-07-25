@@ -196,7 +196,7 @@ export default class Rides {
               }
               res.status(201).json({
                 status: 'Success',
-                message: 'Request successfully accepted'
+                message: 'Request Accepted'
               });
             });
           });
@@ -213,7 +213,7 @@ export default class Rides {
             db.query(update.seats, [rides.rows[0].seats += 1, rideId, userid]);
             return res.status(201).json({
               status: 'Success',
-              message: 'Request successfully rejected'
+              message: 'Request Rejected'
             });
           });
         }
