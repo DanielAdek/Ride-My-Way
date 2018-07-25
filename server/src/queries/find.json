@@ -12,5 +12,6 @@
     "rideByIdAndUserid" : "SELECT * FROM rides WHERE rideId = $1 AND userid=$2",
     "ridesByUserId": "SELECT * FROM rides WHERE userid = $1",
     "rideByD3": "SELECT * FROM rides WHERE departure=$1 AND destination=$2 AND date=$3",
-    "userByResetToken": "SELECT * FROM users WHERE passwordresettoken=$1"
+    "userByResetToken": "SELECT * FROM users WHERE passwordresettoken=$1",
+    "requestByDriverName": "SELECT * FROM requests WHERE driver=$1"
 }

@@ -36,10 +36,10 @@ export default class Rides {
       }
       if (rides.rows[0].rideid === parseInt(rideId, 10)) {
         const {
-          departure, destination, time, date
+          driver, departure, destination, time, date, cost
         } = rides.rows[0];
         const valuesIntoTable = [userid, rideId, username,
-          departure, destination, time, date, message];
+          driver, departure, destination, time, date, cost, message];
         db.query(insert.userRequest, valuesIntoTable)
           .then(() => {
             res.status(201).json({
@@ -51,6 +51,8 @@ export default class Rides {
                 rideId,
                 time,
                 date,
+                cost,
+                driver,
                 passenger: username,
                 startLocation: departure,
                 stopLocation: destination,
@@ -110,6 +112,35 @@ export default class Rides {
           status: 'success',
           found: true,
           message: 'All your requests',
+          requests: requests.rows,
+          count: requests.rows.length
+        });
+      }).catch(err => res.status(500).json({ message: err.message }));
+  }
+
+  /**
+   * getAllRequestsToARide();
+     * @description get all requests
+     * @param {*} req HTTP request object
+     * @param {*} res HTTP response object
+     * @returns {object} json
+     */
+  static getAllRequestsToARide(req, res) {
+    const { username } = req.decoded;
+    db.query(find.requestByDriverName, [username])
+      .then((requests) => {
+        if (requests.rows.length < 1) {
+          return res.status(200).json({
+            status: 'success',
+            found: false,
+            count: requests.rows.length,
+            message: 'No passenger\'s requests to your ride'
+          });
+        }
+        return res.status(200).json({
+          status: 'success',
+          found: true,
+          message: 'Passengers requests',
           requests: requests.rows,
           count: requests.rows.length
         });
