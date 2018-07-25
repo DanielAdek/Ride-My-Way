@@ -26,6 +26,11 @@ router.get(
   request.getOneUserRequests
 );
 
+router.get(
+  '/user/passengers/requests', verifyUser,
+  request.getAllRequestsToARide
+);
+
 router.get('/rides', searchRide, rides.getAllRides);
 
 router.get('/rides/:rideId', rides.getSingleRide);
