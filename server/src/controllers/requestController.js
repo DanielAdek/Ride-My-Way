@@ -163,12 +163,14 @@ export default class Rides {
     db.query(find.requestByReqId, [requestId]).then(((request) => {
       if (request.rows[0].userid === userid) {
         return res.status(400).json({
+          success: false,
           status: 'fail',
           message: 'This ride does not belong to you',
         });
       }
       if (!request.rows[0].rideid || !request.rows[0].requestid) {
         return res.status(400).json({
+          success: false,
           status: 'fail',
           message: 'No request found!'
         });
@@ -176,6 +178,7 @@ export default class Rides {
       if (action.toLowerCase() === 'accept' && request.rows[0].userid !== userid) {
         if (request.rows[0].action === 'accept') {
           res.status(400).json({
+            success: false,
             status: 'fail',
             message: 'Cannot accept a request twice'
           });
@@ -190,11 +193,13 @@ export default class Rides {
               } else {
                 db.query(update.seats, [rides.rows[0].seats = 0, rideId, userid]);
                 return res.json({
+                  success: false,
                   status: 'fail',
                   message: 'no more slot in your car'
                 });
               }
               res.status(201).json({
+                success: true,
                 status: 'Success',
                 message: 'Request Accepted'
               });
@@ -204,6 +209,7 @@ export default class Rides {
       } if (action.toLowerCase() === 'reject' && request.rows[0].action !== null) {
         if (request.rows[0].action === 'reject') {
           res.status(400).json({
+            success: false,
             status: 'fail',
             message: 'Cannot reject a request twice'
           });
@@ -212,6 +218,7 @@ export default class Rides {
             db.query(update.actionByRequestId, [action, rideId, requestId]);
             db.query(update.seats, [rides.rows[0].seats += 1, rideId, userid]);
             return res.status(201).json({
+              success: true,
               status: 'Success',
               message: 'Request Rejected'
             });
