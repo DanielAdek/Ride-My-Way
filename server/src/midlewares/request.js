@@ -14,7 +14,7 @@ export default class Verify {
        */
   static validateRequestAction(req, res, next) {
     const { action } = req.body;
-    if (action.trim().toLowerCase() === 'Request Accepted' || action.trim().toLowerCase() === 'Request Rejected') {
+    if (action.trim() === 'Request Accepted' || action.trim() === 'Request Rejected') {
       next();
     } else {
       return res.status(400).json({
