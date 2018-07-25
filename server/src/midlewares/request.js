@@ -20,7 +20,7 @@ export default class Verify {
       return res.status(400).json({
         error: true,
         status: 'failed',
-        message: 'action can only be "Request Accepted" or "Request Accepted"'
+        message: 'Action can only be "Request Accepted" or "Request Rejected"'
       });
     }
   }
@@ -35,18 +35,17 @@ export default class Verify {
        */
   static validateRequestMessage(req, res, next) {
     const { message } = req.body;
-    const regex = /^[a-zA-Z ]+$/;
     if (message) {
+      const regex = /^[a-zA-Z ]+$/ig;
       const test = regex.test(message);
-      if (test) {
-        next();
-      } else {
+      if (!test) {
         return res.status(400).json({
           error: true,
           status: 'failed',
-          message: 'message can only contain letters'
+          message: 'Message can only contain letters'
         });
       }
+      next();
     } else {
       next();
     }

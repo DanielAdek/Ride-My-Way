@@ -176,7 +176,7 @@ export default class Rides {
         });
       }
       if (action === 'Request Accepted' && request.rows[0].userid !== userid) {
-        if (request.rows[0].action === 'accept') {
+        if (request.rows[0].action === 'Request Accepted') {
           res.status(400).json({
             success: false,
             status: 'fail',
@@ -195,7 +195,7 @@ export default class Rides {
                 return res.json({
                   success: false,
                   status: 'fail',
-                  message: 'no more slot in your car'
+                  message: 'No more slots in your car'
                 });
               }
               res.status(201).json({
@@ -207,7 +207,7 @@ export default class Rides {
           });
         }
       } if (action === 'Request Rejected' && request.rows[0].action !== 'Pending...') {
-        if (request.rows[0].action === 'reject') {
+        if (request.rows[0].action === 'Request Rejected') {
           res.status(400).json({
             success: false,
             status: 'fail',
@@ -226,6 +226,7 @@ export default class Rides {
         }
       }
     })).catch(err => res.status(400).json({
+      success: false,
       status: 'fail',
       message: err.message
     }));
