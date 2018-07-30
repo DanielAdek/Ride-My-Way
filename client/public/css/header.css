@@ -27,7 +27,6 @@
 }
 .nav-links {
     transform: translateX(-10px);
-    animation: slidIn 2.5s ease-in-out 100ms;
     font-family: Roboto;
 }
 

@@ -3,7 +3,6 @@
     height: 500px;
 }
 .space > div {
-    animation: fallIn 1s linear 500ms;
     transform: translateY(120px);
 }
 .space > div > h1 {
