@@ -22,10 +22,14 @@
     font-size: .8rem;
 }
 
-.request-card-container {
+.request-container {
     width: 60%;
     margin-bottom: 10px;
     background: #fff;
+}
+
+.action-pending {
+    color: #f1f129;
 }
 
 .grid-column-4 {
@@ -62,7 +66,7 @@
     .dashboard-main-wrapper {
         grid-column: 1 / -1;
     }
-    .request-card-container {
+    .request-container {
         width: 90%;
     }
     .driver-name > h1 {

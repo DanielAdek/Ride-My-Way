@@ -36,8 +36,80 @@ z-index: 200;
 display: none;
 }
 
+.response-to-request {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    z-index: 1000;
+    border: 2px solid #6ef16e;
+    background: linear-gradient(rgba(110, 247, 110, 0.3), rgba(99, 243, 99, 0.7));
+    padding: 40px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 1.2rem;
+    box-shadow: 2px 1px 2px #6ef16e;
+}
+
+.response-to-request-neg {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    z-index: 1000;
+    border: 2px solid #fa6d6d;
+    background: linear-gradient(rgba(253, 107, 107, 0.3), rgba(253, 98, 98, 0.7));
+    width: 50%;
+    padding: 40px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 1.2rem;
+    box-shadow: 2px 1px 2px #f13737;
+}
+
 .reset-info {
     font-size: 20px;
+}
+
+#loading {
+    width: 70px;
+    height: 70px;
+    border: 3px solid #ccc;
+    border-top-color: #ff6a00;
+    border-radius: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    animation: animateRound 2s linear infinite;
+}
+
+#loading-btn {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-top-color: #e5ff00;
+    border-radius: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    animation: animateRound 2s linear infinite;
+}
+
+@keyframes animateRound {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 .error, .success-signup,
 .success-login{
@@ -45,6 +117,13 @@ display: none;
     font-size: 20px;
     letter-spacing: 2px;
 }
+
+/*
+#bpic {
+    background: linear-gradient(rgb(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgs/driver.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
 
 /*===================
     Mobile navbar
@@ -232,7 +311,7 @@ display: none;
     text-transform: uppercase;
 }
 
-.text-transform-capitalize {
+.text-capitalize {
     text-transform: capitalize;
 }
 
@@ -612,9 +691,20 @@ select {
     transition: opacity 500ms ease-in-out .1s, transform 700ms ease-in-out .1s;
 }
 
+.open-response-message,
+.open-response-message-neg {
+    display: block;
+    animation: animatezoom 0.6s
+    
+}
 @media(min-width: 41rem) {
     .mobile-nav,
     .backdrop {
         display: none;
     }
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
 }

@@ -56,21 +56,18 @@
 }
 
 .modal {
-    /* display: none; */
+    display: none;
     position: fixed;
-    left: 20%;
+    top: 20%;
+    left: 25%;
     right: 25%;
-    top: 40px;
     width: 100vw;
     z-index: 300;
-    opacity: 0;
-    visibility: hidden;
 }
 
 .openModal {
-    opacity: 1;
-    visibility: visible;
-    
+    display: block;
+    animation: fallIn 0.6s
 }
 
 .openBackdrop {
@@ -81,7 +78,7 @@
     .modal {
         left: 5%;
         right: 5%;
-        top: 15px;
+        top: 20%;
     }
     .modal-card-container {
         width: 90%;
