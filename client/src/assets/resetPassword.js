@@ -8,7 +8,7 @@ const resetPasswordBtn = document.querySelector('.reset-password-btn');
 const error = document.querySelector('.error');
 const success = document.querySelector('.success-message');
 
-const passToken = document.URL.split('?')[2];
+const passToken = document.URL.split('?');
 console.log(passToken);
 
 const user = {
