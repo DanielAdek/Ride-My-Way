@@ -20,7 +20,7 @@ const user = {
       }, 3000);
       return false;
     }
-    error.textContent = 'Loading.....';
+    error.innerHTML = 'Loading..... <div id="loading"></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -45,11 +45,10 @@ const user = {
             error.textContent = null;
           }, 2000);
           setTimeout(() => {
-            sucess.textContent = `${data.message} 
-            <p>We will redirect you to Gmail</p>`;
+            sucess.innerHTML = `${data.message}`;
           }, 2000);
           setTimeout(() => {
-            sucess.textContent = null;
+            sucess.innerHTML = null;
           }, 7000);
           setTimeout(() => {
             window.location.replace('resetPassword.html');

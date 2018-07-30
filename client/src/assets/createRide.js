@@ -13,6 +13,8 @@ const button = document.querySelector('#create-ride-btn');
 const owner = document.querySelector('.username');
 const mobileOwner = document.querySelector('.usernameMobile');
 const formRide = document.querySelector('.form-ride');
+const reqResMessage = document.querySelector('.response-message');
+const backdrp = document.querySelector('.backdrop');
 
 const getUserName = window.localStorage.getItem('username');
 const split = getUserName.split('');
@@ -48,7 +50,7 @@ const Ride = {
       return false;
     }
     formRide.style.cursor = 'progress';
-    error.textContent = 'Loading.....';
+    error.innerHTML = 'Loading...<div id="loading-btn"></div>';
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
@@ -82,13 +84,15 @@ const Ride = {
           setTimeout(() => {
             error.textContent = null;
           }, 2000);
-          error.textContent = 'Please Wait!....';
           setTimeout(() => {
-            message.textContent = ride.message;
+            reqResMessage.textContent = ride.message;
+            reqResMessage.classList.add('open-response-message');
+            backdrp.classList.add('openBackdrop');
           }, 2000);
           setTimeout(() => {
-            message.textContent = null;
-          }, 10000);
+            reqResMessage.classList.remove('open-response-message');
+            backdrp.classList.remove('openBackdrop');
+          }, 5000);
         }
       });
   }

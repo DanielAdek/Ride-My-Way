@@ -31,7 +31,7 @@ const user = {
       }, 3000);
       return false;
     }
-    error.textContent = 'Loading.....';
+    error.innerHTML = 'Loading..... <div id="loading"></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');

@@ -18,6 +18,9 @@ mobileViewOwner.textContent = username;
 owner.setAttribute('title', `${email}`);
 mobileViewOwner.setAttribute('title', `${email}`);
 
+offerd.innerHTML = 'Loading Data...<div id="loading-btn"></div>';
+rideTaken.innerHTML = 'Loading Data...<div id="loading-btn"></div>';
+
 const showHistory = {
   data() {
     return {
@@ -32,7 +35,7 @@ const showHistory = {
         })
           .then(res => res.json())
           .then((ride) => {
-            offerd.textContent = `Ride Offered ${ride.count}`;
+            offerd.innerHTML = `Ride Offered ${ride.count}`;
           });
       },
       getRequestCount() {
@@ -46,14 +49,14 @@ const showHistory = {
         })
           .then(res => res.json())
           .then((ride) => {
-            rideTaken.textContent = `Ride Taken ${ride.count}`;
+            rideTaken.innerHTML = `Ride Taken ${ride.count}`;
           });
       }
     };
   },
   rideOffered() {
     historyTable.style.cursor = 'progress';
-    historyTable.innerHTML = '<h3>Loading.....</h3>';
+    historyTable.innerHTML = '<h3>Loading..... <div id="loading"></div></h3>';
     historyTable.style.display = 'flex';
     historyTable.style.justifyContent = 'center';
     historyTable.style.padding = '20px';
@@ -110,7 +113,7 @@ const showHistory = {
   },
   offerTaken() {
     historyTable.style.cursor = 'progress';
-    historyTable.innerHTML = '<h3>Loading.....</h3>';
+    historyTable.innerHTML = '<h3>Loading..... <div id="loading"></div></h3>';
     historyTable.style.display = 'flex';
     historyTable.style.justifyContent = 'center';
     historyTable.style.padding = '20px';
@@ -137,7 +140,7 @@ const showHistory = {
         historyTable.style.display = 'table';
         historyTable.style.marginTop = '0';
         historyTable.style.cursor = 'default';
-        const tableRows = data.availableRides.map(val => (
+        const tableRows = data.requests.map(val => (
           `<tr>
               <td class="text-blue">
                 <i class="fas fa-map-marker-alt text-success"></i>

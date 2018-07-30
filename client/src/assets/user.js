@@ -3,10 +3,10 @@ const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const error = document.querySelector('.error');
-const sucessLogin = document.querySelector('.success-login');
 const button = document.querySelector('#login-form button');
 const body = document.querySelector('body');
-
+const reqResMessage = document.querySelector('.response-message');
+const backdrp = document.querySelector('.backdrop-modal');
 
 const User = {
   /**
@@ -27,7 +27,7 @@ const User = {
       return false;
     }
     body.style.cursor = 'progress';
-    error.textContent = 'Loading.....';
+    error.innerHTML = 'Loading..... <div id="loading"></div>';
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
@@ -56,17 +56,20 @@ const User = {
             error.textContent = null;
           }, 2000);
           setTimeout(() => {
-            sucessLogin.textContent = `Welcome Back ${user.result.username}`;
+            reqResMessage.textContent = `Welcome Back ${user.result.username}`;
+            reqResMessage.classList.add('open-response-message');
+            backdrp.classList.add('openBackdrop');
           }, 2000);
           setTimeout(() => {
-            sucessLogin.textContent = null;
-          }, 4000);
+            reqResMessage.classList.remove('open-response-message');
+            backdrp.classList.remove('openBackdrop');
+          }, 5000);
           window.localStorage.setItem('token', user.result.token);
           window.localStorage.setItem('username', user.result.username);
           window.localStorage.setItem('email', user.result.email);
           setTimeout(() => {
             window.location.replace('create-ride.html');
-          }, 3900);
+          }, 4999);
         }
       }).catch((err) => {
         error.textContent = `There was a problem with the server ${err.message}`;

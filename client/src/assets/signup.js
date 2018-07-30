@@ -7,8 +7,9 @@ const confirmPass = document.querySelector('#confirm-password');
 const username = document.querySelector('#username');
 const signupBtn = document.querySelector('.sign-up-button');
 const error = document.querySelector('.error');
-const sucessSignup = document.querySelector('.success-signup');
 const body = document.querySelector('body');
+const reqResMessage = document.querySelector('.response-message');
+const backdrp = document.querySelector('.backdrop');
 
 const userAccount = {
   signupUser(event) {
@@ -36,7 +37,7 @@ const userAccount = {
       }, 3000);
       return false;
     }
-    error.textContent = 'Loading.....';
+    error.innerHTML = 'Loading..... <div id="loading"></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -64,18 +65,21 @@ const userAccount = {
             error.textContent = null;
           }, 2000);
           setTimeout(() => {
-            sucessSignup.textContent = `${newUser.message}fully Created!. 
+            reqResMessage.textContent = `${newUser.message}fully Created!. 
           Welcome ${username.value}`;
+            reqResMessage.classList.add('open-response-message');
+            backdrp.classList.add('openBackdrop');
           }, 2000);
           setTimeout(() => {
-            sucessSignup.textContent = null;
+            reqResMessage.classList.remove('open-response-message');
+            backdrp.classList.remove('openBackdrop');
           }, 5000);
           window.localStorage.setItem('token', newUser.user.token);
           window.localStorage.setItem('username', newUser.user.username);
           window.localStorage.setItem('email', newUser.user.email);
           setTimeout(() => {
             window.location.replace('create-ride.html');
-          }, 3900);
+          }, 4999);
         }
       });
   }
