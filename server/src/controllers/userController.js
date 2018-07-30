@@ -101,10 +101,10 @@ export default class Users {
         const token = randomStr({ length: 10 });
         mailSender.forgotPasswordMail(token, email);
         db
-          .query(update.passwordResetToken, [token]).then(() => res.status(200).json({
+          .query(update.passwordResetToken, [token, email]).then(() => res.status(200).json({
             success: true,
             passwordResetToken: token,
-            message: 'A reset token has been sent to your email address'
+            message: 'A Reset Token Has Been Sent To Your Mail Account'
           })).catch(err => res.status(500).json({ message: `Internal error ${err.message}` }));
       }).catch((err) => {
         res.status(500).json({
@@ -121,7 +121,7 @@ export default class Users {
      * @param {*} res HTTP response object
      */
   static resetPassword(req, res) {
-    const { token } = req.body;
+    const { token } = req.query;
     const password = bcrypt.hashSync(req.body.password, 10);
     const userPassword = [password.trim(), token.trim()];
     db.query(find.userByResetToken, [token.trim()]).then((user) => {
