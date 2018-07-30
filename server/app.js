@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 
 // SERVE STATIC FILES
-app.use(express.static(path.join(__dirname, '../client')));
+app.use('/App', express.static(path.join(__dirname, '../client')));
 
 // USE BODY PARSER TO PARSE BODY TO JSON FORMAT
 app.use(bodyParser.json());
