@@ -23,7 +23,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/v1', route);
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.status(200).send('404 Page Not Found');
 });
 
