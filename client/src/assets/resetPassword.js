@@ -9,6 +9,11 @@ const error = document.querySelector('.error');
 const success = document.querySelector('.success-message');
 
 const user = {
+  getPassToken() {
+    const passToken = document.URL.split('?')[2];
+    return passToken;
+  },
+
   resetPassword(event) {
     event.preventDefault();
     if (window.navigator.onLine === false) {
@@ -36,7 +41,7 @@ const user = {
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
     myHeaders.append('Content-type', 'application/json');
-    fetch(`${baseUrl}/user/reset-password`, {
+    fetch(`${baseUrl}/user/reset-password?token=${this.getPassToken()}`, {
       method: 'PUT',
       headers: myHeaders,
       body: JSON.stringify({
