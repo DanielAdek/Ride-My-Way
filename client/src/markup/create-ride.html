@@ -56,7 +56,7 @@
                         <a class="text-white" href="request.html">Requests</a>
                     </li>
                     <li class="list-group-item pl-4" title="You can also join Avaliable Rides">
-                        <a href="all-rides.html" class="text-white">Available Rides</a>
+                        <a href="allRides-auth.html" class="text-white">Available Rides</a>
                     </li>
                 </ul>
             </nav>
@@ -78,10 +78,10 @@
                     <a id="create-ride">Create Ride</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="view-request.html">Requests</a>
+                    <a href="request.html">Requests</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="all-rides.html">Rides</a>
+                    <a href="allRides-auth.html">Rides</a>
                 </li>
                 <li class="mobile-nav__item" title="use google map">
                     <a class="" href="d-profile.html">Edit Profile</a>
@@ -102,6 +102,7 @@
         A form to add new ride offer at desktop view,
         A google map to find areas both desktop and mobiles
     ========================================================= -->
+    <div class="response-to-request response-message text-center"></div>
     <section class="main-container">
         <div class="wrapper grid-row-1">
             <div class="card p-3 add-ride-form">
@@ -139,7 +140,7 @@
                         <label for="cost" class="p-4">cost
                             <span>*</span>
                         </label>
-                        <input class="p-5" type="text" name="cost" id="cost" required>
+                        <input class="p-5" type="number" name="cost" id="cost" required>
                         <div class="message mb-4">
                             <div class="mb-4">Message</div>
                             <textarea class="p-4 block-xl" name="msg" id="msg" cols="20" placeholder="What will you like to tell your passangers?" rows="5"></textarea>

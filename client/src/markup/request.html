@@ -36,7 +36,7 @@
             <nav class="nav-links request-page-nav">
                 <ul class="list-group-items flex-row">
                     <li class="list-group-item pl-4 dropdown-li" title="share your ride with passangers">
-                        <a href="#" class="text-white username">Owner</a>
+                        <a href="#" class="text-white username text-capitalize">Owner</a>
                         <i class="fas fa-caret-down text-white"></i>
                         <div class="dropdown">
                             <ul class="list-group-items p-3 flex-column">
@@ -61,21 +61,27 @@
     ====================================================== -->
     <div class="mobile-nav">
         <div class="driver-name mt-4 p-4">
-            <h1 class="">Daniel Adekunle</h1>
+            <h4 class="usernameMobile text-capitalize">Owner's Name</h4>
         </div>
         <nav class="">
             <ul class="mobile-nav__items">
+                <li class="mobile-nav__item">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="create-ride.html" id="create-ride">Create Ride</a>
+                </li>
                 <li class="mobile-nav__item dashboard-current">
-                    <a href="#">Dashboard</a>
+                    <a href="request.html">Requests</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="allRides-auth.html">Rides</a>
                 </li>
                 <li class="mobile-nav__item" title="use google map">
-                    <a class="" href="d-profile.html">Profile</a>
+                    <a class="" href="d-profile.html">Edit Profile</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a href="create-ride.html">Create Rides</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a href="all-rides.html">Avaliable Rides</a>
+                    <a href="#" id="">Notifications</a>
                 </li>
                 <li class="mobile-nav__item">
                     <a href="#" id="logoutMobile">
@@ -90,6 +96,7 @@
         Main section containing a sidebar navigation and div to show
         request ride
     ================================================================= -->
+    <div class="response-to-request-neg text-center"></div>
     <section class="main-container">
         <div class="container-wrapper grid-row-1 grid-column-4">
             <div class="sidebar flex-column">
@@ -103,10 +110,10 @@
                                 <a class="" href="create-ride.html">Create Rides Offer</a>
                             </li>
                             <li class="list-group-item p-3 dashboard-current" title="view passenger's request">
-                                <a href="#">View Requests</a>
+                                <a href="request.html">View Requests</a>
                             </li>
                             <li class="list-group-item p-3" title="view passenger's request">
-                                <a href="all-rides.html">Avaliable Rides</a>
+                                <a href="allRides-auth.html">Avaliable Rides</a>
                             </li>
                         </ul>
                     </nav>
@@ -124,29 +131,7 @@
                             <h2 class="text-center">Passengers Requests</h2>
                             <hr class="line-rule">
                         </div>
-
-                        <div class="card request-card-container p-3">
-                            <div class="head flex-row justify-content-sb">
-                                <p class="passenger-name">Daniel Adek</p>
-                                <p class="action"></p>
-                            </div>
-                            <hr>
-                            <div class="location">
-                                <p class="departure">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <a> Departure: Unilag -- 10:49 AM 27/11/2018</a>
-                                </p>
-                                <p class="Destination text-danger">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <a>Destination: Andela --235 Ikorodu Road</a>
-                                </p>
-                                <p class="passenger-msg"></p>
-                                <div class="action flex-row justify-content-sb">
-                                    <a href="#" class="text-success">Accept</a>
-                                    <a href="#" class="text-danger">Reject</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="request-container"></div>
                     </div>
                 </div>
             </div>
