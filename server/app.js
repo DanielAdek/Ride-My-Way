@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -7,20 +8,23 @@ import swaggerDocument from './../swagger.json';
 
 const app = express();
 
-// enable cors
+// ENABLE CORS
 app.use(cors());
 
-// use body Parser to parser body to json format
+// SERVE STATIC FILES
+app.use(express.static(path.join(__dirname, '../client')));
+
+// USE BODY PARSER TO PARSE BODY TO JSON FORMAT
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// serve swagger documentation
+// SERVE SWAGGER DOCUMENTATION
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/v1', route);
 
-app.get('*', (req, res) => {
-  res.status(200).send('Express Is Welcoming You');
+app.get('/*', (req, res) => {
+  res.status(200).send('404 Page Not Found');
 });
 
 export default app;
