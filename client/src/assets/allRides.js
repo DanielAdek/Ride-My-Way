@@ -85,7 +85,7 @@ const displayRideModal = (self) => {
 
 const loadData = () => {
   if (window.navigator.onLine === false) {
-    window.alert('It Seems Your computer is in offline mode'); // eslint-disable-line no-alert
+    window.alert('Your Internet Connection is down'); // eslint-disable-line no-alert
     return false;
   }
   cardContainer.innerHTML = '<div id="loading"></div>';
