@@ -40,12 +40,12 @@ export default class Auth {
     if (!token) {
       res.status(403).json({
         success: false,
-        message: 'No token provided, please signup or login'
+        message: 'Authentication failed, please login'
       });
     }
     const decoded = jwt.verify(token, secret);
     if (!decoded) {
-      res.status(401).json({ message: 'Invalid token' });
+      res.status(401).json({ message: 'Authentication failed' });
     }
     req.decoded = decoded;
     next();
