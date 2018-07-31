@@ -19,11 +19,14 @@ An application that allows passengers to make request to rides offered by driver
 Project is currently being built with the Project Management Tool, Pivotal Tracker.
 You can find the template at [https://www.pivotaltracker.com/n/projects/2179186](https://www.pivotaltracker.com/n/projects/2179186)
 
+### Application
+Application is hosted at [https://ridemyway-danieladek.herokuapp.com/App/src/markup/index.html](https://ridemyway-danieladek.herokuapp.com/App/src/markup/index.html)
+
 ### Template
 Template is hosted at [https://danieladek.github.io/Ride-My-Way/UI/](https://danieladek.github.io/Ride-My-Way/UI/)
 
 ### API Deployment
-API is deployed at [https://ridemyway-danieladek.herokuapp.com/](https://ridemyway-danieladek.herokuapp.com/)
+API is deployed at [https://ridemyway-danieladek.herokuapp.com/api/v1/rides](https://ridemyway-danieladek.herokuapp.com/api/vi/rides)
 
 ### Documentation
 Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api-docs](https://ridemyway-danieladek.herokuapp.com/api-docs)
@@ -32,6 +35,7 @@ Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api-docs]
 
 * [NodeJS](https://nodejs.org/) - Runtime Environment
 * [ExpressJs](https://expressjs.com/) - Web Application Framework
+* [PostgreSql](https://www.postgresql.org/) - Database Management Tool
 
 ### Supporting Packages
 
@@ -52,43 +56,36 @@ Documentation is hosted at [https://ridemyway-danieladek.herokuapp.com/api-docs]
 
 ## Features
 
-### Drivers
 * Signup and Login
 * Create Rides Offers
-* Accept A Request From Passengers
-* Reject A Request From Passengers
-* Get Notifications On Passenger's Request
+* Accept Or Reject A Request As A Driver
+* Get Notifications On Driver's Action
 * Modify Profile
-* Use Google Map To Find Locations
-
-### Passengers
-* Signup and Login
-* Modify Profile
-* Make A Request To An Available Ride
+* Make A Request To An Available Ride As A Passenger
 * Get Notifications On Driver's Response
-* Use Google Map To Find Locations
+* Reset Password Where Neccessary
 
 ## Getting Started
 
 ### Installation
 
 * git clone
-  [Ride-My-Way](https://github.com/DanielAdek/Ride-My-Way)
+  [Ride-My-Way github repo](https://github.com/DanielAdek/Ride-My-Way) 
 * Run `npm install` to install packages
-* Run `npm start` to start the server
-* Navigate to [localhost:8080](http://localhost:8080/) in browser to access the
+* Run `npm run start:dev` to start the server
+* Navigate to [localhost:3000/App/src/markup/index.html](http://localhost:3000/App/src/markup/index.html) in browser to access the
   application
 
 ### Testing
 
-#### Prerequisites
+#### Prequisites
 
-* [Postman](https://getpostman.com/) - API Toolchain
+* [Postman](https://getpostman.com/) - API Toolchain to test enpoint
 
 #### Testing with Postman
 
 * After installing as shown above
-* Navigate to [localhost:8080](http://localhost:8080/) in
+* Navigate to [localhost:3000/api/v1/](http://localhost:3000/api/v1/) in
   [Postman](https://getpostman.com/) to access the application
 
 #### Testing with Coverage Data
@@ -125,23 +122,58 @@ You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.
         <td>Log in user</td>
     </tr>
     <tr>
-        <td>/api/v1/rides</td>
+        <td>/users/rides</td>
         <td>POST</td>
         <td>Create new ride offer</td>
     </tr>
     <tr>
-        <td>/api/v1/rides/{rideId}</td>
+        <td>/rides/{rideId}</td>
         <td>GET</td>
         <td>Get a ride</td>
     </tr>
     <tr>
-        <td>/api/v1/rids/{rideId}/request</td>
+        <td>/rides/{rideId}/request</td>
         <td>POST</td>
         <td>Request a ride</td>
     </tr>
     <tr>
-        <td>/api/v1/rides</td>
+        <td>/user/forget-password</td>
+        <td>PUT</td>
+        <td>Generate a token to reset your password</td>
+    </tr>
+    <tr>
+        <td>/user/reset-password</td>
+        <td>PUT</td>
+        <td>Create a new password</td>
+    </tr>
+    <tr>
+        <td>/users/rides/{rideId}/requests/{requestId}</td>
+        <td>PUT</td>
+        <td>Accept or Reject a ride</td>
+    </tr>
+     <tr>
+        <td>/user/rides/{rideId}/requests</td>
         <td> GET</td>
-        <td>Fetch all avaliable rides </td>
+        <td>Fetch all requests to a ride</td>
+    </tr>
+    <tr>
+        <td>/user/requests</td>
+        <td> GET</td>
+        <td>Fetch all requests of a user</td>
+    </tr>
+     <tr>
+        <td>/user/passengers/requests</td>
+        <td> GET</td>
+        <td>Fetch all requests to a ride</td>
+    </tr>
+     <tr>
+        <td>/rides</td>
+        <td> GET</td>
+        <td>Fetch all available rides</td>
+    </tr>
+    <tr>
+        <td>/user/rides</td>
+        <td> GET</td>
+        <td>Fetch all rides of a user</td>
     </tr>
 </table>
