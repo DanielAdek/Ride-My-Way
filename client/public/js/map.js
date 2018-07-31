@@ -1,11 +1,15 @@
+/* eslint-env browser */
+/** eslint env-browser */
 const divElement = document.querySelector('#map');
-
+/**
+ * initMap()
+ * @returns {object} BOOLEAN
+ */
 function initMap() {
-
   // map center
   const unilag = {
-    lat: 6.5193,
-    lng: 3.3993
+    lat: 6.5244,
+    lng: 3.3792
   };
 
   // map options
