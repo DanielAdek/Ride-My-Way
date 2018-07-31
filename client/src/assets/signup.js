@@ -10,6 +10,17 @@ const error = document.querySelector('.error');
 const body = document.querySelector('body');
 const reqResMessage = document.querySelector('.response-message');
 const backdrp = document.querySelector('.backdrop');
+const showPass = document.querySelector('.show-password');
+
+showPass.addEventListener('mouseover', () => {
+  password.setAttribute('type', 'text');
+  confirmPass.setAttribute('type', 'text');
+});
+
+showPass.addEventListener('mouseout', () => {
+  password.setAttribute('type', 'password');
+  confirmPass.setAttribute('type', 'password');
+});
 
 const userAccount = {
   signupUser(event) {

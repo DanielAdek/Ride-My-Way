@@ -7,6 +7,15 @@ const button = document.querySelector('#login-form button');
 const body = document.querySelector('body');
 const reqResMessage = document.querySelector('.response-message');
 const backdrp = document.querySelector('.backdrop-modal');
+const showPass = document.querySelector('.show-password');
+
+showPass.addEventListener('mouseover', () => {
+  password.setAttribute('type', 'text');
+});
+
+showPass.addEventListener('mouseout', () => {
+  password.setAttribute('type', 'password');
+});
 
 const User = {
   /**

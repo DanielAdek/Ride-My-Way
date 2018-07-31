@@ -1,15 +1,24 @@
 /* eslint-env browser */
 const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const body = document.querySelector('body');
-const token = document.querySelector('#password-token');
 const password = document.querySelector('#newPassword');
 const confirmPass = document.querySelector('#confirmPassword');
 const resetPasswordBtn = document.querySelector('.reset-password-btn');
 const error = document.querySelector('.error');
 const success = document.querySelector('.success-message');
-
+const showPass = document.querySelector('.show-password');
 const splitUrl = document.URL.split('?')[1];
 const passToken = splitUrl.split('=')[1];
+
+showPass.addEventListener('mouseover', () => {
+  password.setAttribute('type', 'text');
+  confirmPass.setAttribute('type', 'text');
+});
+
+showPass.addEventListener('mouseout', () => {
+  password.setAttribute('type', 'password');
+  confirmPass.setAttribute('type', 'password');
+});
 
 const user = {
   resetPassword(event) {
@@ -43,7 +52,6 @@ const user = {
       method: 'PUT',
       headers: myHeaders,
       body: JSON.stringify({
-        token: token.value.trim(),
         password: password.value.trim()
       })
     }).then(res => res.json())
