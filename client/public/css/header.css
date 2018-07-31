@@ -13,7 +13,7 @@
 }
 
 .logo-brand {
-    animation: slideIn 2s ease-in-out 100ms;
+    animation: showIN 2s ease-in-out 100ms;
     transform: translate(40px, -10px);
 }
 
@@ -76,12 +76,12 @@
     }
 }
 
-@keyframes slideIn {
+@keyframes showIN {
     from {
-        transform: translateX(-300px)
+        opacity: 0.2;
     }
     to {
-        transform: translateX(50px);
+        opacity: 1;
     }
 }
 
