@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const requestCard = document.querySelector('.request-container');
 const owner = document.querySelector('.username');
 const mobileOwner = document.querySelector('.usernameMobile');

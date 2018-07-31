@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const cardContainer = document.querySelector('.cards-container');
 const rideModalCard = document.querySelector('.modal');
 const moreRideDetails = document.querySelector('.modal-card-container');

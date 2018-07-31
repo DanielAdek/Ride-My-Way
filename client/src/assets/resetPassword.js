@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const body = document.querySelector('body');
 const token = document.querySelector('#password-token');
 const password = document.querySelector('#newPassword');
@@ -10,7 +10,6 @@ const success = document.querySelector('.success-message');
 
 const splitUrl = document.URL.split('?')[1];
 const passToken = splitUrl.split('=')[1];
-console.log(passToken);
 
 const user = {
   resetPassword(event) {
@@ -35,7 +34,7 @@ const user = {
       }, 3000);
       return false;
     }
-    error.innerHTML = 'Loading..... <div id="loading"></div>';
+    error.innerHTML = '<div id="loading"></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');

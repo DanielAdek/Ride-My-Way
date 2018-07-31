@@ -136,7 +136,9 @@ export default class Users {
         .query(update.password, userPassword).then(() => res.status(200).json({
           success: true,
           message: 'New password is successfully created'
-        }))
+        })).then(() => {
+          db.query(update.deleteResetToken, [null, token]);
+        })
         .catch(error => res.status(500).json({ message: `Internal error ${error.message}` }));
     }).catch(err => res.status(500).json({ message: `Internal error ${err.message}` }));
   }

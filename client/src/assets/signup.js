@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const fullName = document.querySelector('#fullname');
@@ -37,7 +37,7 @@ const userAccount = {
       }, 3000);
       return false;
     }
-    error.innerHTML = 'Loading..... <div id="loading"></div>';
+    error.innerHTML = '<div id="loading"></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');

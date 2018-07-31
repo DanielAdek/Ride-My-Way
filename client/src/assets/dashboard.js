@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const owner = document.querySelector('.username');
 const requestBtn = document.querySelector('#history-btn-requests');
 const ridesBtn = document.querySelector('#history-btn-rides');

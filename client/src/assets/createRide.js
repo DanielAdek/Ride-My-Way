@@ -1,5 +1,5 @@
 /* eslint-env browser */
-const baseUrl = 'http://ridemyway-danieladek.herokuapp.com/api/v1';
+const baseUrl = 'https://ridemyway-danieladek.herokuapp.com/api/v1';
 const departure = document.querySelector('#departure');
 const destination = document.querySelector('#destination');
 const time = document.querySelector('#time');
