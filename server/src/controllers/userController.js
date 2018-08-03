@@ -98,7 +98,7 @@ export default class Users {
             message: 'This Email is either incorrect or not yet registered'
           });
         }
-        const token = randomStr({ length: 10 });
+        const token = randomStr({ length: 70 });
         mailSender.forgotPasswordMail(token, email);
         db
           .query(update.passwordResetToken, [token, email]).then(() => res.status(200).json({
