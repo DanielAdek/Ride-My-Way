@@ -12,7 +12,7 @@ import search from '../src/midlewares/singleRoute';
 const { verifyUser } = auth;
 const { searchRide } = search;
 const { email, username, ride } = existing;
-const { userSignUpDetails, userLoginDetails } = validateInput;
+const { userSignUpDetails, userLoginDetails, validEmail } = validateInput;
 const { validateRequestAction, validateRequestMessage, requestExit } = requestAction;
 
 const router = express.Router();
@@ -57,7 +57,10 @@ router.post(
   auth.validateInput, ride, rides.createRideOffer
 );
 
-router.put('/user/forgot-password', user.forgetPassword);
+router.put(
+  '/user/forgot-password', validEmail,
+  auth.validateInput, user.forgetPassword
+);
 router.put('/user/reset-password', user.resetPassword);
 
 router.put(
