@@ -5,10 +5,10 @@
       "version": "1.0.0",
       "title": "Ride-My-Way",
       "contact": {
-        "email": "maildaniel.me1@gmail.com"
+        "email": "ridemyway.you@gmail.com"
       }
     },
-    "host": "ridemyway-danieladek.herokuapp.com",
+    "host": "https://ridemyway-danieladek.herokuapp.com",
     "basePath": "/api/v1/",
     "tags": [
       {
@@ -52,7 +52,7 @@
             },
             "400": {
               "description": {
-                "status": "fail",
+                "status": "failed",
                 "message": "You cannot create a ride that has the same date and time"
               }
             },
@@ -60,10 +60,13 @@
               "description": "Invalid input"
             },
             "403": {
-              "description": "No Token provided"
+              "description": "Authentication Failed"
+            },
+            "422": {
+              "description" : "Input fields cannot be empty"
             },
             "500": {
-              "description" : "Internal error"
+              "description" : "Internal error, Timeout"
             }
           }
         },
@@ -123,18 +126,9 @@
             "rides"
           ],
           "summary": "Get all ride",
-          "description": "Returns a single ride detail",
-          "operationId": "getRifdeById",
+          "description": "Returns all rides details",
           "produces": [
             "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "rideId",
-              "in": "path",
-              "description": "ID of ride to retrieve",
-              "type": "string"
-            }
           ],
           "responses": {
             "200": {
@@ -149,10 +143,136 @@
           }
         }
       },
+      "/user/rides": {
+        "get": {
+          "tags": [
+            "rides"
+          ],
+          "summary": "Get one user rides",
+          "description": "Returns a user rides",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Rides details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Rides"
+              }
+            },
+            "401": {
+              "description": "Authentication Failed"
+            },
+            "403": {
+              "description": "Authentication Failed, Signup or Login"
+            },
+            "404": {
+              "description": "Rides not found"
+            }
+          }
+        }
+      },
+      "/user/passengers/requests": {
+        "get": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Get all request to a ride",
+          "description": "Returns all requestss to a ride",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Requests details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Requests"
+              }
+            },
+            "401": {
+              "description": "Authentication Failed"
+            },
+            "403": {
+              "description": "Authentication Failed, Signup or Login"
+            },
+            "404": {
+              "description": "Requests not found"
+            }
+          }
+        }
+      },
+      "/user/requests": {
+        "get": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Get one user request",
+          "description": "Returns a user requests",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Requests details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Requests"
+              }
+            },
+            "401": {
+              "description": "Authentication Failed"
+            },
+            "403": {
+              "description": "Authentication Failed, Signup or Login"
+            },
+            "404": {
+              "description": "Requests not found"
+            }
+          }
+        }
+      },
+      "/users/rides/{rideId}/requests": {
+        "get": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Find requests by ID",
+          "description": "Returns all requests details to a single ride",
+          "operationId": "getRequestsByRideId",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "rideId",
+              "in": "path",
+              "description": "ID of ride to retrieve requests",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Request details retrieved",
+              "schema": {
+                "$ref": "#/definitions/Requests"
+              }
+            },
+            "401":{
+              "description": "Authentication Failed"
+            },
+            "403":{
+              "description":"Authentication Failed, Signup or Login"
+            },
+            "404": {
+              "description": "Requests not found"
+            }
+          }
+        }
+      },
       "/rides/{rideId}/request": {
         "post": {
           "tags": [
-            "rides"
+            "requests"
           ],
           "summary": "New request on ride",
           "description": "Returns a single ride detail",
@@ -176,14 +296,11 @@
             "201": {
               "description": "Ride details retrieved",
               "schema": {
-                "$ref": "#/definitions/Ride"
+                "$ref": "#/definitions/Request"
               }
             },
-            "401": {
-              "description": "Invalid input"
-            },
             "403": {
-              "description": "No Token provided"
+              "description": "Authenticaton Failed"
             },
             "404": {
               "description": "No ride found"
@@ -269,22 +386,174 @@
             }
           }
         }
+      },
+      "/user/forget-password": {
+        "put": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Forgot password access link",
+          "description": "Change user password",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Change a user password",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A Reset Token Has Been Sent To Your Mail Account",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400":{
+              "description": "This Email is either incorrect or not yet registered"
+            },
+            "422": {
+              "description": "Email must be in email format, like example@mail.com"
+            },
+            "500": {
+              "description": "server error"
+            }
+          }
+        }
+      },
+      "/user/reset-password": {
+        "put": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Reset user password",
+          "description": "Create new user password",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Create new user password",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "New password is successfully created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400":{
+              "description": "Token incorrect, please copy token from your mail"
+            },
+            "500": {
+              "description": "Internal error"
+            }
+          }
+        }
+      },
+      "/users/rides/{rideId}/requests/{requestId}": {
+        "put": {
+          "tags": [
+            "requests"
+          ],
+          "summary": "Accept or Reject a request",
+          "description": "accept or reject a user request to a ride offer",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "ID modify request information",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "New password is successfully created",
+              "schema": {
+                "$ref": "#/definitions/Request"
+              }
+            },
+            "400":{
+              "description": "Cannot take action twice"
+            },
+            "401":{
+              "description": "Authentication Failed"
+            },
+            "403":{
+              "description":"Authentication Failed, Signup or Login"
+            },
+            "500": {
+              "description": "Internal error"
+            }
+          }
+        }
       }
     },
     "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "passwordResetToken": {
+            "type": "string"
+          },
+          "notification": {
+            "type": "string"
+          }
+        }
+      },
       "Ride": {
         "type": "object",
         "properties": {
           "rideId": {
-            "type": "string"
+            "type": "integer"
           },
           "userId": {
+            "type": "integer"
+          },
+          "driver": {
             "type": "string"
           },
           "departure": {
             "type": "string"
           },
-          "arrival": {
+          "destination": {
             "type": "string"
           },
           "time": {
@@ -293,20 +562,58 @@
           "date": {
             "type": "string"
           },
-          "spotInCar": {
+          "seats": {
             "type": "integer"
           },
-          "carModel": {
+          "cost": {
+            "type": "numeric"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Request": {
+        "type": "object",
+        "properties": {
+          "requestId" : {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "rideId": {
+            "type": "integer"
+          },
+          "passenger": {
             "type": "string"
           },
-          "carPlateNo": {
+          "driver": {
             "type": "string"
+          },
+          "departure": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "seats": {
+            "type": "integer"
           },
           "cost": {
+            "type": "numeric"
+          },
+          "message": {
             "type": "string"
           },
-          "onRequest": {
-            "type": "array"
+          "action": {
+            "type": "string"
           }
         }
       }
