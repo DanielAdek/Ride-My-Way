@@ -165,6 +165,11 @@ const showHistory = {
           </tr>`
         ));
         historyTable.innerHTML = tableRows;
+      }).catch(() => {
+        historyTable.textContent = 'There was a problem with the connection';
+        setTimeout(() => {
+          historyTable.textContent = null;
+        }, 7000);
       });
   },
 };

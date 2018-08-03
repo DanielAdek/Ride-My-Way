@@ -88,7 +88,7 @@ const loadData = () => {
     window.alert('Your Internet Connection is down'); // eslint-disable-line no-alert
     return false;
   }
-  cardContainer.innerHTML = '<div id="loading"></div>';
+  cardContainer.innerHTML = '<div>LOADING<br /><div id="loading"></div></div>';
   fetch(`${baseUrl}/rides`, {
     method: 'GET'
   }).then(res => res.json())
@@ -110,6 +110,11 @@ const loadData = () => {
         </div>`
       ));
       cardContainer.innerHTML = allRides;
+    }).catch(() => {
+      subHeadingTitle.textContent = 'There was a problem with the connection';
+      setTimeout(() => {
+        subHeadingTitle.textContent = null;
+      }, 60000);
     });
 };
 const searchHandler = (e) => {

@@ -36,7 +36,7 @@ const User = {
       return false;
     }
     body.style.cursor = 'progress';
-    error.innerHTML = '<div id="loading"></div>';
+    error.innerHTML = '<div>LOADING<br /><div id="loading"></div></div>';
     setTimeout(() => {
       button.style.cursor = 'pointer';
     }, 5000);
@@ -80,11 +80,11 @@ const User = {
             window.location.replace('create-ride.html');
           }, 4999);
         }
-      }).catch((err) => {
-        error.textContent = `There was a problem with the server ${err.message}`;
+      }).catch(() => {
+        error.textContent = 'There was a problem with the connection';
         setTimeout(() => {
           error.textContent = null;
-        }, 5000);
+        }, 6000);
       });
   },
 };

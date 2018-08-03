@@ -48,7 +48,7 @@ const userAccount = {
       }, 3000);
       return false;
     }
-    error.innerHTML = '<div id="loading"></div>';
+    error.innerHTML = '<div>LOADING<br /><div id="loading"></div></div>';
     body.style.cursor = 'progress';
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -92,6 +92,11 @@ const userAccount = {
             window.location.replace('create-ride.html');
           }, 4999);
         }
+      }).catch(() => {
+        error.textContent = 'There was a problem with the connection';
+        setTimeout(() => {
+          error.textContent = null;
+        }, 6000);
       });
   }
 };
